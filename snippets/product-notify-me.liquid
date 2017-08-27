@@ -1,0 +1,138 @@
+{% include 'sca_freegift_price' with product %}
+{% assign show_form = settings.notify_me_form %}
+
+{% assign notify_form_description = 'products.notify_form.description' | t %}
+{% if notify_form_description contains 'translation missing:' %}
+  {% assign notify_form_description = 'Notify me when this product is available:' %}
+{% endif %}
+
+{% assign notify_form_email = 'products.notify_form.email' | t %}
+{% if notify_form_email contains 'translation missing:' %}
+  {% assign notify_form_email = 'Enter your email address...' %}
+{% endif %}
+
+{% assign notify_form_send = 'products.notify_form.send' | t %}
+{% if notify_form_send contains 'translation missing:' %}
+  {% assign notify_form_send = 'Send' %}
+{% endif %}
+
+{% if product.tags contains 'bis_hidden' or product.tags contains 'bis-hidden' %}
+  {% assign show_form = false %}
+{% endif %}
+
+{% if show_form %}
+  <div class="notify_form notify-form-{{ product.id }}" id="notify-form-{{ product.id }}" {% if product.available %}style="display:none"{% endif %}>
+    <form action="/contact" method="post" data-first-variant="{{product.variants.first.id}}" id="BIS_form" onsubmit="return createNotification{{product.id}}(this); return false;">
+      {% if product.available == false and sca_product_variantCount > 1 %}
+        <div class="select">
+          <label>{{ product.options[0] }}:</label>
+          <select id="product-select-{{ product.id }}" name='id'>
+          {% for variant in product.variants %}
+{% unless variant.metafields.secomapp.freegifts %}
+{% unless variant.title contains '(Freegifts)' %}
+
+            <option value="{{ variant.id }}">{{ variant.title }}</option>
+
+{%endunless%}
+{%endunless%}
+          {% endfor %}
+          </select>
+        </div>
+      {% endif %}
+        <p>
+          <label for="contact[email]">{{ notify_form_description }}</label>
+
+          {% if customer %}
+            <input type="hidden" name="contact[email]" value="{{ customer.email }}" />
+          {% else %}
+            <input required type="email" name="contact[email]" id="contact[email]" placeholder="{{ notify_form_email }}" value="{{ contact.fields.email }}" style="display:inline;margin-bottom:0px" />
+          {% endif %}
+
+          
+
+          
+            <span class="bis-integrations">
+            <input class="bis-checkbox" value="1" type="checkbox"  checked="checked"  id="customer_accepts_marketing" name="customer_accepts_marketing">
+            <label class="bis-checkbox-label" for="customer_accepts_marketing">Notify me about Indira's new products</label>
+            </span>
+          
+
+          <input class="action_button submit" type="submit" value="{{ notify_form_send }}" style="margin-bottom:0px" />
+        </p>
+      <p class="BIS_response"></p>
+    </form>
+    </div>
+
+    <style>
+      .bis-integrations {
+        margin-top: 4px;
+        margin-bottom: 4px;
+        display: block;
+      }
+
+      .bis-integrations .bis-checkbox {
+        vertical-align: baseline;
+      }
+
+      .bis-integrations .bis-checkbox-label {
+        display: inline-block;
+      }
+
+      .bis_qty_required {
+        overflow: hidden;
+      }
+
+      .notify_form .BIS_response {
+        font-weight: bold;
+      }
+
+      {% if settings.product_form_style == "swatches" %}
+        .notify_form .select { display: block; }
+      {% endif %}
+
+      @media only screen and (min-width: 1199px)  {
+        #BIS_form input[type=submit] {
+          margin-top: 8px;
+        }
+      }
+
+      @media only screen and (min-width: 1199px)  {
+        #BIS_form input[type=email] {
+          width: 398px;
+        }
+      }
+    </style>
+
+  <script>
+    var createNotification{{product.id}} = function(form) {
+      if (typeof BISMobiliaForm != 'undefined') {
+        var bis = new BISMobiliaForm(form);
+      } else {
+        (window._bisq = window._bisq || []).push(function() {
+          new BIS.MobiliaForm(form);
+        });
+      }
+
+      return false;
+    };
+
+    var clearBISResponse = function() { 
+      $('#BIS_form .BIS_response').text('');
+    };
+
+    $(function() {
+      $('#BIS_form input').on('focus change', clearBISResponse);
+      $('.product_form select').on('change', clearBISResponse);
+
+      // hide the Notify me form if the variant options combination does not exist
+      var _origSelectCallback = window.selectCallback;
+      window.selectCallback = function(variant, selector) {
+        _origSelectCallback.apply(window, arguments);
+        if (variant == null) {
+          $('#notify-form-{{product.id}}').stop().hide();
+        }
+      }
+    });
+
+  </script>
+{% endif %}

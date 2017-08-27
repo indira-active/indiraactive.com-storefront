@@ -1,0 +1,39 @@
+<style>
+ul.tabs-content {
+  list-style-type: none;
+}
+ul.tabs-content li, {
+    padding: 0 ;
+    margin: 0;
+    display: none;
+  }
+</style>
+<ul class="tabs">
+  <li>
+    <a class="active" href="#tab1">Details</a>
+  </li>
+  <li>
+    <a class="" href="#tab2">Shipping</a>
+  </li>
+  <li>
+    <a class="" href="#tab3">Returns</a>
+  </li>
+</ul><!--Start tab content-->
+<ul class="tabs-content">
+  <li class="active" id="tab1">
+    <div>
+      {{ product.description }}
+    </div>
+  </li>
+  <li class="" id="tab2">
+    <div>
+      {% include 'shipping' %}
+    </div>
+  </li>
+  <li class="" id="tab3">
+    <div>
+      {% include 'returns' %}
+    </div>
+  </li>
+</ul>
+

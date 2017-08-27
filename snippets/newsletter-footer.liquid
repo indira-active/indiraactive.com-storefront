@@ -1,0 +1,23 @@
+<div class="newsletter {% if newsletter == 'center' %}center{% endif %}">  
+	<form id="email_signup" class=" klaviyo_bare_embed_J3xqsT" action="//manage.kmail-lists.com/subscriptions/subscribe" data-ajax-submit="//manage.kmail-lists.com/ajax/subscriptions/subscribe" method="GET" target="_blank" novalidate="novalidate">
+    <input type="hidden" name="g" value="J3xqsT">
+    <div class="klaviyo_field_group">
+      <input type="email" value="" name="email" placeholder="Your email" />
+    </div>
+    <div class="klaviyo_messages">
+      <div class="success_message" style="display:none;"></div>
+      <div class="error_message" style="display:none;"></div>
+      </div>
+    <div class="klaviyo_form_actions">
+      <button type="submit" class="klaviyo_submit_button" id="klaviyo_submit">Subscribe</button>
+    </div>
+  </form>
+</div>
+<script type="text/javascript" src="//www.klaviyo.com/media/js/public/klaviyo_subscribe.js"></script>
+<script type="text/javascript">
+  KlaviyoSubscribe.attachToForms('#email_signup', {
+    hide_form_on_success: true
+  });
+
+</script>
+
