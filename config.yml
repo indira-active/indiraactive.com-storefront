@@ -1,7 +1,7 @@
 development:
-  password: 85183366cf970345ae72b31ff5358daa
-  theme_id: 236159001
-  store: indira-testing.myshopify.com
+  password: 371ea5d17111812343c1e6a72e1b1368
+  theme_id: 194828164
+  store: indira-active.myshopify.com
   ignores: config-example
   ignore_files:
     - .git/
@@ -9,24 +9,24 @@ development:
     - .circleci/
     - README.md
   timeout: 60s
-jordan-playground:
-  password: 371ea5d17111812343c1e6a72e1b1368
-  theme_id: "194349508"
-  store: indira-active.myshopify.com
-  ignore_files:
-  - ".git/"
-  - ".gitignore"
-  - .circleci/  
-  - README.md
-  timeout: 60s
-master:
-  password: 371ea5d17111812343c1e6a72e1b1368
-  theme_id: 
-  store: indira-active.myshopify.com
-  ignore_files:
-    - ".git/"
-    - ".gitignore"
-    - .circleci/
-    - README.md
-  timeout: 60s
-  readonly: true
+# jordan-playground:
+#   password: 371ea5d17111812343c1e6a72e1b1368
+#   theme_id: "194349508"
+#   store: indira-active.myshopify.com
+#   ignore_files:
+#   - ".git/"
+#   - ".gitignore"
+#   - .circleci/  
+#   - README.md
+#   timeout: 60s
+# master:
+#   password: 371ea5d17111812343c1e6a72e1b1368
+#   theme_id: 
+#   store: indira-active.myshopify.com
+#   ignore_files:
+#     - ".git/"
+#     - ".gitignore"
+#     - .circleci/
+#     - README.md
+#   timeout: 60s
+#   readonly: true
