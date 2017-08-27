@@ -2336,7 +2336,7 @@
     "featured_promotions_mobile_background": true,
     "modal_background_color": "#f1f1f1",
     "modal_text_color": "#2b2e38",
-    "shop_bg_color": "#f1f1f1",
+    "shop_bg_color": "#ffffff",
     "custom_bg": "",
     "repeat_bg": "repeat",
     "bg_fixed": false,
@@ -2351,7 +2351,7 @@
     "shop_home_page_content_bg_color": "#f1f1f1",
     "featured_links_background": "#f1f1f1",
     "product_hover_bg_color": "#f1f1f1",
-    "sub_footer_color": "#ffffff",
+    "sub_footer_color": "#f9f9f9",
     "footer_bg": "",
     "footer_bg_stretched": false,
     "newsletter_popup_background_color": "#ffffff",
@@ -3002,10 +3002,10 @@
           "main_linklist2": "",
           "vertical_menu": false,
           "logo_position": "center",
-          "logo_alignment": "left",
-          "menu_position": "inline",
+          "logo_alignment": "center",
+          "menu_position": "block",
           "menu_alignment": "center",
-          "logo_top_padding": 12,
+          "logo_top_padding": 6,
           "menu_top_padding": 0
         }
       },
@@ -3238,7 +3238,7 @@
       "1502060653880": {
         "type": "image-with-text-overlay",
         "settings": {
-          "image": "shopify:\/\/shop_images\/rsz_1rsz_hana--indira-active-9_2000x_0c55a008-daf6-4379-acd0-de1af44e4a18.jpg",
+          "image": "shopify:\/\/shop_images\/Webp.net-resizeimage_4.jpg",
           "pretext": "",
           "title": "",
           "subtitle": "",
