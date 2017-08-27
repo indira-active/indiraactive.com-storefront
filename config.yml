@@ -6,6 +6,8 @@ development:
   ignore_files:
     - .git/
     - .gitignore
+    - .circleci/
+    - README.md
   timeout: 60s
 jordan-playground:
   password: 371ea5d17111812343c1e6a72e1b1368
@@ -13,7 +15,9 @@ jordan-playground:
   store: indira-active.myshopify.com
   ignore_files:
   - ".git/"
-  - ".gitignore"  
+  - ".gitignore"
+  - .circleci/  
+  - README.md
   timeout: 60s
 master:
   password: 371ea5d17111812343c1e6a72e1b1368
@@ -22,5 +26,7 @@ master:
   ignore_files:
     - ".git/"
     - ".gitignore"
+    - .circleci/
+    - README.md
   timeout: 60s
   readonly: true
