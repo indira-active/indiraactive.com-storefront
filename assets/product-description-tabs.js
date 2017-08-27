@@ -6,7 +6,7 @@ $(document).ready(function() {
     links.not(':first').each(function () {
       $($(this).attr('href')).hide();
     });
-    $(this).find('a').click(function(e){
+    $(this).find('a').click(function(){
       active.removeClass('active');
       content.hide();
       active = $(this);
