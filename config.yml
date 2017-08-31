@@ -20,3 +20,13 @@ master:
   - .circleci/  
   - README.md
   timeout: 60s
+  jordan:
+  password: 371ea5d17111812343c1e6a72e1b1368
+  theme_id: "197310020"
+  store: indira-active.myshopify.com
+  ignore_files:
+  - ".git/"
+  - ".gitignore"
+  - .circleci/  
+  - README.md
+  timeout: 60s
