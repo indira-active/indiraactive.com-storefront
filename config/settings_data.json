@@ -3376,7 +3376,7 @@
           "display_type": false,
           "display_tags": false,
           "display_social_buttons": true,
-          "product_description_position": "top",
+          "product_description_position": "bottom",
           "display_related_products": true,
           "related_products_style": "grid",
           "related_products_limit": "8",
