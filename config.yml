@@ -29,4 +29,4 @@ jordan:
   - .circleci/  
   - README.md
   timeout: 60s
-  readonly: true
+ 
