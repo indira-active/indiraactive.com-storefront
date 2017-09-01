@@ -1,0 +1,26 @@
+// Border around product sizes
+.swatch-element {
+  border-color: #d03b77;
+}
+// Quantity + button
+.product-quantity-box .product-plus {
+  background-color: #ce3e77;
+  color: #ffffff;
+}
+// Quantity - button
+.product-quantity-box .product-minus {
+  background-color: #ce3e77;
+  color: #ffffff;
+}
+// Quantity - button hover
+.product-quantity-box .product-minus:hover {
+  background-color: #333333;
+}
+// Quantity + button hover
+.product-quantity-box .product-plus:hover {
+  background-color: #333333;
+}
+// Add to cart text
+button.add_to_cart .text {
+  font-size: 18px;
+}
