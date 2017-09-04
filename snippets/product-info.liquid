@@ -1,4 +1,3 @@
-{% include 'sca_freegift_price' with product %}
 <div class="product-details">
   <span class="title" itemprop="name">{{ product.title }}</span>
   {% if settings.enable_shopify_collection_badges and settings.enable_shopify_review_comments %}
@@ -11,28 +10,28 @@
   {% if collection_handles contains 'coming-soon' %}
     <span class="modal_price">{{ 'collections.general.coming_soon' | t }}</span>
   {% else %}
-    <span class="price {% if sca_compare_at_price_max > sca_price %}sale{% endif %}" itemprop="offers" itemscope itemtype="http://schema.org/Offer">
-      <meta itemprop="price" content="{{ sca_price_min | money_without_currency }}" />
+    <span class="price {% if product.compare_at_price_max > product.price %}sale{% endif %}" itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+      <meta itemprop="price" content="{{ product.price_min | money_without_currency }}" />
       <meta itemprop="priceCurrency" content="{{ shop.currency }}" />
       <meta itemprop="seller" content="{{ shop.name | escape }}" />
       <meta itemprop="availability" content="{% if product.available %}in_stock{% else %}out_of_stock{% endif %}" />
       <meta itemprop="itemCondition" content="New" />
 
       {% if product.available %}
-        {% if sca_price_varies and sca_price_min > 0 %}
+        {% if product.price_varies and product.price_min > 0 %}
           <small><em>{{ 'products.general.from' | t }}</em></small>
         {% endif %}
-          {% if sca_price_min > 0 %}
-            <span class="money">{{ sca_price_min | money }}</span>
+          {% if product.price_min > 0 %}
+            <span class="money">{{ product.price_min | money }}</span>
           {% else %}
             {{ settings.free_price_text }}
           {% endif %}
       {% else %}
         <span class="sold_out">{{ 'products.product.sold_out' | t }}</span>
       {% endif %}
-      {% if sca_compare_at_price_max > sca_price %}
+      {% if product.compare_at_price_max > product.price %}
         <span class="was_price">
-          <span class="money">{{ sca_compare_at_price_max | money }}</span>
+          <span class="money">{{ product.compare_at_price_max | money }}</span>
         </span>
       {% endif %}
     </span>

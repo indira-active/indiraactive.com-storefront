@@ -24,9 +24,6 @@
   <div class="option_title">{{ swatch }}</div>
   {% assign values = '' %}
   {% for variant in product.variants %}
-{% unless variant.metafields.secomapp.freegifts %}
-{% unless variant.title contains '(Freegifts)' %}
-
     {% assign value = variant.options[option_index] %}
     {% unless values contains value %}
       {% assign values = values | join: ',' %}
@@ -50,8 +47,5 @@
         {% endif %}
       </div>
     {% endunless %}
-
-{%endunless%}
-{%endunless%}
   {% endfor %}
 </div>

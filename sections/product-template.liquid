@@ -2,7 +2,7 @@
 ** Product - default view **
 - Product template
 {% endcomment %}
-{% include 'sca_freegift_price' with product %}
+
 <a name="pagecontent" id="pagecontent"></a>
 
 <div class="container main content">
@@ -71,7 +71,7 @@
           {% assign variant = product.selected_or_first_available_variant %}
 
           {% if product.available %}
-            {% if settings.sale_banner_enabled and sca_compare_at_price_max > sca_price %}
+            {% if settings.sale_banner_enabled and product.compare_at_price_max > product.price %}
               <div class="sale_banner_product">{{ 'collections.general.sale' | t }}</div>
             {% endif %}
           {% endif %}
@@ -263,11 +263,9 @@
       {% endif %}
 
     {% endif %}
-
-    <!-- Custom klaviyo products tracking -->
-    {% include 'klaviyo-track-products' %}
+    <!-- Custom klaviyo products tracking -->   
+    {% include 'klaviyo-track-products' %}    
     <!-- End Custom klaviyo products tracking -->
-
 {% schema %}
 
 {

@@ -1,10 +1,9 @@
-{% include 'sca_freegift_price' with product %}
 {% if product.available %}
   {% assign variant = product.selected_or_first_available_variant %}
 
   <form action="/cart/add"
         method="post"
-        class="clearfix product_form init {% if sca_product_variantCount > 1 or product.options.size > 1 %}product_form_options{% endif %}"
+        class="clearfix product_form init {% if product.variants.size > 1 or product.options.size > 1 %}product_form_options{% endif %}"
         id="product-form-{{ product.id }}"
         data-money-format="{{ shop.money_format }}"
         data-shop-currency="{{ shop.currency }}"
@@ -19,28 +18,16 @@
       <div class="select">
         <select id="product-select-{{ product.id }}{{ product-form }}{{ section.id }}{{ block.id }}" name="id" class="multi_select">
           {% for v in product.variants %}
-{% unless v.metafields.secomapp.freegifts %}
-{% unless v.title contains '(Freegifts)' %}
-
             <option {% if v == variant %}selected="selected"{% endif %} value="{{ v.id }}" data-sku="{{ v.sku }}">{{ v.title }}</option>
-
-{%endunless%}
-{%endunless%}
           {% endfor %}
         </select>
       </div>
-    {% elsif product.options.size == 1 and sca_product_variantCount > 1 or product.options.size == 1 and product.options[0] != "Title" %}
+    {% elsif product.options.size == 1 and product.variants.size > 1 or product.options.size == 1 and product.options[0] != "Title" %}
       <div class="select">
         <label>{{ product.options[0] }}</label>
         <select id="product-select-{{ product.id }}{{ product-form }}{{ section.id }}{{ block.id }}" name="id">
           {% for v in product.variants %}
-{% unless v.metafields.secomapp.freegifts %}
-{% unless v.title contains '(Freegifts)' %}
-
             <option {% if v == variant %}selected="selected"{% endif %} value="{{ v.id }}" data-sku="{{ v.sku }}">{{ v.title }}</option>
-
-{%endunless%}
-{%endunless%}
           {% endfor %}
         </select>
       </div>
@@ -48,7 +35,7 @@
       <input type="hidden" name="id" value="{{ variant.id }}" />
     {% endif %}
 
-    {% if settings.product_form_style == "swatches" and sca_product_variantCount > 1 or settings.product_form_style == "swatches" and product.options[0] != "Title" %}
+    {% if settings.product_form_style == "swatches" and product.variants.size > 1 or settings.product_form_style == "swatches" and product.options[0] != "Title" %}
       <div class="swatch_options">
         {% for option in product.options %}
           {% include 'product-swatch' with option %}
@@ -96,6 +83,4 @@
       </button>
     </div>
   </form>
-<div class="sca-fg-cat-list" style="display: none;" name="secomapp-fg-data-{{ product.id }}"> </div>
-
 {% endif %}

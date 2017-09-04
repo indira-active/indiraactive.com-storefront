@@ -141,25 +141,24 @@
               <ul class="cart_items js-cart_items clearfix">
                 {% assign total_saving = 0 %}
                 {% for item in cart.items %}
-                {% include 'sca_freegift_price' with item %}
                   {% if item.variant.compare_at_price > item.variant.price %}
                     {% assign saving = item.variant.compare_at_price | minus: item.variant.price | times: item.quantity %}
                     {% assign total_saving = saving | plus: total_saving %}
                   {% endif %}
 
                   <li class="cart_item clearfix">
-                    <a href="  {%if item.variant.metafields.secomapp.freegifts%}{{ item.product.url }}{%else%}{{ item.url }}{%endif%}">
+                    <a href="{{ item.url }}">
                       {% if item.image %}
                         <div class="cart_image">
-                          <img src="{{ item | img_url: '320x' }}" alt="{{ item.title | remove: '/ Default Title'| remove: 'Default Title' | remove: '/ Default' | remove: 'Default' | replace: '(Freegifts)', ''  | escape }}" />
+                         <img src="{{ item | img_url: '320x' }}" alt="{{ item.title | escape }}" />
                         </div>
                       {% endif %}
                       <strong class="right price">
-                        {% if sca_price < item.variant.compare_at_price %}
+                        {% if item.price < item.variant.compare_at_price %}
                           <span class="money was_price">{{ item.variant.compare_at_price | money }}</span>
                         {% endif %}
 
-                        <span class="money">{{ sca_price | money }}</span>
+                        <span class="money">{{ item.price | money }}</span>
                       </strong>
                       <div class="item_title">
                         {{ item.product.title }}
@@ -182,7 +181,7 @@
                     </a>
                     <div class="left product-quantity-box">
                       <span class="ss-icon product-minus js-change-quantity" data-func="minus"><span class="icon-minus"></span></span>
-                      <input {%if item.variant.metafields.secomapp.freegifts%}readonly{%endif%}   type="number" min="0" size="2" class="quantity" name="updates[]" id="updates_{{ item.id }}" value="{{ item.quantity }}" data-line-id="{{ forloop.index }}" />
+                      <input type="number" min="0" size="2" class="quantity" name="updates[]" id="updates_{{ item.id }}" value="{{ item.quantity }}" data-line-id="{{ forloop.index }}" />
                       <span class="ss-icon product-plus js-change-quantity" data-func="plus"><span class="icon-plus"></span></span>
                     </div>
                   </li>

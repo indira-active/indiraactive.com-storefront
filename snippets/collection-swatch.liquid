@@ -9,9 +9,6 @@
       <div class="collection_swatches">
 
         {% for variant in product.variants %}
-{% unless variant.metafields.secomapp.freegifts %}
-{% unless variant.title contains '(Freegifts)' %}
-
           {% assign value = variant.options[option_index] %}
           {% unless values contains value %}
             {% assign values = values | join: ',' %}
@@ -30,9 +27,6 @@
                 </span>
             </a>
           {% endunless %}
-
-{%endunless%}
-{%endunless%}
         {% endfor %}
 
       </div>

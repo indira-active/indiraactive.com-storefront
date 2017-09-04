@@ -1,5 +1,4 @@
 {% for product in products %}
-{% include 'sca_freegift_price' with product %}
   {% assign collection_handles = product.collections | map: 'handle' %}
   {% assign variant = product.selected_or_first_available_variant %}
 
@@ -8,7 +7,7 @@
       <div class="product-images half">
         {% include 'product-images', image_width: 'full' %}
         <div class="banner_holder">
-          {% if settings.sale_banner_enabled and sca_compare_at_price_max > sca_price %}
+          {% if settings.sale_banner_enabled and product.compare_at_price_max > product.price %}
             <div class="sale_banner_product">{{ 'collections.general.sale' | t }}</div>
           {% endif %}
           {% if collection_handles contains 'new' %}
