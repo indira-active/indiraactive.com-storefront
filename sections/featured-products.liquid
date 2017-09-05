@@ -3,7 +3,6 @@
 - Draggable section
 - Uses blocks
 {% endcomment %}
-{% include 'sca_freegift_price' with product %}
 {% if section.blocks.size > 0 %}
   <section class="collection-in-detail">
       <div class="clearfix frontpage_product_stagger--{{ section.settings.frontpage_product_stagger }}" itemtype="http://schema.org/ItemList">
@@ -47,7 +46,7 @@
               <div class="feature_divider"></div>
             {% else %}
 
-              {% if settings.sale_banner_enabled and sca_compare_at_price_max > sca_price %}
+              {% if settings.sale_banner_enabled and product.compare_at_price_max > product.price %}
                 <div class="sale_banner_product">{{ 'collections.general.sale' | t }}</div>
               {% endif %}
               {% if collection_handles contains 'new' %}
