@@ -2,7 +2,6 @@
 ** Product - default view **
 - Product template
 {% endcomment %}
-{% include 'sca_freegift_price' with product %}
 <a name="pagecontent" id="pagecontent"></a>
 
 <div class="container main content">
@@ -71,7 +70,7 @@
           {% assign variant = product.selected_or_first_available_variant %}
 
           {% if product.available %}
-            {% if settings.sale_banner_enabled and sca_compare_at_price_max > sca_price %}
+            {% if settings.sale_banner_enabled and product.compare_at_price_max > product.price %}
               <div class="sale_banner_product">{{ 'collections.general.sale' | t }}</div>
             {% endif %}
           {% endif %}
@@ -93,7 +92,7 @@
               <span itemprop="sku">{{ variant.sku }}</span>
             </p>
           {% endif %}
-          <h1 class="product_name" itemprop="name"><div style="position:relative;">{{ product.title }}<div name="secomapp-fg-image-{{ product.id }}" style="display: none;"> {{ "icon-freegift.png" | asset_url | img_tag: "", "sca-fg-img-collect" }} </div> </div></h1>
+          <h1 class="product_name" itemprop="name">{{ product.title }}</h1>
           {% if settings.enable_shopify_product_badges and settings.enable_shopify_review_comments %}
             <span class="shopify-product-reviews-badge" data-id="{{ product.id }}"></span>
           {% endif %}
@@ -272,7 +271,7 @@
     {% endif %}
 
     <!-- Custom klaviyo products tracking -->
-	<script src="{{ 'product-description-tabs.js' | asset_url }}" defer></script>
+	  <script src="{{ 'product-description-tabs.js' | asset_url }}" defer></script>
     {% include 'klaviyo-track-products' %}
     <!-- End Custom klaviyo products tracking -->
 

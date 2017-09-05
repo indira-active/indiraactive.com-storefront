@@ -1,4 +1,3 @@
-{% include 'sca_freegift_price' with product %}
 {% assign collection_handles = product.collections | map: 'handle' %}
 <div class="thumbnail-overlay">
   <a href="{{ product.url | within: collection }}" itemprop="url" class="hidden-product-link">{{ product.title }}</a>
@@ -15,7 +14,7 @@
 </div>
 <div class="banner_holder">
   {% if product.available %}
-    {% if settings.sale_banner_enabled and sca_compare_at_price_max > sca_price %}
+    {% if settings.sale_banner_enabled and product.compare_at_price_max > product.price %}
       <div class="sale_banner thumbnail_banner">{{ 'collections.general.sale' | t }}</div>
     {% endif %}
   {% endif %}

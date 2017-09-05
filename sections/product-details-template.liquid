@@ -3,7 +3,6 @@
 - Product template
 - Uses blocks
 {% endcomment %}
-{% include 'sca_freegift_price' with product %}
 {% assign sidebar = false %}
 
 <a name="pagecontent" id="pagecontent"></a>
@@ -64,7 +63,7 @@
             {% assign variant = product.selected_or_first_available_variant %}
 
             {% if product.available %}
-              {% if settings.sale_banner_enabled and sca_compare_at_price_max > sca_price %}
+              {% if settings.sale_banner_enabled and product.compare_at_price_max > product.price %}
                 <div class="sale_banner_product">{{ 'collections.general.sale' | t }}</div>
               {% endif %}
             {% endif %}

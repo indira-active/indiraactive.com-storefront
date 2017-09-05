@@ -74,7 +74,6 @@
    {% if settings.search_option == 'everything' or search.results.first.price == blank %}
 
     {% for item in search.results %}
-    {% include 'sca_freegift_price' with item %}
       <div class="product_row">
         {% assign featured_image = false %}
 
@@ -104,23 +103,23 @@
             <a href="{{ item.url }}" title="{{ item.title | escape }}">{{ item.title }}</a>
           </h5>
 
-          {% if sca_price %}
+          {% if item.price %}
              <div class="info">
                 <span class="price">
-                  {% if sca_compare_at_price_max > sca_price %}
-                    <span class="was_price">{{ sca_compare_at_price_max | money }}</span>
+                  {% if item.compare_at_price_max > item.price %}
+                    <span class="was_price">{{ item.compare_at_price_max | money }}</span>
                   {% endif %}
 
                   {% if item.available %}
-                    {% if sca_price_varies %}
-                      {% if sca_compare_at_price_max > sca_price %}
+                    {% if item.price_varies %}
+                      {% if item.compare_at_price_max > item.price %}
                         <br />
                       {% endif %}
                       <small><em>{{ 'products.general.from' | t }}</em></small>
                     {% endif %}
-                    {{ sca_price_min | money }}
+                    {{ item.price_min | money }}
                   {% else %}
-                    {{ sca_price_min | money }} - {{ 'products.product.sold_out' | t }}
+                    {{ item.price_min | money }} - {{ 'products.product.sold_out' | t }}
                   {% endif %}
                 </span>
             </div>
