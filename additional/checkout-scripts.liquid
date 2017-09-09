@@ -1,6 +1,7 @@
 <!-- Google Code for Successful Sale Conversion Page -->
 {% assign google_conversion_id = 851865416 %}
 {% assign google_conversion_label = "Oz0CCLGftHEQyN6ZlgM" %}
+{% assign google_user_id  = '{{ customer.id }}' %}
 <script type="text/javascript">
 /* <![CDATA[ */
 var google_conversion_id = {{ google_conversion_id }};
@@ -13,13 +14,14 @@ var google_conversion_value = {{ total_price | money_without_currency | remove: 
 var google_conversion_order_id = "{{ order.order_number }}";
 var google_conversion_currency = "{{ shop.currency }}";
 var google_remarketing_only = false;
+var google_user_id = '{{ google_user_id }}';
 /* ]]> */
 </script>
 <script type="text/javascript" src="//www.googleadservices.com/pagead/conversion.js">
 </script>
 <noscript>
 <div style="display:inline;">
-<img height="1" width="1" style="border-style:none;" alt="" src="//www.googleadservices.com/pagead/conversion/{{ google_conversion_id }}/?value={{ total_price | money_without_currency | remove: ',' }}&amp;oid={{ order.order_number }}&amp;currency_code={{ shop.currency }}&amp;label={{ google_conversion_label }}&amp;guid=ON&amp;script=0"/>
+<img height="1" width="1" style="border-style:none;" alt="" src="//www.googleadservices.com/pagead/conversion/{{ google_conversion_id }}/?value={{ total_price | money_without_currency | remove: ',' }}&amp;oid={{ order.order_number }}&amp;currency_code={{ shop.currency }}&amp;label={{ google_conversion_label }}&amp;guid=ON&amp;script=0&amp;userId={{ google_user_id }}""/>
 </div>
 </noscript>
 
