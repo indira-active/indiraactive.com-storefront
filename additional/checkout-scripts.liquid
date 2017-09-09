@@ -1,4 +1,4 @@
-<!-- Google Code for Successful Sale Conversion Page -->
+<!-- Google AdWords Conversion -->
 {% assign google_conversion_id = 851865416 %}
 {% assign google_conversion_label = "Oz0CCLGftHEQyN6ZlgM" %}
 {% assign google_user_id  = '{{ customer.id }}' %}
@@ -21,9 +21,36 @@ var google_user_id = '{{ google_user_id }}';
 </script>
 <noscript>
 <div style="display:inline;">
-<img height="1" width="1" style="border-style:none;" alt="" src="//www.googleadservices.com/pagead/conversion/{{ google_conversion_id }}/?value={{ total_price | money_without_currency | remove: ',' }}&amp;oid={{ order.order_number }}&amp;currency_code={{ shop.currency }}&amp;label={{ google_conversion_label }}&amp;guid=ON&amp;script=0&amp;userId={{ google_user_id }}""/>
+<img height="1" width="1" style="border-style:none;" alt="" src="//www.googleadservices.com/pagead/conversion/{{ google_conversion_id }}/?value={{ total_price | money_without_currency | remove: ',' }}&amp;oid={{ order.order_number }}&amp;currency_code={{ shop.currency }}&amp;label={{ google_conversion_label }}&amp;guid=ON&amp;script=0&amp;userId={{ google_user_id }}"/>
 </div>
 </noscript>
+<!-- END Google AdWords Conversion -->
+
+
+<!-- Google Adwords Dynamic Remarketing -->
+<script type="text/javascript">
+var google_tag_params = {
+  ecomm_prodid: [{% for item in order.line_items %}'shopify_{{ item.variant.id }}'{% unless forloop.last %}, {% endunless %}{% endfor %}],
+  ecomm_pagetype: 'purchase',
+  ecomm_totalvalue: {{ total_price | money_without_currency | remove: ',' }}
+};
+</script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var google_conversion_id = {{ google_conversion_id }};
+var google_custom_params = window.google_tag_params;
+var google_remarketing_only = true;
+var google_user_id = '{{ google_user_id }}';
+/* ]]> */
+</script>
+<script type="text/javascript" src="//www.googleadservices.com/pagead/conversion.js">
+</script>
+<noscript>
+<div style="display:inline;">
+<img height="1" width="1" style="border-style:none;" alt="" src="//googleads.g.doubleclick.net/pagead/viewthroughconversion/{{ google_conversion_id }}/?guid=ON&amp;script=0&amp;userId={{ google_user_id }}"/>
+</div>
+</noscript>
+<!-- END Google Adwords Dynamic Remarketing -->
 
 
 <!-- Bing Ads Universal tag -->
