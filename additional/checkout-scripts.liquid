@@ -1,0 +1,88 @@
+<!-- Google Code for Successful Sale Conversion Page -->
+{% assign google_conversion_id = 851865416 %}
+{% assign google_conversion_label = "Oz0CCLGftHEQyN6ZlgM" %}
+<script type="text/javascript">
+/* <![CDATA[ */
+var google_conversion_id = {{ google_conversion_id }};
+var google_conversion_language = "en";
+var google_conversion_format = "3";
+var google_conversion_color = "ffffff";
+var google_conversion_label = "{{ google_conversion_label }}";
+// if ({{ total_price }}) { var google_conversion_value = {{ total_price | money_without_currency }}; }
+var google_conversion_value = {{ total_price | money_without_currency | remove: ',' }};
+var google_conversion_order_id = "{{ order.order_number }}";
+var google_conversion_currency = "{{ shop.currency }}";
+var google_remarketing_only = false;
+/* ]]> */
+</script>
+<script type="text/javascript" src="//www.googleadservices.com/pagead/conversion.js">
+</script>
+<noscript>
+<div style="display:inline;">
+<img height="1" width="1" style="border-style:none;" alt="" src="//www.googleadservices.com/pagead/conversion/{{ google_conversion_id }}/?value={{ total_price | money_without_currency | remove: ',' }}&amp;oid={{ order.order_number }}&amp;currency_code={{ shop.currency }}&amp;label={{ google_conversion_label }}&amp;guid=ON&amp;script=0"/>
+</div>
+</noscript>
+
+
+<!-- Bing Ads Universal tag -->
+<script>(function(w,d,t,r,u){var f,n,i;w[u]=w[u]||[],f=function(){var o={ti:"5708096"};o.q=w[u],w[u]=new UET(o),w[u].push("pageLoad")},n=d.createElement(t),n.src=r,n.async=1,n.onload=n.onreadystatechange=function(){var s=this.readyState;s&&s!=="loaded"&&s!=="complete"||(f(),n.onload=n.onreadystatechange=null)},i=d.getElementsByTagName(t)[0],i.parentNode.insertBefore(n,i)})(window,document,"script","//bat.bing.com/bat.js","uetq");</script><noscript><img src="//bat.bing.com/action/0?ti=5708096&Ver=2" height="0" width="0" style="display:none; visibility: hidden;" /></noscript>
+<!-- End Bing Ads Universal tag -->
+
+
+<!-- Bing Ads Code for Successful Sale Conversion Page -->
+<script> window.uetq = window.uetq || [];
+ window.uetq.push({ 'gv': '{{ subtotal_price | money_without_currency }}' });
+</script>
+
+
+<!-- Pinterest base tag -->
+<script type="text/javascript">
+!function(e){if(!window.pintrk){window.pintrk=function(){window.pintrk.queue.push(Array.prototype.slice.call(arguments))};var n=window.pintrk;n.queue=[],n.version="3.0";var t=document.createElement("script");t.async=!0,t.src=e;var r=document.getElementsByTagName("script")[0];r.parentNode.insertBefore(t,r)}}("https://s.pinimg.com/ct/core.js");
+
+pintrk('load','2614374697294');
+pintrk('page');
+</script>
+<noscript>
+<img height="1" width="1" style="display:none;" alt=""
+src="https://ct.pinterest.com/v3/?tid=2614374697294&noscript=1" />
+</noscript>
+<!-- End Pinterest base tag -->
+
+
+<!-- Twitter universal website tag code -->
+<script>
+!function(e,t,n,s,u,a){e.twq||(s=e.twq=function(){s.exe?s.exe.apply(s,arguments):s.queue.push(arguments);
+},s.version='1.1',s.queue=[],u=t.createElement(n),u.async=!0,u.src='//static.ads-twitter.com/uwt.js',
+a=t.getElementsByTagName(n)[0],a.parentNode.insertBefore(u,a))}(window,document,'script');
+// Insert Twitter Pixel ID and Standard Event data below
+twq('init','nxxxp');
+twq('track','PageView');
+</script>
+<!-- End Twitter universal website tag code -->
+
+
+<!-- Klaviyo Tracking code for email markerting -->
+<script type="text/javascript">
+	var _learnq = _learnq || [];
+	_learnq.push(['account', 'Fr2zbh']);
+	(function () {
+	var b = document.createElement('script'); b.type = 'text/javascript'; b.async = true;
+	b.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'a.klaviyo.com/media/js/analytics/analytics.js';
+	var a = document.getElementsByTagName('script')[0]; a.parentNode.insertBefore(b, a);
+	})();
+</script>
+<!-- End Klaviyo Tracking code for email markerting -->
+
+
+<!-- Hotjar Tracking Code for https://www.indiraactive.com/ -->
+<script>
+    (function(h,o,t,j,a,r){
+        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+        h._hjSettings={hjid:584375,hjsv:5};
+        a=o.getElementsByTagName('head')[0];
+        r=o.createElement('script');r.async=1;
+        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+        a.appendChild(r);
+    })(window,document,'//static.hotjar.com/c/hotjar-','.js?sv=');
+</script>
+<!-- End Hotjar -->
