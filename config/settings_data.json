@@ -2450,7 +2450,7 @@
     "default_currency": "USD",
     "mailchimp_link": "https:\/\/manage.kmail-lists.com\/subscriptions\/subscribe?g=J3xqsT",
     "secondary_newsletter_banner": false,
-    "newsletter_popup": true,
+    "newsletter_popup": false,
     "newsletter_popup_close": true,
     "newsletter_popup_mobile": true,
     "newsletter_popup_form": true,
