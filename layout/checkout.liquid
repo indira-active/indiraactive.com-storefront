@@ -13,10 +13,6 @@
 
     <title>{{ shop.name }} - {{ page_title }}</title>
 
-    <!-- Custom tracking head -->
-    {% include 'tracking-head' %}
-    <!-- End Custom tracking head -->
-
     {{ content_for_header }}
 
     {{ checkout_stylesheets }}
@@ -63,7 +59,6 @@
     </div>
 
     <!-- Custom body scripts-->
-    {% include 'tracking-body' %}
     {% include 'smooch' %}
     <!-- End Custom body scripts -->
 
