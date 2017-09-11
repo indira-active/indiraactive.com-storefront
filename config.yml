@@ -7,6 +7,7 @@ staging:
    - .gitignore
    - .circleci/
    - README.md
+   - additional/
  timeout: 60s
  readonly: true
 master:
@@ -18,6 +19,7 @@ master:
  - ".gitignore"
  - .circleci/  
  - README.md
+ - additional/
  timeout: 60s
 jordan:
   password: 371ea5d17111812343c1e6a72e1b1368
@@ -28,5 +30,6 @@ jordan:
   - ".gitignore"
   - .circleci/  
   - README.md
+  - additional/
   timeout: 60s
  
