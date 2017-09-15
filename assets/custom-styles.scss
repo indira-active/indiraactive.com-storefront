@@ -1,4 +1,4 @@
-// Border around product sizes
+// Border around product size variant buttons
 .swatch-element {
   border-color: #d03b77;
 }
@@ -23,4 +23,9 @@
 // Add to cart text
 button.add_to_cart .text {
   font-size: 18px;
+}
+
+// Stamped.io - Hide 'No Review'
+.spr-badge[data-rating="0.0"] {
+  display:none !important;
 }
