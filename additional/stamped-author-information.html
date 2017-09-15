@@ -1,0 +1,8 @@
+<div id="stamped-review-avatar"></div>
+<strong class="author">{{ review.author }}</strong>
+<span class="verified" style="color:green;display:none;">
+    <img src="//cdn.shopify.com/s/files/1/0638/7747/files/icon.verified.png?18336515052685061871" height="13" /> 
+    Verified Buyer
+</span>
+<div style="float:right;">on <strong>{{ review.created_at | date: '%b %d, %Y' }}</strong></div>
+<div id="stamped-review-vote" data-date="{{review.created_at}}" data-author="{{review.author}}"></div>
