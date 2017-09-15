@@ -2420,9 +2420,9 @@
     "free_price_text": "Free",
     "size_chart": "",
     "enable_shopify_review_comments": true,
-    "review_position": "below_product_details",
+    "review_position": "below_gallery",
     "enable_shopify_collection_badges": false,
-    "enable_shopify_product_badges": true,
+    "enable_shopify_product_badges": false,
     "quick_shop_enabled": false,
     "quick_shop_display_vendor": false,
     "quick_shop_display_savings": true,
@@ -2435,7 +2435,7 @@
     "quick_shop_product_images_position": "left",
     "quick_shop_product_thumbs": true,
     "quick_shop_thumbnail_position": "bottom-thumbnails",
-    "cart_action": "ajax",
+    "cart_action": "redirect_cart",
     "tos_page": "",
     "go_to_checkout": true,
     "display_special_instructions": true,
@@ -3397,6 +3397,18 @@
           "collection_style": "slider",
           "products_per": "5",
           "products_limit": "15"
+        }
+      },
+      "search-template": {
+        "type": "search-template",
+        "settings": {
+          "search_breadcrumb": true,
+          "products_per_row": "2",
+          "pagination_limit": "20",
+          "blog_author": false,
+          "read_more_link": true,
+          "blog_date": true,
+          "toggle": false
         }
       }
     },
