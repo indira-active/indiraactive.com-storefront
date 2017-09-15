@@ -2422,7 +2422,7 @@
     "enable_shopify_review_comments": true,
     "review_position": "below_gallery",
     "enable_shopify_collection_badges": false,
-    "enable_shopify_product_badges": false,
+    "enable_shopify_product_badges": true,
     "quick_shop_enabled": false,
     "quick_shop_display_vendor": false,
     "quick_shop_display_savings": true,
