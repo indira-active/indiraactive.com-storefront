@@ -94,7 +94,10 @@
           {% endif %}
           <h1 class="product_name" itemprop="name">{{ product.title }}</h1>
           {% if settings.enable_shopify_product_badges and settings.enable_shopify_review_comments %}
-            <span class="shopify-product-reviews-badge" data-id="{{ product.id }}"></span>
+            <!-- Custom Stamped.io reviews product badges-->
+            <!-- <span class="shopify-product-reviews-badge" data-id="{{ product.id }}"></span> -->
+             {% include 'stamped-reviews-product-badges' %}
+            <!-- END Custom Stamped.io reviews product badges-->
           {% endif %}
           <div class="feature_divider"></div>
 
@@ -177,7 +180,10 @@
           {% endif %}
 
           {% if settings.enable_shopify_review_comments and settings.review_position == "next_to_gallery" %}
-            <div id="shopify-product-reviews" data-id="{{product.id}}">{{ product.metafields.spr.reviews }}</div>
+            <!-- Custom Stamped.io reviews product widget -->
+            {% include "stamped-reviews-product-widget" %}  
+            <!-- <div id="shopify-product-reviews" data-id="{{product.id}}">{{ product.metafields.spr.reviews }}</div> -->
+            <!-- End Custom Stamped.io reviews product widget -->
           {% endif %}
 
           {% if section.settings.display_collections or section.settings.display_tags or section.settings.display_type %}
@@ -237,7 +243,10 @@
 
       {% if settings.enable_shopify_review_comments and settings.review_position == "below_gallery" %}
         <div class="shopify-reviews">
-          <div id="shopify-product-reviews" data-id="{{product.id}}">{{ product.metafields.spr.reviews }}</div>
+          <!-- Custom Stamped.io reviews product widget -->
+          {% include "stamped-reviews-product-widget" %}  
+          <!-- <div id="shopify-product-reviews" data-id="{{product.id}}">{{ product.metafields.spr.reviews }}</div> -->
+          <!-- End Custom Stamped.io reviews product widget -->
         </div>
       {% endif %}
     </div>
