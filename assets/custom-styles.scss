@@ -29,3 +29,20 @@ button.add_to_cart .text {
 .spr-badge[data-rating="0.0"] {
   display:none !important;
 }
+// Stamped.io review stars
+.fa-star, .fa-star-checked, .fa-star-half-o, .fa-star-o, {
+  color: #ce3e77 !important;   
+}
+// Stamped.io review bars 
+.stamped-summary-ratings {
+  display: none;
+}
+/* Not applicable when hidden (changes color scheme)
+.summary-rating-bar-content {
+  background: #ce3e77 !important;
+  display: none;
+}
+.summary-rating-bar {
+ color: #ce3e77 !important;
+}
+*/
