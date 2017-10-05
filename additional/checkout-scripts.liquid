@@ -100,7 +100,8 @@ twq('track','PageView');
      "order_id": "{{order.name}}",
      "email": "{{customer.email}}",
      "delivery_country": "{{shipping_address.country_code}}",
-     "estimated_delivery_date": "{{ order.created_at | date:'%s' | plus:1814000  | date:"%F" }}"
+     // 1814000 is 21 days in seconds
+     "estimated_delivery_date": "{{ order.created_at | date:'%s' | plus:1814000  | date:"%F" }}" 
     });
   });
  }
