@@ -46,7 +46,7 @@ function loadScript(src, callback) { var s, r, t; r = false; s = document.create
       
     // Welcome whisper user after 30s
     var timeout;
-    Smooch.on('ready', function(message) {
+    Smooch.on('ready', function() {
       timeout = setTimeout(function() {
         Smooch.track("sk-welcome-delay");
       }, 25000);
