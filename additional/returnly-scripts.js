@@ -74,7 +74,7 @@ function loadScript(src, callback) { var s, r, t; r = false; s = document.create
     
     }); 
 
-    var skPromise = Smooch.init({
+    Smooch.init({
         appToken: "56jalt3k4p3rpyphnwazq8dzj",
         serviceUrl: "https://app.smooch.io",
         customText: {
