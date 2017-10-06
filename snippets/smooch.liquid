@@ -6,7 +6,7 @@
 		// setting variable to chat button on sizing tab	      
       skSizeChat = document.getElementById("sk-no-sizing");
       	//onclick function to trigger the initalization of smooch whisper and chat
-      if(skSizeChat != null) {
+      if(skSizeChat !== null) {
       	skSizeChat.onclick = function () {
         	Smooch.open();
         	Smooch.track("sk-no-sizing"); 
@@ -15,7 +15,7 @@
      	 	
       	// Welcome whisper user after 30s
       	var timeout;
-        Smooch.on('ready', function(message) {
+        Smooch.on('ready', function() {
           timeout = setTimeout(function() {
             Smooch.track("sk-welcome-delay");
           }, 25000);
@@ -36,7 +36,7 @@
     		
           	// Whipser on complete checkout
          	var skPurchase = document.getElementById('sk-purchase');
-          	if (skPurchase != null) {
+          	if (skPurchase !== null) {
               	console.log("sk-purchase");
             	Smooch.track("sk-purchase");
           	}         	
