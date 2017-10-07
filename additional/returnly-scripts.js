@@ -33,28 +33,6 @@ ga('linker:autoLink', ['indiraactive.com', 'blog.indiraactive.com', 'returns.ind
 
 // Smooch web messenger
 function loadScript(src, callback) { var s, r, t; r = false; s = document.createElement('script'); s.type = 'text/javascript'; s.src = src; s.onload = s.onreadystatechange = function() { if ( !r && (!this.readyState || this.readyState == 'complete') ) { r = true; callback(); } }; t = document.getElementsByTagName('script')[0]; t.parentNode.insertBefore(s, t); } loadScript('https://cdn.smooch.io/smooch.min.js', function() {
-          
-  // setting variable to chat button on sizing tab        
-  skSizeChat = document.getElementById("sk-no-sizing");
-    //onclick function to trigger the initalization of smooch whisper and chat
-  if(skSizeChat !== null) {
-    skSizeChat.onclick = function () {
-      Smooch.open();
-      Smooch.track("sk-no-sizing"); 
-    }
-  }
-      
-    // Welcome whisper user after 30s
-    var timeout;
-    Smooch.on('ready', function() {
-      timeout = setTimeout(function() {
-        Smooch.track("sk-welcome-delay");
-      }, 25000);
-    });
-
-    Smooch.on('widget:opened', function() {
-      clearTimeout(timeout);
-    });
 
     // Store users language as property
     Smooch.on('ready', function() {
@@ -64,14 +42,6 @@ function loadScript(src, callback) { var s, r, t; r = false; s = document.create
           'Language': language
           }
         });   
-    
-        // Whipser on complete checkout
-      var skPurchase = document.getElementById('sk-purchase');
-        if (skPurchase !== null) {
-            console.log("sk-purchase");
-          Smooch.track("sk-purchase");
-        }           
-    
     }); 
 
     Smooch.init({
