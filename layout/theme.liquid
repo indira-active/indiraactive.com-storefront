@@ -12,7 +12,7 @@
     
     <!-- Custom meta & gtm head -->
     {% include 'meta-head' %}
-    {% include 'gtm-head' %}
+    {% comment %} {% include 'gtm-head' %} {% endcomment %}
     <!-- End Custom meta & gtm head -->
 
     <!-- Custom Fonts -->
@@ -103,7 +103,7 @@
   <body class="{{ template | replace: '.', '-' | handle }}">
 
     <!-- Custom gtm body -->
-    {% include 'gtm-body' %}
+    {% comment %} {% include 'gtm-body' %} {% endcomment %}
     <!-- End Custom gtm body -->
 
     {% section 'header' %}
@@ -208,8 +208,6 @@
       }
       </script>
     {% endunless %}
-    
-    
 
     <!-- Custom body scripts-->
     {% include 'tracking-body' %}
