@@ -1,0 +1,13 @@
+<script>
+window.onRecartMessengerPluginLoaded = function () {
+  window.RecartMessengerPlugin && window.RecartMessengerPlugin.initWidget()
+}
+
+(function (d) {
+  const n = d.createElement('script')
+  n.id = 'recart-messenger-plugin-loader-js'
+  n.src = 'https://cdn.ghostmonitor.com/messenger/loader.js'
+  n.async = true
+  if (!d.getElementById(n.id))d.body.appendChild(n)
+}(document))
+</script>
