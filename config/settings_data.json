@@ -3217,8 +3217,8 @@
             "settings": {
               "image": "shopify:\/\/shop_images\/right.jpg",
               "link": "",
-              "title": "SPEND 125 OR MORE",
-              "text": "<p>and enjoy 10% off and receive a $15 gift card on us<\/p>",
+              "title": "Free sunburst bra",
+              "text": "<p>Buy three items and use code columbus, when you add sunburst to your cart.<\/p>",
               "button_label": ""
             }
           }
@@ -3362,12 +3362,12 @@
         "settings": {
           "gallery_arrows": true,
           "activate_zoom": true,
-          "enable_product_lightbox": false,
+          "enable_product_lightbox": true,
           "activate_autoplay": false,
           "slideshow_animation": "slide",
           "product_images_position": "left",
-          "product_thumbs": true,
-          "thumbnail_position": "bottom-thumbnails",
+          "product_thumbs": false,
+          "thumbnail_position": "right-thumbnails",
           "product_breadcrumb": true,
           "display_vendor": false,
           "display_sku": false,
