@@ -32,8 +32,8 @@ jordan:
   - README.md
   - additional/
   timeout: 60s
-  columbus:
-  password: 371ea5d17111812343c1e6a72e1b1368
+columbus:
+  password: 7f72a6b976fde520c32c15ad6527dcc4
   theme_id: "197875972"
   store: indira-active.myshopify.com
   ignore_files:
