@@ -9,7 +9,7 @@
     <meta charset="utf-8">
     <meta http-equiv="cleartype" content="on">
     <meta name="robots" content="index,follow">
-    
+
     <!-- Custom meta & gtm head -->
     {% include 'meta-head' %}
     {% comment %} {% include 'gtm-head' %} {% endcomment %}
@@ -156,7 +156,7 @@
     {% endif %}
 
 	  <script src="{{ 'app.js' | asset_url }}"></script>
-    
+
     {% if settings.show_multiple_currencies %}
       {% include 'currencies' %}
     {% endif %}
@@ -209,6 +209,8 @@
     {% include 'tracking-body' %}
     {% include 'smooch' %}
     {% include 'back-in-stock-helper' %}
+    {% include 'sweettooth-initializer' %}
+    {% include 'sweettooth-tab-widget' %}
     <!-- End Custom body scripts -->
 
     <script>
