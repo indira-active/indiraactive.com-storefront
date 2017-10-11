@@ -68,7 +68,8 @@
     {% endif %}
     <!-- End Custom Stamped.io reviews css/js -->
 
-    <!-- Custom tracking head -->
+    <!-- Custom head scripts -->
+    {% include 'findify-script' %}
     {% include 'tracking-head' %}
     <!-- End Custom tracking head -->
 
@@ -206,6 +207,7 @@
     {% endunless %}
 
     <!-- Custom body scripts-->
+    {% include 'findify-tagging' %}
     {% include 'tracking-body' %}
     {% include 'smooch' %}
     {% include 'back-in-stock-helper' %}
