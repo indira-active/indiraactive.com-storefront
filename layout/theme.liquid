@@ -9,7 +9,7 @@
     <meta charset="utf-8">
     <meta http-equiv="cleartype" content="on">
     <meta name="robots" content="index,follow">
-    
+
     <!-- Custom meta & gtm head -->
     {% include 'meta-head' %}
     {% comment %} {% include 'gtm-head' %} {% endcomment %}
@@ -69,7 +69,7 @@
     <!-- End Custom Stamped.io reviews css/js -->
 
     <!-- Custom head scripts -->
-    {% include 'findify-script' %}
+    <!-- {% include 'findify-script' %} -->
     {% include 'tracking-head' %}
     <!-- End Custom tracking head -->
 
@@ -157,7 +157,7 @@
     {% endif %}
 
 	  <script src="{{ 'app.js' | asset_url }}"></script>
-    
+
     {% if settings.show_multiple_currencies %}
       {% include 'currencies' %}
     {% endif %}
@@ -207,7 +207,7 @@
     {% endunless %}
 
     <!-- Custom body scripts-->
-    {% include 'findify-tagging' %}
+    <!-- {% include 'findify-tagging' %} -->
     {% include 'tracking-body' %}
     {% include 'smooch' %}
     {% include 'back-in-stock-helper' %}
