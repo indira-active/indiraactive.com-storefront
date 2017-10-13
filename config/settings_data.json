@@ -3217,8 +3217,8 @@
             "settings": {
               "image": "shopify:\/\/shop_images\/right.jpg",
               "link": "",
-              "title": "Free SUNBURST bra",
-              "text": "<p>Buy three items and use code COLUMBUS, when you add&nbsp;SUNBURST to your cart.<\/p>",
+              "title": "SPEND $125 or more",
+              "text": "<p>RECEIVE 10% OFF + A $15 GIFT CARD<\/p>",
               "button_label": ""
             }
           }
@@ -3240,8 +3240,8 @@
         "settings": {
           "image": "shopify:\/\/shop_images\/gradient-1.jpg",
           "pretext": "",
-          "title": "COLUMBUS DAY WEEKEND SALE....",
-          "subtitle": "<p>&nbsp;FREE SUNBURST BRA WITH 3 ITEMS OR MORE.... JUST ADD TO CART AND USE CODE COLUMBUS<\/p>",
+          "title": "SPEND $125 OR MORE",
+          "subtitle": "<p>RECEIVE 10% OFF + A $15 GIFT CARD<\/p>\n<p>(cannot be combined w\/ other offers)<\/p>",
           "caption_background": true,
           "caption_background_transparency": true,
           "text_position": "center",
