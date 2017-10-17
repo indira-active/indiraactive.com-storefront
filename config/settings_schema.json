@@ -3728,5 +3728,585 @@
         "label": "[DISQUS](http:\/\/disqus.com\/) shortname"
       }
     ]
+  },
+  {
+    "name": "Smile.io explainer page",
+    "settings": [
+      {
+        "type": "paragraph",
+        "content": "This explainer page has been provided by [Smile.io](https:\/\/www.smile.io). Please email support@smile.io if you need any assistance with setting this up."
+      },
+      {
+        "type": "text",
+        "id": "earn_points_value",
+        "label": "Earn Points value (i.e. $1 = 1 point)",
+        "default": "$1 = 1 point"
+      },
+      {
+        "type": "text",
+        "id": "spent_points_value",
+        "label": "Spend Points value (i.e. 100 Points = $1)",
+        "default": "100 Points = $1"
+      },
+      {
+        "type": "checkbox",
+        "id": "enable_vip",
+        "label": "Enable VIP Program"
+      },
+      {
+        "label": "Explainer Page brand color",
+        "type": "color",
+        "id": "sm_brand_color",
+        "default": "#ac9456"
+      },
+      {
+        "label": "Explainer Page accent color",
+        "type": "color",
+        "id": "st_accent_color",
+        "default": "#BA9D4C"
+      },
+      {
+        "type": "header",
+        "content": "Earning Points"
+      },
+      {
+        "type": "textarea",
+        "id": "about_program",
+        "label": "Enter description about your rewards program",
+        "default": "To demonstrate how much we cherish our loyal customers, you can gain rewards in more ways than purchasing your favorite products."
+      },
+      {
+        "type": "checkbox",
+        "id": "welcome_points",
+        "default": true,
+        "label": "Account creation"
+      },
+      {
+        "type": "text",
+        "id": "points_for_account",
+        "label": "Number of points for an account creation"
+      },
+      {
+        "type": "checkbox",
+        "id": "sm_follow_facebook",
+        "default": true,
+        "label": "Liking on Facebook"
+      },
+      {
+        "type": "text",
+        "id": "points_for_facebook",
+        "label": "Number of points for liking on Facebook"
+      },
+      {
+        "type": "checkbox",
+        "id": "sm_share_facebook",
+        "default": true,
+        "label": "Sharing on Facebook"
+      },
+      {
+        "type": "text",
+        "id": "points_for_share_fb",
+        "label": "Number of points for sharing on Facebook"
+      },
+      {
+        "type": "checkbox",
+        "id": "sm_follow_twitter",
+        "default": true,
+        "label": "Following on Twitter"
+      },
+      {
+        "type": "text",
+        "id": "points_for_twitter",
+        "label": "Number of points for following on Twitter"
+      },
+      {
+        "type": "checkbox",
+        "id": "sm_share_twitter",
+        "default": true,
+        "label": "Sharing on Twitter"
+      },
+      {
+        "type": "text",
+        "id": "points_for_share_tw",
+        "label": "Number of points for sharing on Twitter"
+      },
+      {
+        "type": "checkbox",
+        "id": "sm_follow_instagram",
+        "default": true,
+        "label": "Following on Instagram"
+      },
+      {
+        "type": "text",
+        "id": "points_for_instagram",
+        "label": "Number of points for following on Instagram"
+      },
+      {
+        "type": "checkbox",
+        "id": "birthday_points",
+        "default": true,
+        "label": "Points on birthday"
+      },
+      {
+        "type": "text",
+        "id": "points_for_birthday",
+        "label": "Number of points awarded on birthday"
+      },
+      {
+        "type": "checkbox",
+        "id": "review_points",
+        "default": true,
+        "label": "Points for writing a review"
+      },
+      {
+        "type": "text",
+        "id": "points_for_review",
+        "label": "Number of points awarded for writing a review"
+      },
+      {
+        "type": "header",
+        "content": "Referral Program"
+      },
+      {
+        "type": "checkbox",
+        "id": "referral_program",
+        "default": true,
+        "label": "Enable referral program section"
+      },
+      {
+        "type": "textarea",
+        "id": "referral_description",
+        "default": "Here at our store, we firmly believe that sharing is caring. Invite your friends to our store and be rewarded for your referral!",
+        "label": "Description for your referral program"
+      },
+      {
+        "type": "checkbox",
+        "id": "referral_reward_1",
+        "label": "Enable Reward"
+      },
+      {
+        "type": "text",
+        "id": "points_name",
+        "label": "Name of points system",
+        "default": "Points"
+      },
+      {
+        "type": "text",
+        "id": "points_for_referral",
+        "label": "Number of points for referring a friend"
+      },
+      {
+        "type": "checkbox",
+        "id": "referral_reward_2",
+        "label": "Enable Reward"
+      },
+      {
+        "type": "text",
+        "id": "discount_name",
+        "label": "Discount name for referral system",
+        "default": "Off"
+      },
+      {
+        "type": "text",
+        "id": "discount_for_referral",
+        "label": "Discount for referring a friend"
+      },
+      {
+        "type": "header",
+        "content": "Spending Points"
+      },
+      {
+        "type": "checkbox",
+        "id": "rewards",
+        "default": true,
+        "label": "Enable rewards section"
+      },
+      {
+        "type": "textarea",
+        "id": "spending_description",
+        "default": "Now that you have some hard earned points, here's how you can spend them.",
+        "label": "Description for spending points"
+      },
+      {
+        "type": "checkbox",
+        "id": "reward_1",
+        "label": "Enable Reward"
+      },
+      {
+        "type": "text",
+        "id": "reward_1_amt",
+        "label": "Discount amount"
+      },
+      {
+        "type": "select",
+        "id": "reward_1_type",
+        "options": [
+          {
+            "value": "%",
+            "label": "Percentage off"
+          },
+          {
+            "value": "off",
+            "label": "Amount off"
+          }
+        ],
+        "label": "Discount type"
+      },
+      {
+        "type": "text",
+        "id": "reward_1_points",
+        "label": "How many points are needed?"
+      },
+      {
+        "type": "checkbox",
+        "id": "reward_2",
+        "label": "Enable Reward"
+      },
+      {
+        "type": "text",
+        "id": "reward_2_amt",
+        "label": "Discount amount"
+      },
+      {
+        "type": "select",
+        "id": "reward_2_type",
+        "options": [
+          {
+            "value": "%",
+            "label": "Percentage off"
+          },
+          {
+            "value": "off",
+            "label": "Amount off"
+          }
+        ],
+        "label": "Discount type"
+      },
+      {
+        "type": "text",
+        "id": "reward_2_points",
+        "label": "How many points are needed?"
+      },
+      {
+        "type": "checkbox",
+        "id": "reward_3",
+        "label": "Enable Reward"
+      },
+      {
+        "type": "text",
+        "id": "reward_3_amt",
+        "label": "Discount amount"
+      },
+      {
+        "type": "select",
+        "id": "reward_3_type",
+        "options": [
+          {
+            "value": "%",
+            "label": "Percentage off"
+          },
+          {
+            "value": "off",
+            "label": "Amount off"
+          }
+        ],
+        "label": "Discount type"
+      },
+      {
+        "type": "text",
+        "id": "reward_3_points",
+        "label": "How many points are needed?"
+      },
+      {
+        "type": "checkbox",
+        "id": "reward_4",
+        "label": "Enable Reward"
+      },
+      {
+        "type": "text",
+        "id": "reward_4_amt",
+        "label": "Discount amount"
+      },
+      {
+        "type": "select",
+        "id": "reward_4_type",
+        "options": [
+          {
+            "value": "%",
+            "label": "Percentage off"
+          },
+          {
+            "value": "off",
+            "label": "Amount off"
+          }
+        ],
+        "label": "Discount type"
+      },
+      {
+        "type": "text",
+        "id": "reward_4_points",
+        "label": "How many points are needed?"
+      },
+      {
+        "type": "checkbox",
+        "id": "reward_5",
+        "label": "Enable Reward"
+      },
+      {
+        "type": "text",
+        "id": "reward_5_amt",
+        "label": "Discount amount"
+      },
+      {
+        "type": "select",
+        "id": "reward_5_type",
+        "options": [
+          {
+            "value": "%",
+            "label": "Percentage off"
+          },
+          {
+            "value": "off",
+            "label": "Amount off"
+          }
+        ],
+        "label": "Discount type"
+      },
+      {
+        "type": "text",
+        "id": "reward_5_points",
+        "label": "How many points are needed?"
+      },
+      {
+        "type": "checkbox",
+        "id": "reward_6",
+        "label": "Enable Reward"
+      },
+      {
+        "type": "text",
+        "id": "reward_6_amt",
+        "label": "Discount amount"
+      },
+      {
+        "type": "select",
+        "id": "reward_6_type",
+        "options": [
+          {
+            "value": "%",
+            "label": "Percentage off"
+          },
+          {
+            "value": "off",
+            "label": "Amount off"
+          }
+        ],
+        "label": "Discount type"
+      },
+      {
+        "type": "text",
+        "id": "reward_6_points",
+        "label": "How many points are needed?"
+      },
+      {
+        "type": "checkbox",
+        "id": "reward_7",
+        "label": "Enable Reward"
+      },
+      {
+        "type": "text",
+        "id": "reward_7_amt",
+        "label": "Discount amount"
+      },
+      {
+        "type": "select",
+        "id": "reward_7_type",
+        "options": [
+          {
+            "value": "%",
+            "label": "Percentage off"
+          },
+          {
+            "value": "off",
+            "label": "Amount off"
+          }
+        ],
+        "label": "Discount type"
+      },
+      {
+        "type": "text",
+        "id": "reward_7_points",
+        "label": "How many points are needed?"
+      },
+      {
+        "type": "checkbox",
+        "id": "reward_8",
+        "label": "Enable Reward"
+      },
+      {
+        "type": "text",
+        "id": "reward_8_amt",
+        "label": "Discount amount"
+      },
+      {
+        "type": "select",
+        "id": "reward_8_type",
+        "options": [
+          {
+            "value": "%",
+            "label": "Percentage off"
+          },
+          {
+            "value": "off",
+            "label": "Amount off"
+          }
+        ],
+        "label": "Discount type"
+      },
+      {
+        "type": "text",
+        "id": "reward_8_points",
+        "label": "How many points are needed?"
+      },
+      {
+        "type": "checkbox",
+        "id": "reward_freeship",
+        "label": "Enable free shipping reward"
+      },
+      {
+        "type": "text",
+        "id": "reward_freeship_points",
+        "label": "How many points are needed?"
+      },
+      {
+        "type": "checkbox",
+        "id": "giftcard",
+        "label": "Enable gift card reward"
+      },
+      {
+        "type": "text",
+        "id": "points_for_giftcard",
+        "label": "Points value for gift card reward"
+      },
+      {
+        "type": "text",
+        "id": "amt_for_giftcard",
+        "label": "Dollar value for gift card reward"
+      },
+      {
+        "type": "header",
+        "content": "Frequently Asked Questions"
+      },
+      {
+        "type": "checkbox",
+        "id": "enable_faq",
+        "label": "Enable FAQ section"
+      },
+      {
+        "type": "text",
+        "id": "sm_question_1",
+        "label": "Question 1",
+        "default": "How Do I Spend Points?"
+      },
+      {
+        "type": "textarea",
+        "id": "sm_answer_1",
+        "label": "Answer for Question 1",
+        "default": "You can spend your points by logging into your customer account and then clicking on the launcher. Under the 'Rewards' section, you can click 'Redeem' next to the reward that you want to claim!"
+      },
+      {
+        "type": "text",
+        "id": "sm_question_2",
+        "label": "Question 2",
+        "default": "How much does it cost to join?"
+      },
+      {
+        "type": "textarea",
+        "id": "sm_answer_2",
+        "label": "Answer for Question 2",
+        "default": "Our rewards program is totally free! We do it to say 'thank you' to our awesome customers!"
+      },
+      {
+        "type": "text",
+        "id": "sm_question_3",
+        "label": "Question 3",
+        "default": "Is there a limit to how many order points I can get?"
+      },
+      {
+        "type": "textarea",
+        "id": "sm_answer_3",
+        "label": "Answer for Question 3",
+        "default": "There is no limit! Collect as many points as you please."
+      },
+      {
+        "type": "text",
+        "id": "sm_question_4",
+        "label": "Question 4"
+      },
+      {
+        "type": "textarea",
+        "id": "sm_answer_4",
+        "label": "Answer for Question 4"
+      },
+      {
+        "type": "text",
+        "id": "sm_question_5",
+        "label": "Question 5"
+      },
+      {
+        "type": "textarea",
+        "id": "sm_answer_5",
+        "label": "Answer for Question 5"
+      },
+      {
+        "type": "text",
+        "id": "sm_question_6",
+        "label": "Question 6"
+      },
+      {
+        "type": "textarea",
+        "id": "sm_answer_6",
+        "label": "Answer for Question 6"
+      },
+      {
+        "type": "text",
+        "id": "sm_question_7",
+        "label": "Question 7"
+      },
+      {
+        "type": "textarea",
+        "id": "sm_answer_7",
+        "label": "Answer for Question 7"
+      },
+      {
+        "type": "text",
+        "id": "sm_question_8",
+        "label": "Question 8"
+      },
+      {
+        "type": "textarea",
+        "id": "sm_answer_8",
+        "label": "Answer for Question 8"
+      },
+      {
+        "type": "text",
+        "id": "sm_question_9",
+        "label": "Question 9"
+      },
+      {
+        "type": "textarea",
+        "id": "sm_answer_9",
+        "label": "Answer for Question 9"
+      },
+      {
+        "type": "text",
+        "id": "sm_question_10",
+        "label": "Question 10"
+      },
+      {
+        "type": "textarea",
+        "id": "sm_answer_10",
+        "label": "Answer for Question 10"
+      }
+    ]
   }
 ]
