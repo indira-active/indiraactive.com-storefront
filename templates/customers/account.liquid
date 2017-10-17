@@ -4,9 +4,7 @@
   <header class="account-header clearfix">
     <div class="eight columns account-header-title">
       <h1>{{ 'customer.account.details' | t }}</h1>
-      <div class='eight columns'>
-        {% include 'sweettooth-rewards-button'%}
-      </div>
+      {% include 'sweettooth-rewards-button'%}
     </div>
     <div class="eight columns account-header-logout">
       <span>{{ 'layout.customer.log_out' | t | customer_logout_link }}</span>
