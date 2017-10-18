@@ -13,6 +13,9 @@
     <!-- Custom meta & gtm head -->
     {% include 'meta-head' %}
     {% comment %} {% include 'gtm-head' %} {% endcomment %}
+    {% if template contains "product" %}
+        <meta itemprop="productID" content="{{ item.variant.id }}"/>
+    {% endif %}
     <!-- End Custom meta & gtm head -->
 
     <!-- Custom Fonts -->
