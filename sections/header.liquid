@@ -242,13 +242,14 @@
             {% include 'currencies-switcher' %}
           </li>
         {% endif %}
-        <!-- Smile.io Points Balance -->
-            {% include 'sweettooth-point-balance' %}
-        <!-- End Smile.io points balance -->
+
         {% if shop.customer_accounts_enabled %}
           <li>
             <a href="/account" class="icon-user" title="{{ 'layout.customer.my_account' | t }} {% if customer %}({{ customer.email }}){% endif %}"> <span>{% if customer %}{{ 'layout.customer.my_account' | t }}{% else %}{{ 'layout.customer.log_in' | t }}{% endif %}</span></a>
           </li>
+          <!-- Smile.io Points Balance -->
+              {% include 'sweettooth-point-balance' %}
+          <!-- End Smile.io points balance -->
         {% endif %}
       </ul>
     </div>
