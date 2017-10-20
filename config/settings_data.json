@@ -2407,7 +2407,7 @@
     "mobile_products_per_row": "2",
     "pagination_type": "infinite_scroll",
     "align_height": true,
-    "collection_height": 200,
+    "collection_height": 300,
     "thumbnail_hover_enabled": false,
     "display_vendor": false,
     "collection_secondary_image": false,
@@ -3205,7 +3205,7 @@
           "1502060479212-0": {
             "type": "image",
             "settings": {
-              "image": "shopify:\/\/shop_images\/left.jpg",
+              "image": "shopify:\/\/shop_images\/boonsri-black-xss-indira-active_2000x_3.jpg",
               "link": "",
               "title": "Free Shipping on two items or more",
               "text": "",
@@ -3215,7 +3215,7 @@
           "1502061384317": {
             "type": "image",
             "settings": {
-              "image": "shopify:\/\/shop_images\/right.jpg",
+              "image": "shopify:\/\/shop_images\/phoebe-black-s-indira-active-2_2000x_053d2933-b6e4-4d75-b8d7-6b978fbbab13.jpg",
               "link": "",
               "title": "SPEND $125 or more",
               "text": "<p>RECEIVE 10% OFF + A $15 GIFT CARD<\/p>",
@@ -3238,11 +3238,11 @@
       "1502060653880": {
         "type": "image-with-text-overlay",
         "settings": {
-          "image": "shopify:\/\/shop_images\/gradient-1.jpg",
+          "image": "shopify:\/\/shop_images\/gradient-5.jpg",
           "pretext": "",
-          "title": "SPEND $125 OR MORE",
-          "subtitle": "<p>RECEIVE 10% OFF + A $15 GIFT CARD<\/p>\n<p>(cannot be combined w\/ other offers)<\/p>",
-          "caption_background": true,
+          "title": "Boutique Athleisure",
+          "subtitle": "<p>Spend $125 or more<\/p>\n<p>Receive 10% off + $15 gift card<\/p>",
+          "caption_background": false,
           "caption_background_transparency": true,
           "text_position": "center",
           "text_align": "center",
