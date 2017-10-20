@@ -236,20 +236,17 @@
         </div>
       {% endif %}
 
-
-      {% include 'sweettooth-point-balance' %}
       <ul class="menu right">
-
         {% if settings.show_multiple_currencies %}
           <li>
             {% include 'currencies-switcher' %}
           </li>
         {% endif %}
-
         {% if shop.customer_accounts_enabled %}
           <li>
             <a href="/account" class="icon-user" title="{{ 'layout.customer.my_account' | t }} {% if customer %}({{ customer.email }}){% endif %}"> <span>{% if customer %}{{ 'layout.customer.my_account' | t }}{% else %}{{ 'layout.customer.log_in' | t }}{% endif %}</span></a>
           </li>
+        {% endif %}
       </ul>
     </div>
 
