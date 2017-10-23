@@ -69,11 +69,9 @@
     <!-- End Custom Stamped.io reviews css/js -->
 
     <!-- Custom head scripts -->
-    <!-- Findify -->
-    {% comment %} {% include 'findify-script' %} {% endcomment %}
-    <!-- end of Findify -->
+    {% include 'findify-script' %}
     {% include 'tracking-head' %}
-    <!-- End Custom tracking head -->
+    <!-- End Custom  head scripts -->
 
     {{ content_for_header }}
         
@@ -213,17 +211,13 @@
       </script>
     {% endunless %}
 
-    <!-- Custom body scripts-->
-    <!-- Findify -->
-    {% comment %} {% include 'findify-tagging' %} {% endcomment %}
-    <!-- end of Findify -->
+    <!-- Custom body scripts--> 
+    {% include 'sweettooth-initializer' %}
+    {% include 'findify-tagging' %}
     {% include 'tracking-body' %}
     {% include 'smooch' %}
     {% include 'back-in-stock-helper' %}
-    {% include 'sweettooth-initializer' %}
     {% include 'sweettooth-tab-widget' %}
-
-
     <!-- End Custom body scripts -->
 
     <script>
