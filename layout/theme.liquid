@@ -76,6 +76,9 @@
     <!-- End Custom tracking head -->
 
     {{ content_for_header }}
+        
+	<script src="{{ 'app.js' | asset_url }}"></script>
+  
 </head>
   {% if template contains "index" %}
     {% assign feature_image = true %}
