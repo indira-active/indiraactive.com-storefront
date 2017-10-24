@@ -2023,7 +2023,7 @@ $(function() {
       intrinsic: true
     });
   } else {
-    $('iframe[src*=youtube], iframe[src*=vimeo]').mediaWrapper({
+    $('iframe[src*=youtube]:not(.shogun-video-embed), iframe[src*=vimeo]:not(.shogun-video-embed)').mediaWrapper({
       intrinsic: true
     });
   }
