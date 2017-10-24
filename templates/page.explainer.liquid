@@ -1,0 +1,426 @@
+<!--
+        REWARDS PROGRAM EXPLAINER PAGE - HTML TEMPLATE : Minimal Theme v1.0
+        ==============================================   ==================
+        Provided by Smile.io Rewards.              smile.io
+ -->
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    {{ 'smile-io.css' | asset_url | stylesheet_tag }}
+    <!--[if IE 7]><link rel="stylesheet" href="//cdn.smile.com/assets/themes/minimal/v1.0/css/fontello-ie7.min.css"><![endif]-->
+</head>
+
+<body>
+    <div class="smile-io-explainer">
+        <div class="background program-summary-bg">
+                <section class="program-summary">
+                    <h1>{{ page.title }}</h1>
+                    <div class="program-description">
+                      {{ page.content }}
+                    </div>
+                    <a class="cta-button" href="#" data-st-intent="st:core:home">{{ 'general.explainer_page.reward_cta' | t }}</a>
+                </section>
+        </div>
+
+        <div class="background points-worth-box-bg">
+            <section class="points-worth-box">
+                <span class="label">{{ 'general.explainer_page.earn_points' | t }}</span>
+                <span class="worth">{{ settings.earn_points_value }}</span>
+                <span class="points_icon"></span>
+                <span class="label">{{ 'general.explainer_page.spend_points' | t }}</span>
+                <span class="worth">{{ settings.spent_points_value }}</span>
+            </section>
+        </div>
+{% if settings.enable_vip %}
+      <section class="points-worth-box">
+              <div class="earning-box">
+            <span class="label"> Bronze Member </span>
+            <div class="points-label">0 - 99 points </div>
+            </div>
+          <div class="earning-box">
+            <span class="label"> Silver Member </span>
+            <div class="points-label">100 - 199 points </div>
+          </div>
+          <div class="earning-box">
+                  <span class="label">Gold Member</span>
+                  <div class="points-label"> 200 points  </div>
+            </div>
+          </section>
+ {% endif %}
+        {% if settings.welcome_points or settings.follow_social or settings.share_social or settings.birthday_points or settings.review_points == true %}
+            <div class="no-background earning-legend-bg">
+                <section class="earning-legend">
+                    <h2>{{ 'general.explainer_page.ways_to_earn' | t }}</h2>
+                    <div class="section-description">
+                        {{ settings.about_program }}
+                    </div>
+                    <div class="earning-options">
+                        {% if settings.welcome_points %}
+                            <a href="#" data-st-intent="st:points:rules">
+                                <div class="earning-box">
+                                    <div class="earning-icon st-icon-key"></div>
+                                    <div class="earning-amount">
+                                        <span class="points-value">{{ settings.points_for_account }}</span>
+                                        <span class="points-label">{{ settings.points_name }}</span>
+                                    </div>
+                                    <div class="earning-description">
+                                        {{ 'general.explainer_page.desc_for_account' | t }}
+                                    </div>
+                                </div>
+                            </a>
+                        {% endif %}
+                        {% if settings.sm_follow_facebook %}
+                            <a href="#" data-st-intent="st:points:rules">
+                                <div class="earning-box">
+                                    <div class="earning-icon st-icon-thumbs-up"></div>
+                                    <div class="earning-amount">
+                                        <span class="points-value">{{ settings.points_for_facebook }}</span>
+                                        <span class="points-label">{{ settings.points_name }}</span>
+                                    </div>
+                                    <div class="earning-description">
+                                        {{ 'general.explainer_page.desc_for_follow_fb' | t }}
+                                    </div>
+                                </div>
+                            </a>
+                        {% endif %}
+                        {% if settings.sm_share_facebook %}
+                            <a href="#" data-st-intent="st:points:rules">
+                                <div class="earning-box">
+                                    <div class="earning-icon st-icon-desktop"></div>
+                                    <div class="earning-amount">
+                                        <span class="points-value">{{ settings.points_for_share_fb }}</span>
+                                        <span class="points-label">{{ settings.points_name }}</span>
+                                    </div>
+                                    <div class="earning-description">
+                                        {{ 'general.explainer_page.desc_for_share_fb' | t }}
+                                    </div>
+                                </div>
+                            </a>
+                        {% endif %}
+                        {% if settings.sm_follow_twitter %}
+                            <a href="#" data-st-intent="st:points:rules">
+                                <div class="earning-box">
+                                    <div class="earning-icon st-icon-thumbs-up"></div>
+                                    <div class="earning-amount">
+                                        <span class="points-value">{{ settings.points_for_twitter }}</span>
+                                        <span class="points-label">{{ settings.points_name }}</span>
+                                    </div>
+                                    <div class="earning-description">
+                                        {{ 'general.explainer_page.desc_for_follow_tw' | t }}
+                                    </div>
+                                </div>
+                            </a>
+                        {% endif %}
+                        {% if settings.sm_share_twitter %}
+                            <a href="#" data-st-intent="st:points:rules">
+                                <div class="earning-box">
+                                    <div class="earning-icon st-icon-desktop"></div>
+                                    <div class="earning-amount">
+                                        <span class="points-value">{{ settings.points_for_share_tw }}</span>
+                                        <span class="points-label">{{ settings.points_name }}</span>
+                                    </div>
+                                    <div class="earning-description">
+                                        {{ 'general.explainer_page.desc_for_share_tw' | t }}
+                                    </div>
+                                </div>
+                            </a>
+                        {% endif %}
+                        {% if settings.sm_follow_instagram %}
+                            <a href="#" data-st-intent="st:points:rules">
+                                <div class="earning-box">
+                                    <div class="earning-icon st-icon-thumbs-up"></div>
+                                    <div class="earning-amount">
+                                        <span class="points-value">{{ settings.points_for_instagram }}</span>
+                                        <span class="points-label">{{ settings.points_name }}</span>
+                                    </div>
+                                    <div class="earning-description">
+                                        {{ 'general.explainer_page.desc_for_follow_in' | t }}
+                                    </div>
+                                </div>
+                            </a>
+                        {% endif %}
+                        {% if settings.birthday_points %}
+                            <a href="#" data-st-intent="st:points:rules">
+                                <div class="earning-box">
+                                    <div class="earning-icon st-icon-heart"></div>
+                                    <div class="earning-amount">
+                                        <span class="points-value">{{ settings.points_for_birthday }}</span>
+                                        <span class="points-label">{{ settings.points_name }}</span>
+                                    </div>
+                                    <div class="earning-description">
+                                        {{ 'general.explainer_page.desc_for_birthday' | t }}
+                                    </div>
+                                </div>
+                            </a>
+                        {% endif %}
+                        {% if settings.review_points %}
+                            <a href="#" data-st-intent:"st:point:rules">
+                                <div class="earning-box">
+                                    <div class="earning-icon st-icon-comment"></div>
+                                    <div class="earning-amount">
+                                        <span class="points-value">{{ settings.points_for_review }}</span>
+                                        <span class="points-label">{{ settings.points_name }}</span>
+                                    </div>
+                                    <div class="earning-description">
+                                        {{ 'general.explainer_page.desc_for_reviews' | t }}
+                                    </div>
+                                </div>
+                            </a>
+                        {% endif %}
+                    </div>
+                </section>
+            </div>
+        {% endif %}
+
+
+        {% if settings.referral_program %}
+            <div class="no-background referral-summary-bg">
+                <section class="referral-summary">
+                    <h2>Invite a Friend</h2>
+                    <div class="section-description">
+                        {{ settings.referral_description }}
+                    </div>
+                  <a href="#" data-st-intent="st:referrals:offers">
+                    <div class="referral-box">
+                        <div class="earning-box">
+                            <div class="earning-icon st-icon-megaphone"></div>
+                            <div class="earning-amount">
+                              {% if settings.referral_reward_1 %}
+                                <span class="points-value">{{ settings.points_for_referral }}</span>
+                                <span class="points-label">{{ settings.points_name }}</span>
+                              {% endif %}
+                              {% if settings.referral_reward_2 %}
+                                <span class ="points-value"> {{ settings.discount_for_referral}} </span>
+                                <span class="points-label"> {{ settings.discount_name}}
+                              {% endif %}
+                            </div>
+                            <div class="earning-description">
+                                {{ 'general.explainer_page.desc_for_referral' | t }}
+                            </div>
+                        </div>
+                    </div>
+                  </a>
+                </section>
+            </div>
+        {% endif %}
+
+        {% if settings.rewards %}
+            <div class="no-background earning-legend-bg">
+                <section class="earning-legend">
+                    <h2>{{ 'general.explainer_page.ways_to_spend' | t }}</h2>
+                    <div class="section-description">
+                        {{ settings.spending_description }}
+                    </div>
+                    <div class="earning-options">
+                        {% if settings.reward_1 %}
+                            <a href="#" data-st-intent="st:points:rewards">
+                                <div class="earning-box">
+                                    <div class="earning-icon st-icon-money"></div>
+                                    <div class="earning-amount">
+                                        <span class="points-value">{% if settings.reward_1_type == 'off' %} {{ settings.reward_1_amt | times: 100 | money_without_trailing_zeros }} {{ settings.reward_1_type }} {% else %} {{ settings.reward_1_amt }} {{ settings.reward_1_type }} {% endif %}</span>
+                                    </div>
+                                    <div class="earning-description">
+                                        For {{ settings.reward_1_points }} {{ settings.points_name }}
+                                    </div>
+                                </div>
+                            </a>
+                        {% endif %}
+                        {% if settings.reward_2 %}
+                            <a href="#" data-st-intent="st:points:rewards">
+                                <div class="earning-box">
+                                    <div class="earning-icon st-icon-money"></div>
+                                    <div class="earning-amount">
+                                        <span class="points-value">{% if settings.reward_2_type == 'off' %} {{ settings.reward_2_amt | times: 100 | money_without_trailing_zeros }} {{ settings.reward_2_type }} {% else %} {{ settings.reward_2_amt }} {{ settings.reward_2_type }} {% endif %}</span>
+                                    </div>
+                                    <div class="earning-description">
+                                        For {{ settings.reward_2_points }} {{ settings.points_name }}
+                                    </div>
+                                </div>
+                            </a>
+                        {% endif %}
+                        {% if settings.reward_3 %}
+                            <a href="#" data-st-intent="st:points:rewards">
+                                <div class="earning-box">
+                                    <div class="earning-icon st-icon-money"></div>
+                                    <div class="earning-amount">
+                                        <span class="points-value">{% if settings.reward_3_type == 'off' %} {{ settings.reward_3_amt | times: 100 | money_without_trailing_zeros }} {{ settings.reward_3_type }} {% else %} {{ settings.reward_3_amt }} {{ settings.reward_3_type }} {% endif %}</span>
+                                    </div>
+                                    <div class="earning-description">
+                                        For {{ settings.reward_3_points }} {{ settings.points_name }}
+                                    </div>
+                                </div>
+                            </a>
+                        {% endif %}
+                        {% if settings.reward_4 %}
+                            <a href="#" data-st-intent="st:points:rewards">
+                                <div class="earning-box">
+                                    <div class="earning-icon st-icon-money"></div>
+                                    <div class="earning-amount">
+                                        <span class="points-value">{% if settings.reward_4_type == 'off' %} {{ settings.reward_4_amt | times: 100 | money_without_trailing_zeros }} {{ settings.reward_4_type }} {% else %} {{ settings.reward_4_amt }} {{ settings.reward_4_type }} {% endif %}</span>
+                                    </div>
+                                    <div class="earning-description">
+                                        For {{ settings.reward_4_points }} {{ settings.points_name }}
+                                    </div>
+                                </div>
+                            </a>
+                        {% endif %}
+                        {% if settings.reward_5 %}
+                            <a href="#" data-st-intent="st:points:rewards">
+                                <div class="earning-box">
+                                    <div class="earning-icon st-icon-money"></div>
+                                    <div class="earning-amount">
+                                        <span class="points-value">{% if settings.reward_5_type == 'off' %} {{ settings.reward_5_amt | times: 100 | money_without_trailing_zeros }} {{ settings.reward_5_type }} {% else %} {{ settings.reward_5_amt }} {{ settings.reward_5_type }} {% endif %}</span>
+                                    </div>
+                                    <div class="earning-description">
+                                        For {{ settings.reward_5_points }} {{ settings.points_name }}
+                                    </div>
+                                </div>
+                            </a>
+                        {% endif %}
+                        {% if settings.reward_6 %}
+                            <a href="#" data-st-intent="st:points:rewards">
+                                <div class="earning-box">
+                                    <div class="earning-icon st-icon-money"></div>
+                                    <div class="earning-amount">
+                                        <span class="points-value">{% if settings.reward_6_type == 'off' %} {{ settings.reward_6_amt | times: 100 | money_without_trailing_zeros }} {{ settings.reward_6_type }} {% else %} {{ settings.reward_6_amt }} {{ settings.reward_1_type }} {% endif %}</span>
+                                    </div>
+                                    <div class="earning-description">
+                                        For {{ settings.reward_6_points }} {{ settings.points_name }}
+                                    </div>
+                                </div>
+                            </a>
+                        {% endif %}
+                        {% if settings.reward_7 %}
+                            <a href="#" data-st-intent="st:points:rewards">
+                                <div class="earning-box">
+                                    <div class="earning-icon st-icon-money"></div>
+                                    <div class="earning-amount">
+                                        <span class="points-value">{% if settings.reward_7_type == 'off' %} {{ settings.reward_7_amt | times: 100 | money_without_trailing_zeros }} {{ settings.reward_7_type }} {% else %} {{ settings.reward_7_amt }} {{ settings.reward_7_type }} {% endif %}</span>
+                                    </div>
+                                    <div class="earning-description">
+                                        For {{ settings.reward_7_points }} {{ settings.points_name }}
+                                    </div>
+                                </div>
+                            </a>
+                        {% endif %}
+                        {% if settings.reward_8 %}
+                            <a href="#" data-st-intent="st:points:rewards">
+                                <div class="earning-box">
+                                    <div class="earning-icon st-icon-money"></div>
+                                    <div class="earning-amount">
+                                        <span class="points-value">{% if settings.reward_8_type == 'off' %} {{ settings.reward_8_amt | times: 100 | money_without_trailing_zeros }} {{ settings.reward_8_type }} {% else %} {{ settings.reward_8_amt }} {{ settings.reward_8_type }} {% endif %}</span>
+                                    </div>
+                                    <div class="earning-description">
+                                        For {{ settings.reward_8_points }} {{ settings.points_name }}
+                                    </div>
+                                </div>
+                            </a>
+                        {% endif %}
+                    </div>
+                </section>
+            </div>
+            {% if settings.giftcard or setting.reward_freeship == 'true' %}
+                <section class="points-worth-box">
+                    {% if settings.reward_freeship %}
+                        <span class="label">Free Shipping</span>
+                        <span class="worth">For {{ settings.reward_freeship_points }} {{ settings.points_name }}</span>
+                        <br><br>
+                    {% endif %}
+                    {% if settings.giftcard %}
+                        <span class="label">Gift Card</span>
+                        <span class="worth">{{ settings.points_for_giftcard }} {{ settings.points_name }} = {{ settings.amt_for_giftcard | times: 100 | money_without_trailing_zeros }}</span>
+                    {% endif %}
+                </section>
+            {% endif %}
+        {% endif %}
+
+        {% if settings.enable_faq %}
+            <div class="background faq-bg">
+                <section class="faq">
+                    <h3>Frequently Asked Questions</h3>
+                    <ul class="question-list">
+                        {% if settings.sm_question_1 and settings.sm_answer_1 != blank %}
+                            <li class="question">
+                                <span>{{ settings.sm_question_1 }}</span>
+                                <span class="answer">
+                                    {{ settings.sm_answer_1 }}
+                                </span>
+                            </li>
+                        {% endif %}
+                        {% if settings.sm_question_2 and settings.sm_answer_2 != blank %}
+                            <li class="question">
+                                <span>{{ settings.sm_question_2 }}</span>
+                                <span class="answer">
+                                    {{ settings.sm_answer_2 }}
+                                </span>
+                            </li>
+                        {% endif %}
+                        {% if settings.sm_question_3 and settings.sm_answer_3 != blank %}
+                            <li class="question">
+                                <span>{{ settings.sm_question_3 }}</span>
+                                <span class="answer">
+                                    {{ settings.sm_answer_3 }}
+                                </span>
+                            </li>
+                        {% endif %}
+                        {% if settings.sm_question_4 and settings.sm_answer_4 != blank %}
+                            <li class="question">
+                                <span>{{ settings.sm_question_4 }}</span>
+                                <span class="answer">
+                                    {{ settings.sm_answer_4 }}
+                                </span>
+                            </li>
+                        {% endif %}
+                        {% if settings.sm_question_5 and settings.sm_answer_5 != blank %}
+                            <li class="question">
+                                <span>{{ settings.sm_question_5 }}</span>
+                                <span class="answer">
+                                    {{ settings.sm_answer_5 }}
+                                </span>
+                            </li>
+                        {% endif %}
+                        {% if settings.sm_question_6 and settings.sm_answer_6 != blank %}
+                            <li class="question">
+                                <span>{{ settings.sm_question_6 }}</span>
+                                <span class="answer">
+                                    {{ settings.sm_answer_6 }}
+                                </span>
+                            </li>
+                        {% endif %}
+                        {% if settings.sm_question_7 and settings.sm_answer_7 != blank %}
+                            <li class="question">
+                                <span>{{ settings.sm_question_7 }}</span>
+                                <span class="answer">
+                                    {{ settings.sm_answer_7 }}
+                                </span>
+                            </li>
+                        {% endif %}
+                        {% if settings.sm_question_8 and settings.sm_answer_8 != blank %}
+                            <li class="question">
+                                <span>{{ settings.sm_question_8 }}</span>
+                                <span class="answer">
+                                    {{ settings.sm_answer_8 }}
+                                </span>
+                            </li>
+                        {% endif %}
+                        {% if settings.sm_question_9 and settings.sm_answer_9 != blank %}
+                            <li class="question">
+                                <span>{{ settings.sm_question_9 }}</span>
+                                <span class="answer">
+                                    {{ settings.sm_answer_9 }}
+                                </span>
+                            </li>
+                        {% endif %}
+                        {% if settings.sm_question_10 and settings.sm_answer_10 != blank %}
+                            <li class="question">
+                                <span>{{ settings.sm_question_10 }}</span>
+                                <span class="answer">
+                                    {{ settings.sm_answer_10 }}
+                                </span>
+                            </li>
+                        {% endif %}
+                    </ul>
+                </section>
+            </div>
+        {% endif %}
+    </div>
+</body>

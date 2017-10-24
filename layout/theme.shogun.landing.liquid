@@ -5,7 +5,9 @@
 <!--[if IE 8 ]><html class="ie ie8" lang="{{ shop.locale }}"> <![endif]-->
 <!--[if IE 9 ]><html class="ie ie9" lang="{{ shop.locale }}"> <![endif]-->
 <!--[if (gte IE 10)|!(IE)]><!--><html lang="{{ shop.locale }}"> <!--<![endif]-->
-  <head>
+  
+<head>
+  
     <meta charset="utf-8">
     <meta http-equiv="cleartype" content="on">
     <meta name="robots" content="index,follow">
@@ -69,15 +71,16 @@
     <!-- End Custom Stamped.io reviews css/js -->
 
     <!-- Custom head scripts -->
-    {% include 'findify-script' %}
+    <!-- Findify -->
+    {% comment %} {% include 'findify-script' %} {% endcomment %}
+    <!-- end of Findify -->
     {% include 'tracking-head' %}
-    <!-- End Custom  head scripts -->
+    <!-- End Custom tracking head -->
 
     {{ content_for_header }}
-        
-	<script src="{{ 'app.js' | asset_url }}"></script>
-  
+
 </head>
+
   {% if template contains "index" %}
     {% assign feature_image = true %}
   {% elsif template contains "collection" %}
@@ -100,80 +103,16 @@
     {% assign feature_image = false %}
   {% endif %}
 
-  <body class="{{ template | replace: '.', '-' | handle }}">
-
-    <!-- Custom gtm body -->
-    {% comment %} {% include 'gtm-body' %} {% endcomment %}
-    <!-- End Custom gtm body -->
-
-    {% section 'header' %}
-
-    <div class="mega-menu-container">
-      {% if settings.mega_menu_1 %}
-        {% section 'mega-menu-1' %}
-      {% endif %}
-
-      {% if settings.mega_menu_2 %}
-        {% section 'mega-menu-2' %}
-      {% endif %}
-
-      {% if settings.mega_menu_3 %}
-        {% section 'mega-menu-3' %}
-      {% endif %}
-
-      {% if settings.mega_menu_4 %}
-        {% section 'mega-menu-4' %}
-      {% endif %}
-
-      {% if settings.mega_menu_5 %}
-        {% section 'mega-menu-5' %}
-      {% endif %}
-
-    </div>
-
-    {% unless feature_image %}
-      <div class="container main content">
-    {% endunless %}
-
-      {{ content_for_layout }}
-    </div>
-
-    {% unless template contains 'index' or settings.secondary_newsletter_banner == false %}
-      {% section 'newsletter' %}
-    {% endunless %}
-
-    {% section 'footer' %}
-
-    {% if settings.size_chart != blank %}
-      {% include 'popup-size-chart' %}
-    {% endif %}
-    {% if settings.newsletter_popup %}
-      {% include 'popup-newsletter' %}
-    {% endif %}
-    {% if settings.quick_shop_enabled %}
-      {% include 'popup-quick-shop' %}
-    {% endif %}
-    {% if settings.disqus_enabled %}
-      {% if template contains "blog" or template contains "article" or template contains "index" %}
-        <script id="dsq-count-scr" src="//{{ settings.disqus_shortname }}.disqus.com/count.js" async></script>
-      {% endif %}
-    {% endif %}
-
-	  <script src="{{ 'app.js' | asset_url }}"></script>
-
-    {% if settings.show_multiple_currencies %}
-      {% include 'currencies' %}
-    {% endif %}
-
-
-    {% if settings.show_shipping_calculator and template contains "cart" %}
-      {% include 'cart-shipping-scripts' %}
-    {% endif %}
-
-    {% unless settings.performance == "sport" or template contains "customer" %}
-      <script src="{{ 'instantclick.min.js' | asset_url }}" data-no-instant></script>
-
-      <script data-no-instant>
+  
+<body class="{{ template | replace: '.', '-' | handle }}">
+  
+  
+  {{ content_for_layout }}
+  
+  <script id="dsq-count-scr" src="//{{ settings.disqus_shortname }}.disqus.com/count.js" async></script>
+<script src="{{ 'app.js' | asset_url }}"></script>
+<script src="{{ 'instantclick.min.js' | asset_url }}" data-no-instant></script>
+<script data-no-instant>
 
       function inIframe() {
         try {
@@ -209,24 +148,20 @@
         InstantClick.init();
       }
       </script>
-    {% endunless %}
-
-    <!-- Custom body scripts--> 
-    {% include 'sweettooth-initializer' %}
-    {% include 'findify-tagging' %}
-    {% include 'tracking-body' %}
-    {% include 'smooch' %}
-    {% include 'back-in-stock-helper' %}
-    {% include 'sweettooth-tab-widget' %}
-    <!-- End Custom body scripts -->
-
-    <script>
+<script>
       {{ settings.custom_scripts }}
     </script>
-
-
+  <style type="text/css">
+    body, html {
+      width: 100% !important;
+      background: white !important;
+    }
+  </style>
+  
 </body>
+
 </html>
 {% endcapture %}
 {% assign content = content | replace_first: '<!DOCTYPE', '!DOCTYPE' | split: ' <' %}
 {% for html in content %}{% assign htmlblock = html | strip | prepend: ' <' %}{{htmlblock | replace: ' </', '</'}}{% endfor %}
+
