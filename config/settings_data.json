@@ -2435,7 +2435,7 @@
     "quick_shop_product_images_position": "left",
     "quick_shop_product_thumbs": true,
     "quick_shop_thumbnail_position": "bottom-thumbnails",
-    "cart_action": "ajax",
+    "cart_action": "redirect_cart",
     "tos_page": "",
     "go_to_checkout": true,
     "display_special_instructions": true,
