@@ -3207,8 +3207,8 @@
             "settings": {
               "image": "shopify:\/\/shop_images\/boonsri-black-xss-indira-active_2000x_3.jpg",
               "link": "",
-              "title": "Free Shipping on two items or more",
-              "text": "",
+              "title": "Free Shipping on two items or more (USA)",
+              "text": "<p>Free shipping - spend $150 or more (Canada)<\/p>",
               "button_label": ""
             }
           },
