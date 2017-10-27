@@ -4,6 +4,8 @@
 - Uses blocks
 {% endcomment %}
 
+<a name="pagecontent" id="pagecontent"></a>
+
 <div class="detail-sections">
 
 {% if section.blocks.size > 0 %}
@@ -162,7 +164,7 @@
           {% assign products = collections[block.settings.collection].products %}
           {% assign per_slide = block.settings.products_per %}
 
-          <div class="container js-product-slider homepage-product-slider full-width {% if per_slide == "2" or per_slide == "4" or per_slide == "6" %}even-num-slides{% endif %}">
+          <div class="container js-product-slider homepage-product-slider full-width {% if per_slide == 2 or per_slide == 4 or per_slide == 6 %}even-num-slides{% endif %}">
             {% if section_onboarding == false %}
               {% if col and collections[col].all_products_count > 0 %}
                 {% include 'product-slider', per_slide: block.settings.products_per, featured_collection: col  %}
@@ -217,15 +219,15 @@
                     {% assign collection_group_thumb = collection_group | append : 'thumb' %}
                     {% assign collection_group_mobile = collection_group | append : 'mobile' %}
                       <div class="
-                      {% if products_per_row == "2" %}
+                      {% if products_per_row == 2 %}
                         eight columns {% cycle collection_group_thumb: 'alpha', 'omega' %}
-                      {% elsif products_per_row == "3" %}
+                      {% elsif products_per_row == 3 %}
                         one-third column {% cycle collection_group_thumb: 'alpha', '', 'omega' %}
-                      {% elsif products_per_row == "4" %}
+                      {% elsif products_per_row == 4 %}
                         four columns {% cycle collection_group_thumb: 'alpha', '', '', 'omega' %}
-                      {% elsif products_per_row == "5" %}
+                      {% elsif products_per_row == 5 %}
                         one-fifth column {% cycle collection_group_thumb: 'alpha', '', '', '', 'omega' %}
-                      {% elsif products_per_row == "6" %}
+                      {% elsif products_per_row == 6 %}
                         one-sixth column {% cycle collection_group_thumb: 'alpha', '', '', '', '', 'omega' %}
                       {% else %}
                         one-seventh column {% cycle collection_group_thumb: 'alpha', '', '', '', '', '', 'omega' %}
@@ -241,17 +243,17 @@
                       </div>
                     </div>
 
-                    {% if products_per_row == "2" %}
+                    {% if products_per_row == 2 %}
                       {% cycle collection_group: '', new_row %}
-                    {% elsif products_per_row == "3" %}
+                    {% elsif products_per_row == 3 %}
                       {% cycle collection_group: '', '', new_row %}
-                    {% elsif products_per_row == "4" %}
+                    {% elsif products_per_row == 4 %}
                       {% cycle collection_group: '', '', '', new_row %}
-                    {% elsif products_per_row == "5" %}
+                    {% elsif products_per_row == 5 %}
                       {% cycle collection_group: '', '', '', '', new_row %}
-                    {% elsif products_per_row == "6" %}
+                    {% elsif products_per_row == 6 %}
                       {% cycle collection_group: '', '', '', '', '', new_row %}
-                    {% elsif products_per_row == "7" %}
+                    {% elsif products_per_row == 7 %}
                       {% cycle collection_group: '', '', '', '', '', '', new_row %}
                     {% endif %}
                   {% endfor %}
@@ -293,7 +295,7 @@
             {% endif %}
             {% if block.settings.blog_widget_select != blank %}
               {% for article in blogs[block.settings.blog_widget_select].articles limit: block.settings.home_page_articles %}
-                <div class="{% if block.settings.home_page_articles == "2" %}eight columns{% elsif block.settings.home_page_articles == "3" %}one-third column{% else %}four columns{% endif %} article">
+                <div class="{% if block.settings.home_page_articles == 2 %}eight columns{% elsif block.settings.home_page_articles == 3 %}one-third column{% else %}four columns{% endif %} article">
                   {% if article.image %}
                     <a href="{{ article.url }}">
                       <img  src="{{ article.image | img_url: '100x' }}"
@@ -355,7 +357,7 @@
               {% endfor %}
             {% else %}
               {% for i in (1..block.settings.home_page_articles) %}
-                <div class="{% if block.settings.home_page_articles == "2" %}eight columns{% elsif block.settings.home_page_articles == "3" %}one-third column{% else %}four columns{% endif %} article">
+                <div class="{% if block.settings.home_page_articles == 2 %}eight columns{% elsif block.settings.home_page_articles == 3 %}one-third column{% else %}four columns{% endif %} article">
                   {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
 
                   <h3 class="sub_title">
@@ -415,50 +417,85 @@
         {% assign size8 = '1700x' %}
         {% assign size9 = '1900x' %}
         {% assign size10 = '2000x' %}
+        <div class="video-section">
+          <section  class="homepage-video darken-video-{{ block.settings.video_dark_overlay }}  placeholder-image--{% if block.settings.image %}true{% else %}false{% endif %}"
+                data-video-id="video-{{block.id}}"
+                data-autoplay="{{ block.settings.autoplay }}"
+                data-autoloop="{{ block.settings.autoloop }}"
+                data-display-text-over-video="{{ block.settings.display_text_over_video }}"
+                data-poster-image="{% if block.settings.image %}{{ block.settings.image | img_url: '1500x' }}{% else %}false{% endif %}"
+                data-video-src="{{ block.settings.video.id }}"
+                data-aspect-ratio="{{ block.settings.aspect_ratio }}"
+                data-provider="{{ block.settings.source }}"
+                data-video-mp4="{{ block.settings.mp4 }}"
+                data-video-ogv="{{ block.settings.ogv }}"
+          >
+            <div class="homepage-video--media">
+              {% if block.settings.image %}
+                <img  src="{{ block.settings.image | img_url: '100x', format: 'pjpg' }}"
+                      alt="{% if block.settings.image.alt != blank %}{{ block.settings.image.alt | escape }}{% else %}{{ block.settings.title | escape }}{% endif %}"
+                      class="lazyload {{ settings.image_loading_style }} homepage-video__image"
+                      data-play-video
+                      sizes="100vw"
+                      data-src="{{ block.settings.image | img_url: default, format: 'pjpg' }}"
+                      srcset="
+                      {{ block.settings.image | img_url: default, format: 'pjpg' }} {{default | replace: 'x', 'w'}},
+                      {{ block.settings.image | img_url: size1, format: 'pjpg' }} {{size1 | replace: 'x', 'w'}},
+                      {{ block.settings.image | img_url: size2, format: 'pjpg' }} {{size2 | replace: 'x', 'w'}},
+                      {{ block.settings.image | img_url: size3, format: 'pjpg' }} {{size3 | replace: 'x', 'w'}},
+                      {{ block.settings.image | img_url: size4, format: 'pjpg' }} {{size4 | replace: 'x', 'w'}},
+                      {{ block.settings.image | img_url: size5, format: 'pjpg' }} {{size5 | replace: 'x', 'w'}},
+                      {{ block.settings.image | img_url: size6, format: 'pjpg' }} {{size6 | replace: 'x', 'w'}},
+                      {{ block.settings.image | img_url: size7, format: 'pjpg' }} {{size7 | replace: 'x', 'w'}},
+                      {{ block.settings.image | img_url: size8, format: 'pjpg' }} {{size8 | replace: 'x', 'w'}},
+                      {{ block.settings.image | img_url: size9, format: 'pjpg' }} {{size9 | replace: 'x', 'w'}},
+                      {{ block.settings.image | img_url: size10, format: 'pjpg' }} {{size10 | replace: 'x', 'w'}}"
+                       />
+              {% else %}
+                <div class="homepage-video__placeholder" data-play-video>
+                  {{ 'lifestyle-1' | placeholder_svg_tag: 'placeholder-svg placeholder-svg--video' }}
+                </div>
+              {% endif %}
+              {% unless block.settings.pretext == blank and block.settings.title == blank and block.settings.subtitle == blank and block.settings.button1_label == blank and block.settings.button2_label == blank %}
+                <div class="position-{{ block.settings.text_position }} caption js-caption text-on-video text-on-video--{{ block.settings.display_text_over_video }}">
+                  <div class="caption-content
+                              caption-background-{{block.settings.caption_background}}
+                              caption-transparency-{{ block.settings.caption_background_transparency }}
+                              align-{{block.settings.text_align}}">
+                    {% if block.settings.pretext != blank %}
+                      <div class="pretext">
+                        {{ block.settings.pretext }}
+                      </div>
+                    {% endif %}
+                    {% if block.settings.title != blank %}
+                      <h1 class="headline">
+                        {{ block.settings.title }}
+                      </h1>
+                    {% endif %}
+                    {% if block.settings.subtitle != blank %}
+                      <div class="subtitle">
+                        {{ block.settings.subtitle }}
+                      </div>
+                    {% endif %}
+                    {% if block.settings.button1_label != blank %}
+                      <a {% if block.settings.button1_link != blank %}href="{{ block.settings.button1_link }}"{% else %}data-play-video-button{% endif %} class="action_button first_button highlight-{{ block.settings.button1_highlight }} {% if block.settings.button1_link == blank %}video__play-button{% endif %}">
+                        {{ block.settings.button1_label }}
+                      </a>
+                    {% endif %}
+                    {% if block.settings.button2_label != blank %}
+                      <a {% if block.settings.button2_link != blank %}href="{{ block.settings.button2_link }}"{% else %}data-play-video{% endif %} class="action_button second_button highlight-{{ block.settings.button2_highlight }} {% if block.settings.button2_link == blank %}video__play-button{% endif %}">
+                        {{ block.settings.button2_label }}
+                      </a>
+                    {% endif %}
+                  </div>
+                </div>
+              {% endunless %}
+            </div>
+          </section>
 
-        <section  class="homepage-video darken-video-{{ block.settings.video_dark_overlay }}"
-              data-video-id="video-{{block.id}}"
-              data-autoplay="{{ block.settings.autoplay }}"
-              data-autoloop="{{ block.settings.autoloop }}"
-              data-video-text="{{ block.settings.display_text_over_video }}"
-        >
-          <div class="homepage-video--media"
-            data-video-src="{{ block.settings.video.id }}"
-            data-aspect-ratio="{{ block.settings.aspect_ratio }}"
-            data-provider="{{ block.settings.source }}"
-            data-video-mp4="{{ block.settings.mp4 }}"
-            data-video-ogv="{{ block.settings.ogv }}">
-            {% if block.settings.image %}
-              <img  src="{{ block.settings.image | img_url: '100x', format: 'pjpg' }}"
-                    alt="{% if block.settings.image.alt != blank %}{{ block.settings.image.alt | escape }}{% else %}{{ block.settings.title | escape }}{% endif %}"
-                    class="lazyload {{ settings.image_loading_style }}"
-                    data-play-video
-                    sizes="100vw"
-                    data-src="{{ block.settings.image | img_url: default, format: 'pjpg' }}"
-                    srcset="
-                    {{ block.settings.image | img_url: default, format: 'pjpg' }} {{default | replace: 'x', 'w'}},
-                    {{ block.settings.image | img_url: size1, format: 'pjpg' }} {{size1 | replace: 'x', 'w'}},
-                    {{ block.settings.image | img_url: size2, format: 'pjpg' }} {{size2 | replace: 'x', 'w'}},
-                    {{ block.settings.image | img_url: size3, format: 'pjpg' }} {{size3 | replace: 'x', 'w'}},
-                    {{ block.settings.image | img_url: size4, format: 'pjpg' }} {{size4 | replace: 'x', 'w'}},
-                    {{ block.settings.image | img_url: size5, format: 'pjpg' }} {{size5 | replace: 'x', 'w'}},
-                    {{ block.settings.image | img_url: size6, format: 'pjpg' }} {{size6 | replace: 'x', 'w'}},
-                    {{ block.settings.image | img_url: size7, format: 'pjpg' }} {{size7 | replace: 'x', 'w'}},
-                    {{ block.settings.image | img_url: size8, format: 'pjpg' }} {{size8 | replace: 'x', 'w'}},
-                    {{ block.settings.image | img_url: size9, format: 'pjpg' }} {{size9 | replace: 'x', 'w'}},
-                    {{ block.settings.image | img_url: size10, format: 'pjpg' }} {{size10 | replace: 'x', 'w'}}"
-                     />
-            {% else %}
-              <div class="homepage-video__placeholder" data-play-video>
-                {{ 'lifestyle-1' | placeholder_svg_tag: 'placeholder-svg placeholder-svg--video' }}
-              </div>
-            {% endif %}
-
-            <div class="position-{{ block.settings.text_position }} caption js-caption text-on-video">
-              <div class="caption-content
-                          caption-background-{{block.settings.caption_background}}
-                          caption-transparency-{{ block.settings.caption_background_transparency }}
-                          align-{{block.settings.text_align}}">
+          {% unless block.settings.pretext == blank and block.settings.title == blank and block.settings.subtitle == blank and block.settings.button1_label == blank and block.settings.button2_label == blank %}
+            <section class="position-{{ block.settings.text_position }} caption js-caption text-on-video outside-homepage-video">
+              <div class="caption-content align-{{ block.settings.text_align }}">
                 {% if block.settings.pretext != blank %}
                   <div class="pretext">
                     {{ block.settings.pretext }}
@@ -474,50 +511,20 @@
                     {{ block.settings.subtitle }}
                   </div>
                 {% endif %}
-                {% if block.settings.button1_label != blank %}
-                  <a {% if block.settings.button1_link != blank %}href="{{ block.settings.button1_link }}"{% else %}data-play-video{% endif %} class="action_button first_button highlight-{{ block.settings.button1_highlight }} {% if block.settings.button1_link == blank %}video__play-button{% endif %}">
+                {% if block.settings.button1_label != blank and block.settings.button1_link != blank %}
+                  <a href="{{ block.settings.button1_link }}" class="action_button first_button highlight-{{ block.settings.button1_highlight }}">
                     {{ block.settings.button1_label }}
                   </a>
                 {% endif %}
-                {% if block.settings.button2_label != blank %}
-                  <a {% if block.settings.button2_link != blank %}href="{{ block.settings.button2_link }}"{% else %}data-play-video{% endif %} class="action_button second_button highlight-{{ block.settings.button2_highlight }} {% if block.settings.button2_link == blank %}video__play-button{% endif %}">
+                {% if block.settings.button2_label != blank and block.settings.button2_link != blank %}
+                  <a href="{{ block.settings.button2_link }}" class="action_button first_button highlight-{{ block.settings.button2_highlight }}">
                     {{ block.settings.button2_label }}
                   </a>
                 {% endif %}
               </div>
-            </div>
-          </div>
-        </section>
-
-        <section class="position-{{ block.settings.text_position }} caption js-caption text-on-video outside-homepage-video">
-          <div class="caption-content align-{{ block.settings.text_align }}">
-            {% if block.settings.pretext != blank %}
-              <div class="pretext">
-                {{ block.settings.pretext }}
-              </div>
-            {% endif %}
-            {% if block.settings.title != blank %}
-              <h1 class="headline">
-                {{ block.settings.title }}
-              </h1>
-            {% endif %}
-            {% if block.settings.subtitle != blank %}
-              <div class="subtitle">
-                {{ block.settings.subtitle }}
-              </div>
-            {% endif %}
-            {% if block.settings.button1_label != blank %}
-              <a {% if block.settings.button1_link != blank %}href="{{ block.settings.button1_link }}"{% else %}data-play-video{% endif %} class="action_button first_button highlight-{{ block.settings.button1_highlight }}">
-                {{ block.settings.button1_label }}
-              </a>
-            {% endif %}
-            {% if block.settings.button2_label != blank %}
-              <a {% if block.settings.button2_link != blank %}href="{{ block.settings.button2_link }}"{% else %}data-play-video{% endif %} class="action_button second_button highlight-{{ block.settings.button2_highlight }}">
-                {{ block.settings.button2_label }}
-              </a>
-            {% endif %}
-          </div>
-        </section>
+            </section>
+          {% endunless %}
+        </div>
       {% endif %}
 
       {% if block.type == 'image_gallery' %}
@@ -741,16 +748,36 @@
       {% endif %}
 
       {% if block.type == 'map' %}
-        {% if block.settings.map_stretch %}
-          <div class="embed-container maps">
-            <iframe width="100%" height="{{ block.settings.map_height }}" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?f=q&amp;source=embed&amp;hl=en&amp;geocode=&amp;q={% if block.settings.contact_address != blank %}{{ block.settings.contact_address | replace: ' ', '+' }}{% else %}{{ shop.address.street }}{% endif %}&amp;z={{ block.settings.zoom_level }}&amp;output=embed"></iframe>
-          </div>
-        {% else %}
-          <div class="container">
-            <div class="embed-container maps">
-              <iframe width="100%" height="{{ block.settings.map_height }}" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?f=q&amp;source=embed&amp;hl=en&amp;geocode=&amp;q={% if block.settings.contact_address != blank %}{{ block.settings.contact_address | replace: ' ', '+' }}{% else %}{{ shop.address.street }}{% endif %}&amp;z={{ block.settings.zoom_level }}&amp;output=embed"></iframe>
+        {% if block.settings.contact_address != blank %}
+          {% if block.settings.map_stretch %}
+            <div class="embed-container maps {% if block.settings.map_greyscale %}grey-map{% endif %}">
+              <iframe width="100%" height="{{ block.settings.map_height }}" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?f=q&amp;source=embed&amp;hl=en&amp;geocode=&amp;q={% if block.settings.contact_address != blank %}{{ block.settings.contact_address | replace: ' ', '+' }}{% endif %}&amp;z={{ block.settings.zoom_level }}&amp;output=embed" {% if block.settings.map_scrolling %}style="pointer-events: auto;"{% endif %}></iframe>
             </div>
-          </div>
+          {% else %}
+            <div class="container">
+              <div class="sixteen columns">
+                <div class="embed-container maps {% if block.settings.map_greyscale %}grey-map{% endif %}">
+                  <iframe width="100%" height="{{ block.settings.map_height }}" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?f=q&amp;source=embed&amp;hl=en&amp;geocode=&amp;q={% if block.settings.contact_address != blank %}{{ block.settings.contact_address | replace: ' ', '+' }}{% endif %}&amp;z={{ block.settings.zoom_level }}&amp;output=embed" {% if block.settings.map_scrolling %}style="pointer-events: auto;"{% endif %}></iframe>
+                </div>
+              </div>
+            </div>
+          {% endif %}
+        {% else %}
+          {% if block.settings.map_stretch %}
+            <div class="map-placeholder" style="height: {{ block.settings.map_height }}px;">
+              {% capture i %}{% cycle "1", "2" %}{% endcapture %}
+              {{ 'lifestyle-' | append: i | placeholder_svg_tag: 'placeholder-svg placeholder-svg--map' }}
+            </div>
+          {% else %}
+            <div class="container">
+              <div class="sixteen columns">
+                <div class="map-placeholder" style="height: {{ block.settings.map_height }}px;">
+                  {% capture i %}{% cycle "1", "2" %}{% endcapture %}
+                  {{ 'lifestyle-' | append: i | placeholder_svg_tag: 'placeholder-svg placeholder-svg--map' }}
+                </div>
+              </div>
+            </div>
+          {% endif %}
         {% endif %}
       {% endif %}
 
@@ -823,6 +850,12 @@
       margin-bottom: 0 !important;
     }
   }
+  .grey-map {
+    filter: url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'grayscale\'><feColorMatrix type=\'matrix\' values=\'0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0\'/></filter></svg>#grayscale"); /* Firefox 10+ */
+    filter: gray; /* IE6-9 */
+    -webkit-filter: grayscale(99%); /* Chrome 19+ & Safari 6+ */
+    -webkit-backface-visibility: hidden;  /* Fix for transition flickering */
+  }
 </style>
 
 {% schema %}
@@ -849,24 +882,13 @@
           "label": "Blog"
         },
         {
-          "type": "select",
+          "type": "range",
           "id": "home_page_articles",
-          "label": "Blog posts",
-          "options": [
-            {
-              "value": "2",
-              "label": "2"
-            },
-            {
-              "value": "3",
-              "label": "3"
-            },
-            {
-              "value": "4",
-              "label": "4"
-            }
-          ],
-          "default": "3"
+          "label": "Posts",
+          "min": 2,
+          "max": 4,
+          "step": 1,
+          "default": 3
         },
         {
           "type": "checkbox",
@@ -1020,88 +1042,22 @@
           ]
         },
         {
-          "type": "select",
+          "type": "range",
           "id": "products_per",
           "label": "Products per row",
-          "options": [
-            {
-              "value": "2",
-              "label": "2"
-            },
-            {
-              "value": "3",
-              "label": "3"
-            },
-            {
-              "value": "4",
-              "label": "4"
-            },
-            {
-              "value": "5",
-              "label": "5"
-            },
-            {
-              "value": "6",
-              "label": "6"
-            },
-            {
-              "value": "7",
-              "label": "7"
-            }
-          ],
-          "default": "3"
+          "min": 2,
+          "max": 7,
+          "step": 1,
+          "default": 3
         },
         {
-          "type": "select",
+          "type": "range",
           "id": "products_limit",
           "label": "Limit products",
-          "default": "12",
-          "options": [
-            {
-              "value": "3",
-              "label": "3"
-            },
-            {
-              "value": "4",
-              "label": "4"
-            },
-            {
-              "value": "5",
-              "label": "5"
-            },
-            {
-              "value": "6",
-              "label": "6"
-            },
-            {
-              "value": "8",
-              "label": "8"
-            },
-            {
-              "value": "10",
-              "label": "10"
-            },
-            {
-              "value": "12",
-              "label": "12"
-            },
-            {
-              "value": "15",
-              "label": "15"
-            },
-            {
-              "value": "20",
-              "label": "20"
-            },
-            {
-              "value": "24",
-              "label": "24"
-            },
-            {
-              "value": "48",
-              "label": "48"
-            }
-          ]
+          "min": 2,
+          "max": 50,
+          "step": 1,
+          "default": 48
         }
       ]
     },
@@ -1501,38 +1457,13 @@
           "info": "The full address that will be placed on the map."
         },
         {
-          "type": "select",
+          "type": "range",
           "id": "zoom_level",
-          "label": "Map zoom level (1-20)",
-          "options": [
-            {"value": "1", "label": "1"},
-            {"value": "2", "label": "2"},
-            {"value": "3", "label": "3"},
-            {"value": "4", "label": "4"},
-            {"value": "5", "label": "5"},
-            {"value": "6", "label": "6"},
-            {"value": "7", "label": "7"},
-            {"value": "8", "label": "8"},
-            {"value": "9", "label": "9"},
-            {"value": "10", "label": "10"},
-            {"value": "11", "label": "11"},
-            {"value": "12", "label": "12"},
-            {"value": "13", "label": "13"},
-            {"value": "14", "label": "14"},
-            {"value": "15", "label": "15"},
-            {"value": "16", "label": "16"},
-            {"value": "17", "label": "17"},
-            {"value": "18", "label": "18"},
-            {"value": "19", "label": "19"},
-            {"value": "20", "label": "20"}
-          ],
-          "default": "12"
-        },
-        {
-          "type": "checkbox",
-          "id": "map_stretch",
-          "label": "Stretch to fill page",
-          "default": true
+          "label": "Map zoom level",
+          "min": 1,
+          "max": 20,
+          "step": 1,
+          "default": 12
         },
         {
           "type": "range",
@@ -1542,7 +1473,25 @@
           "step": 50,
           "unit": "px",
           "label": "Height",
-          "default": 250
+          "default": 400
+        },
+        {
+          "type": "checkbox",
+          "id": "map_stretch",
+          "label": "Stretch to fill page",
+          "default": true
+        },
+        {
+          "type": "checkbox",
+          "id": "map_greyscale",
+          "label": "Enable greyscale map",
+          "default": false
+        },
+        {
+          "type": "checkbox",
+          "id": "map_scrolling",
+          "label": "Enable scrolling",
+          "default": false
         }
       ]
     },
@@ -1677,8 +1626,8 @@
           "type": "featured_collection",
           "settings": {
             "collection_style": "grid",
-            "products_per": "4",
-            "products_limit": "8"
+            "products_per": 4,
+            "products_limit": 8
           }
         },
         {

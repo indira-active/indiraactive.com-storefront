@@ -7,7 +7,20 @@
   <div class="sixteen columns">
     <div class="homepage_content section {{ section.settings.text_alignment }} clearfix">
       {% if section.settings.image %}
-        {{ section.settings.image | img_url: '1180x', scale: 2 | img_tag: section.settings.image.alt, 'lazyload transition-in' }}
+        <img  src="{{ section.settings.image.src | img_url: '100x' }}"
+              class="lazyload {{ settings.image_loading_style }}"
+              alt="{{ section.settings.image.alt }}"
+              style="max-width: {{- section.settings.image.width -}}px;"
+              data-sizes="auto"
+              data-src="{{ section.settings.image | img_url: '2048x' }}"
+              data-srcset=" {{ section.settings.image | img_url: '2048x' }} 2048w,
+                            {{ section.settings.image | img_url: '1600x' }} 1600w,
+                            {{ section.settings.image | img_url: '1200x' }} 1200w,
+                            {{ section.settings.image | img_url: '1000x' }} 1000w,
+                            {{ section.settings.image | img_url: '800x' }} 800w,
+                            {{ section.settings.image | img_url: '600x' }} 600w,
+                            {{ section.settings.image | img_url: '400x' }} 400w"
+              />
       {% endif %}
 
       {% if section.settings.title != blank %}
@@ -33,7 +46,7 @@
 </div>
 
 <style>
-  @media only screen and (max-width: 768px) {
+  @media only screen and (max-width: 798px) {
     .featured_text {
       text-align: {{ section.settings.text_alignment }};
     }

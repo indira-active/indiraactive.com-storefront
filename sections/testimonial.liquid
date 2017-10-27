@@ -18,7 +18,7 @@
 
 {% if section.blocks.size > 0 %}
   <div  id="testimonial-{{section.id}}"
-        class="testimonial-slideshow js-testimonial {% if section.settings.testimonial_text_animation != '' %}text-animation--true{% endif %}"
+        class="testimonial-slideshow js-testimonial {% if section.settings.testimonial_text_animation != '' %}text-animation--true{% endif %} {% if settings.slideshow_button_style != true %}light-button{% endif %}"
         data-slider-id="testimonial-{{section.id}}"
         data-slideshow-speed="{{section.settings.testimonial_speed}}"
         data-slideshow-text-animation="{{section.settings.testimonial_text_animation}}"
@@ -57,7 +57,7 @@
               {% endif %}
             {% endif %}
             <div class="caption position-{{block.settings.text_position}} js-caption {% unless block.settings.enable_image == false %}no-white-bg{% endunless %}">
-                <div class="caption-content testimonial-text align-{{block.settings.text_align}} animated {{section.settings.testimonial_text_animation}}">
+                <div class="caption-content testimonial-text align-{{block.settings.text_align}}">
                   {% if block.settings.title != blank %}
                     <p class="headline">
                       {{ block.settings.title }}
@@ -118,28 +118,14 @@
       "default": "fadeInDown"
     },
     {
-      "type": "select",
+      "type": "range",
       "id": "testimonial_speed",
-      "label": "Testimonial speed",
-      "default": "6000",
-      "options": [
-        {
-          "value": "0",
-          "label": "None"
-        },
-        {
-          "value": "4000",
-          "label": "4 seconds"
-        },
-        {
-          "value": "6000",
-          "label": "6 seconds"
-        },
-        {
-          "value": "10000",
-          "label": "10 seconds"
-        }
-      ]
+      "label": "Change testimonials every",
+      "min": 4,
+      "max": 12,
+      "step": 1,
+      "default": 6,
+      "unit": "sec"        
     }
   ],
   "blocks": [
@@ -254,4 +240,3 @@
 }
 
 {% endschema %}
-

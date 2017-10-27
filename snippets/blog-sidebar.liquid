@@ -4,32 +4,64 @@
       {% for block in section.blocks %}
         <div class="sidebar-block" {{ block.shopify_attributes }}>
           {% if block.type == 'menu' %}
-
-            {% if block.settings.custom_menu_linklist != blank %}
-              <h4 class="toggle">{{ linklists[block.settings.custom_menu_linklist].title }}<span class="right icon-down-arrow"></span></h4>
+            {% assign sidebar_menu = linklists[block.settings.custom_menu_linklist] %}
+            {% if sidebar_menu != blank %}
+              <h4 class="toggle">{{ sidebar_menu.title }}<span class="right icon-down-arrow"></span></h4>
               <ul class="toggle_list">
-                {% for link in linklists[block.settings.custom_menu_linklist].links %}
+                {% for link in sidebar_menu.links %}
+                  {% if link.active %}
+                    {% assign active_link = true %}
+                  {% else %}
+                    {% assign active_link = false %}
+                    {% for sub_link in linklists[link.handle].links %}
+                      {% if sub_link.active %}
+                        {% assign active_link = true %}
+                      {% else %}
+                        {% for sub_sub_link in linklists[sub_link.handle].links %}
+                          {% if sub_sub_link.active %}
+                            {% assign active_link = true %}
+                          {% endif %}
+                        {% endfor %}
+                      {% endif %}
+                    {% endfor %}
+                  {% endif %}
+
                   <li>
-                    <a {% if link.active %}class="active"{% endif %} href="{{ link.url }}" title="{{ link.title | escape }}">{{ link.title }}</a>
+                    <a {% if link.active %}class="active"{% endif %} href="{{ link.url }}">{{ link.title }}</a>
 
-                    {% if linklists[link.handle] != empty %}
-                      {% assign display_sublinks = false %}
+                    {% if linklists[link.handle].links != blank %}
+                      <span class="menu-toggle icon-down-arrow {% if active_link %}active{% endif %}" aria-haspopup="true" aria-expanded="{% if active_link %}true{% else %}false{% endif %}"> </span>
 
-                      {% for link in linklists[link.handle].links %}
-                        {% if link.active %}
-                          {% assign display_sublinks = true %}
-                        {% endif %}
-                      {% endfor %}
+                      <ul class="{% if active_link %}active{% endif %}">
+                        {% for sub_link in linklists[link.handle].links %}
+                          {% if sub_link.active %}
+                            {% assign active_link = true %}
+                          {% else %}
+                            {% assign active_link = false %}
+                            {% for sub_sub_link in linklists[sub_link.handle].links %}
+                              {% if sub_sub_link.active %}
+                                {% assign active_link = true %}
+                              {% endif %}
+                            {% endfor %}
+                          {% endif %}
 
-                      {% if display_sublinks or link.active %}
-                        <ul>
-                        {% for link in linklists[link.handle].links %}
-                          <li>
-                            <a {% if link.active %}class="active"{% endif %} href="{{ link.url }}" title="{{ link.title }}">{{ link.title }}</a>
+                          <li class="sub-menu {% if active_link %}active{% endif %}">
+                            <a {% if sub_link.active %}class="active"{% endif %} href="{{ sub_link.url }}">{{ sub_link.title }}</a>
+
+                            {% if linklists[sub_link.handle].links != blank %}
+                              <span class="menu-toggle icon-down-arrow {% if active_link %}active{% endif %}" aria-haspopup="true" aria-expanded="{% if active_link %}true{% else %}false{% endif %}"> </span>
+
+                              <ul class="{% if active_link %}active{% endif %}">
+                                {% for sub_sub_link in linklists[sub_link.handle].links %}
+                                  <li class="sub-menu">
+                                    <a {% if sub_sub_link.active %}class="active"{% endif %} href="{{ sub_sub_link.url }}">{{ sub_sub_link.title }}</a>
+                                  </li>
+                                {% endfor %}
+                              </ul>
+                            {% endif %}
                           </li>
                         {% endfor %}
-                        </ul>
-                      {% endif %}
+                      </ul>
                     {% endif %}
                   </li>
                 {% endfor %}

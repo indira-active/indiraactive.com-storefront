@@ -16,23 +16,23 @@
           <figure class="feature-section section-{{ forloop.index }} promo-{{ forloop.index }} title-overlay-{{ title_on_image }} {% if section.settings.featured_links_animation != blank %}promo-animation--true{% endif %}" {{ block.shopify_attributes }}>
               <div class="feature-inner feature-style--{{ section.settings.feature_style }} ">
                 {% if block.settings.image != nil %}
-                  <img  src="{{ block.settings.image | img_url: '100x' }}"
-                        alt="{% if block.settings.image.alt != blank %}{{ block.settings.image.alt }}{% else %}{{ block.settings.title | escape }}{% endif %}"
-                        class="lazyload full-width-image {{ settings.image_loading_style }}"
-                        data-sizes="auto"
-                        data-src="{{ block.settings.image | img_url: '1400x' }}"
-                        data-srcset=" {{ block.settings.image | img_url: '240x' }} 240w,
-                                      {{ block.settings.image | img_url: '480x' }} 480w,
-                                      {{ block.settings.image | img_url: '600x' }} 600w,
-                                      {{ block.settings.image | img_url: '800x' }} 800w,
-                                      {{ block.settings.image | img_url: '900x' }} 900w,
-                                      {{ block.settings.image | img_url: '1000x' }} 1000w"
-                         />
+                    <img  src="{{ block.settings.image | img_url: '100x' }}"
+                          alt="{% if block.settings.image.alt != blank %}{{ block.settings.image.alt }}{% else %}{{ block.settings.title | escape }}{% endif %}"
+                          class="lazyload full-width-image {{ settings.image_loading_style }}"
+                          data-sizes="auto"
+                          data-src="{{ block.settings.image | img_url: '1400x' }}"
+                          data-srcset=" {{ block.settings.image | img_url: '240x' }} 240w,
+                                        {{ block.settings.image | img_url: '480x' }} 480w,
+                                        {{ block.settings.image | img_url: '600x' }} 600w,
+                                        {{ block.settings.image | img_url: '800x' }} 800w,
+                                        {{ block.settings.image | img_url: '900x' }} 900w,
+                                        {{ block.settings.image | img_url: '1000x' }} 1000w"
+                           />
                   {% else %}
                     {% capture i %}{% cycle "1", "2", "3", "4", "5", "6" %}{% endcapture %}
                     {{ 'collection-' | append: i | placeholder_svg_tag: 'placeholder-svg placeholder-svg--promotions' }}
                   {% endif %}
-                {% if block.settings.title != blank and title_on_image != blank or block.settings.text != blank or block.settings.button_label != blank %}
+                {% if block.settings.text != blank or block.settings.button_label != blank or block.settings.title != blank and title_on_image != blank %}
                   <figcaption class="feature-overlay">
                     <a {% if block.settings.link != blank %}href="{{ block.settings.link }}"{% endif %}class="link-promo"></a>
                       <div class="feature-wrap">
@@ -50,6 +50,8 @@
                         </div>
                       </div>
                   </figcaption>
+                {% elsif block.settings.link != blank %}
+                  <a {% if block.settings.link != blank %}href="{{ block.settings.link }}"{% endif %}class="link-promo"></a>
                 {% endif %}
               </div>
             {% if title_on_image == blank %}
@@ -72,24 +74,13 @@
   "max_blocks": 12,
   "settings": [
     {
-      "type": "select",
+      "type": "range",
       "id": "featured_promos_per_row",
       "label": "Promotions per row",
-      "options": [
-        {
-          "value": "2",
-          "label": "2"
-        },
-        {
-          "value": "3",
-          "label": "3"
-        },
-        {
-          "value": "4",
-          "label": "4"
-        }
-      ],
-      "default": "3"
+      "min": 2,
+      "max": 4,
+      "step": 1,
+      "default": 3
     },
     {
       "type": "select",
@@ -198,7 +189,6 @@
     "name": "Featured promotions",
     "category": "Image",
     "settings": {
-      "featured_promos_per_row": "3",
       "featured_promos_grid": "full_width"
     },
     "blocks": [

@@ -58,7 +58,7 @@
 
     <div  class="product-{{ product.id }}"
           data-free-text="{{ settings.free_price_text }}">
-      <div class="section product_section clearfix js-product_section {% if section.settings.product_images_position == 'right' %}align_right--images{% endif %}" itemscope itemtype="http://schema.org/Product">
+      <div class="section product_section clearfix js-product_section {% if section.settings.product_images_position == 'right' %}align_right--images{% endif %}" itemscope itemtype="http://schema.org/Product" data-rv-handle="{{ product.handle }}">
 
         <div class="{% if sidebar %}seven{% else %}nine{% endif %} columns {% if section.settings.product_images_position == 'left' %}alpha{% else %}omega{% endif %}">
           {% include 'product-images' %}
@@ -121,7 +121,7 @@
               <meta itemprop="itemCondition" content="New" />
 
               <span class="sold_out">{% if variant.available == false %}{{ 'products.product.sold_out' | t }}{% endif %}</span>
-              <span itemprop="price" content="{{ variant.price | money_without_currency }}" class="{% if variant.compare_at_price > variant.price %}sale{% endif %}">
+              <span itemprop="price" content="{{ variant.price | money_without_currency | remove: "," }}" class="{% if variant.compare_at_price > variant.price %}sale{% endif %}">
                 <span class="current_price {% if product.available == false %}hidden{% endif %}">
                   {% if variant.price > 0 %}
                     <span class="money">{{ variant.price | money }}</span>
@@ -443,76 +443,22 @@
       ]
     },
     {
-      "type": "select",
+      "type": "range",
       "id": "related_products_limit",
-      "label": "Product limit",
-      "default": "12",
-      "options": [
-        {
-          "value": "3",
-          "label": "3"
-        },
-        {
-          "value": "4",
-          "label": "4"
-        },
-        {
-          "value": "5",
-          "label": "5"
-        },
-        {
-          "value": "6",
-          "label": "6"
-        },
-        {
-          "value": "8",
-          "label": "8"
-        },
-        {
-          "value": "10",
-          "label": "10"
-        },
-        {
-          "value": "12",
-          "label": "12"
-        },
-        {
-          "value": "15",
-          "label": "15"
-        },
-        {
-          "value": "20",
-          "label": "20"
-        },
-        {
-          "value": "24",
-          "label": "24"
-        },
-        {
-          "value": "48",
-          "label": "48"
-        }
-      ]
+      "label": "Limit products",
+      "min": 2,
+      "max": 50,
+      "step": 1,
+      "default": 12
     },
     {
-      "type": "select",
+      "type": "range",
       "id": "products_per",
       "label": "Products per row",
-      "default": "3",
-      "options": [
-        {
-          "value": "3",
-          "label": "3"
-        },
-        {
-          "value": "4",
-          "label": "4"
-        },
-        {
-          "value": "5",
-          "label": "5"
-        }
-      ]
+      "min": 3,
+      "max": 5,
+      "step": 1,
+      "default": 3
     },
     {
       "type": "header",
@@ -551,72 +497,22 @@
       ]
     },
     {
-      "type": "select",
+      "type": "range",
       "id": "rv_max_display",
       "label": "Products limit",
-      "default": "6",
-      "options": [
-        {
-          "value": "3",
-          "label": "3"
-        },
-        {
-          "value": "4",
-          "label": "4"
-        },
-        {
-          "value": "5",
-          "label": "5"
-        },
-        {
-          "value": "6",
-          "label": "6"
-        },
-        {
-          "value": "7",
-          "label": "7"
-        },
-        {
-          "value": "8",
-          "label": "8"
-        },
-        {
-          "value": "9",
-          "label": "9"
-        },
-        {
-          "value": "10",
-          "label": "10"
-        },
-        {
-          "value": "11",
-          "label": "11"
-        },
-        {
-          "value": "12",
-          "label": "12"
-        }
-      ]
+      "min": 3,
+      "max": 12,
+      "step": 1,
+      "default": 6
     },
     {
-      "type": "select",
+      "type": "range",
       "id": "rv_per",
       "label": "Products per row",
-      "default": "4",
-      "options": [
-        {
-          "value": "3",
-          "label": "3"
-        },
-        {
-          "value": "4",
-          "label": "4"
-        },
-        {
-          "value": "5",
-          "label": "5"
-        }
-      ]
+      "min": 3,
+      "max": 5,
+      "step": 1,
+      "default": 3
     },
     {
       "type": "header",
@@ -629,7 +525,8 @@
     {
       "type": "checkbox",
       "id": "toggle",
-      "label": "Toggle sidebar content"
+      "label": "Toggle sidebar content",
+      "default": false
     }
   ],
   "blocks": [
@@ -676,28 +573,13 @@
           "default": "Recently Viewed"
         },
         {
-          "type": "select",
+          "type": "range",
           "id": "sidebar_rv_per",
           "label": "Products limit",
-          "default": "3",
-          "options": [
-            {
-              "value": "1",
-              "label": "1"
-            },
-            {
-              "value": "2",
-              "label": "2"
-            },
-            {
-              "value": "3",
-              "label": "3"
-            },
-            {
-              "value": "4",
-              "label": "4"
-            }
-          ]
+          "min": 1,
+          "max": 4,
+          "step": 1,
+          "default": 3
         }
       ]
     },
