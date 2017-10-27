@@ -6,7 +6,7 @@
       data-id="{{ product.id }}"
       data-handle="{{ product.handle }}"
       data-money-format="{{ shop.money_format }}"
-      data-formatted-price="{% if collection_handles contains 'coming-soon' %}{{ 'collections.general.coming_soon' | t }}{% else %}{{ variant.price | money }}{% endif %}"
+      data-single-variant="{% if product.has_only_default_variant %}true{% else %}false{% endif %}"
       data-url="{{ product.url | within: collection }}"
       data-title="{{ product.title | escape }}"
       data-details-text="{{ 'collections.general.view_product_details_html' | t | escape}}"

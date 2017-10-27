@@ -15,6 +15,7 @@
   <div class="product_gallery product-{{ product.id }}-gallery
               {% if product.images.size > 1 %} multi-image {% endif %}
               {% if product.images.size <= 1 %} single-image {% endif %}
+              {% if settings.slideshow_button_style != true %}light-button{% endif %}
               "
       data-zoom="{{ section.settings.activate_zoom }}"
       data-autoplay="{{ section.settings.activate_autoplay }}">
@@ -38,9 +39,9 @@
             {% assign src = src[1] | split: '"' | first %}
 
             {% if src contains '?' %}
-              {% assign src = src | append: '&amp;autoplay=1' %}
+              {% assign src = src | append: '&amp;autoplay=1&amp;rel=0' %}
             {% else %}
-              {% assign src = src | append: '?autoplay=1' %}
+              {% assign src = src | append: '?autoplay=1&amp;rel=0' %}
             {% endif %}
 
             <div>

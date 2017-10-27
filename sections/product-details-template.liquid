@@ -51,7 +51,7 @@
 
       <div class="product-{{ product.id }}"
             data-free-text="{{ settings.free_price_text }}">
-        <div class="section product_section clearfix js-product_section {% if section.settings.product_images_position == 'right' %}align_right--images{% endif %}" itemscope itemtype="http://schema.org/Product">
+        <div class="section product_section clearfix js-product_section {% if section.settings.product_images_position == 'right' %}align_right--images{% endif %}" itemscope itemtype="http://schema.org/Product" data-rv-handle="{{ product.handle }}">
 
           <div class="nine columns {% if section.settings.product_images_position == 'left' %}alpha{% else %}omega{% endif %}">
             {% include 'product-images' %}
@@ -112,7 +112,7 @@
                 <meta itemprop="itemCondition" content="New" />
 
                 <span class="sold_out">{% if variant.available == false %}{{ 'products.product.sold_out' | t }}{% endif %}</span>
-                <span itemprop="price" content="{{ variant.price | money_without_currency }}" class="{% if variant.compare_at_price > variant.price %}sale{% endif %}">
+                <span itemprop="price" content="{{ variant.price | money_without_currency | remove: "," }}" class="{% if variant.compare_at_price > variant.price %}sale{% endif %}">
                   <span class="current_price {% if product.available == false %}hidden{% endif %}">
                     {% if variant.price > 0 %}
                       <span class="money">{{ variant.price | money }}</span>
@@ -235,11 +235,11 @@
     {% include 'related-products' %}
   {% endif %}
 
-  <div class="product-details clearfix">
+  <div class="product-details__blocks clearfix">
     {% for block in section.blocks %}
       {% if block.type == 'rich_text_and_image' %}
-        <div class="container">
-          <div class="twelve columns offset-by-two center" {{ block.shopify_attributes }} data-block-id="{{block.id}}">
+        <div class="container" {{ block.shopify_attributes }} data-block-id="{{block.id}}">
+          <div class="twelve columns offset-by-two center">
             {% if block.settings.image %}
               <img class="rich-image" src="{{ block.settings.image | img_url: '1180x', scale: 2 }}" alt="{{ block.settings.image.alt }}">
             {% endif %}
@@ -262,8 +262,8 @@
       {% endif %}
 
       {% if block.type == 'image_gallery' %}
-        <div class="container">
-          <div class="sixteen columns" {{ block.shopify_attributes }} data-block-id="{{block.id}}">
+        <div class="container" {{ block.shopify_attributes }} data-block-id="{{block.id}}">
+          <div class="sixteen columns">
             <div class="one-third column alpha thumbnail">
               {% if block.settings.product_detail_image_1 %}
                 <a href="{{ block.settings.product_detail_image_1 | img_url: '1520x' }}" class="lightbox" rel="detail-gallery">
@@ -296,54 +296,52 @@
       {% endif %}
 
       {% if block.type == 'image_with_text' %}
-        <div class="container">
-          <div class="sixteen columns" {{ block.shopify_attributes }} data-block-id="{{block.id}}">
-            <section class="featured-link--section featured-link--image section-{{ forloop.index }}">
+        <div class="clearfix">
+          <section class="featured-link--section featured-link--image section-{{ forloop.index }}" {{ block.shopify_attributes }} data-block-id="{{block.id}}">
 
-              {% capture image_layout %}
-                <div class="featured-link--half featured-link--image">
-                  <div class="featured-link--wrap">
-                    {% if block.settings.image %}
-                      {{ block.settings.image | img_url: '1024x' | img_tag: block.settings.image.alt }}
-                    {% else %}
-                      {% capture i %}{% cycle "1", "2", "3", "4", "5", "6" %}{% endcapture %}
-                      {{ 'collection-' | append: i | placeholder_svg_tag: 'placeholder-svg' }}
-                    {% endif %}
-                  </div>
-                </div>
-              {% endcapture %}
-
-              {% if block.settings.layout == 'right' %}
-                {{ image_layout }}
-              {% endif %}
-
-              <div class="featured-link--half">
-                <div class="info text-align--{{block.settings.frontpage_text_align}}">
-                  <h3 class="detail_title">
-                    {{ block.settings.title }}
-                  </h3>
-                  {% if block.settings.text != blank %}
-                    <div class="description">{{ block.settings.text }}</div>
-                  {% endif %}
-                  {% if block.settings.button_label != blank %}
-                    <a {% if block.settings.button_link != blank %}href="{{ block.settings.button_link }}"{% endif %} class="action_button">
-                      {{ block.settings.button_label }}
-                    </a>
+            {% capture image_layout %}
+              <div class="featured-link--half featured-link--image">
+                <div class="featured-link--wrap">
+                  {% if block.settings.image %}
+                    {{ block.settings.image | img_url: '1024x' | img_tag: block.settings.image.alt }}
+                  {% else %}
+                    {% capture i %}{% cycle "1", "2", "3", "4", "5", "6" %}{% endcapture %}
+                    {{ 'collection-' | append: i | placeholder_svg_tag: 'placeholder-svg' }}
                   {% endif %}
                 </div>
               </div>
+            {% endcapture %}
 
-              {% if block.settings.layout == 'left' %}
-                {{ image_layout }}
-              {% endif %}
+            {% if block.settings.layout == 'right' %}
+              {{ image_layout }}
+            {% endif %}
 
-            </section>
-          </div>
+            <div class="featured-link--half">
+              <div class="info text-align--{{block.settings.frontpage_text_align}}">
+                <h3 class="collection_title">
+                  {{ block.settings.title }}
+                </h3>
+                {% if block.settings.text != blank %}
+                  <div class="description">{{ block.settings.text }}</div>
+                {% endif %}
+                {% if block.settings.button_label != blank %}
+                  <a {% if block.settings.button_link != blank %}href="{{ block.settings.button_link }}"{% endif %} class="button">
+                    {{ block.settings.button_label }}
+                  </a>
+                {% endif %}
+              </div>
+            </div>
+
+            {% if block.settings.layout == 'left' %}
+              {{ image_layout }}
+            {% endif %}
+
+          </section>
         </div>
       {% endif %}
 
       {% if block.type == 'divider' %}
-        <div class="container" style="padding: 0;">
+        <div class="container" {{ block.shopify_attributes }} data-block-id="{{block.id}}">
           <div class="sixteen columns">
             <hr class="page-divider {% if block.settings.divider_border %}active-divider{% endif %}" style="{% if block.settings.divider_spacing %}margin: {{ block.settings.divider_spacing }}px 0px;{% endif %}">
           </div>
@@ -638,76 +636,22 @@
       ]
     },
     {
-      "type": "select",
+      "type": "range",
       "id": "related_products_limit",
-      "label": "Product limit",
-      "default": "12",
-    "options": [
-        {
-          "value": "3",
-          "label": "3"
-        },
-        {
-          "value": "4",
-          "label": "4"
-        },
-        {
-          "value": "5",
-          "label": "5"
-        },
-        {
-          "value": "6",
-          "label": "6"
-        },
-        {
-          "value": "8",
-          "label": "8"
-        },
-        {
-          "value": "10",
-          "label": "10"
-        },
-        {
-          "value": "12",
-          "label": "12"
-        },
-        {
-          "value": "15",
-          "label": "15"
-        },
-        {
-          "value": "20",
-          "label": "20"
-        },
-        {
-          "value": "24",
-          "label": "24"
-        },
-        {
-          "value": "48",
-          "label": "48"
-        }
-      ]
+      "label": "Limit products",
+      "min": 2,
+      "max": 50,
+      "step": 1,
+      "default": 12
     },
     {
-      "type": "select",
+      "type": "range",
       "id": "products_per",
       "label": "Products per row",
-      "default": "3",
-      "options": [
-        {
-          "value": "3",
-          "label": "3"
-        },
-        {
-          "value": "4",
-          "label": "4"
-        },
-        {
-          "value": "5",
-          "label": "5"
-        }
-      ]
+      "min": 3,
+      "max": 5,
+      "step": 1,
+      "default": 3
     },
     {
       "type": "radio",
@@ -762,72 +706,22 @@
       ]
     },
     {
-      "type": "select",
+      "type": "range",
       "id": "rv_max_display",
       "label": "Products limit",
-      "default": "4",
-      "options": [
-        {
-          "value": "3",
-          "label": "3"
-        },
-        {
-          "value": "4",
-          "label": "4"
-        },
-        {
-          "value": "5",
-          "label": "5"
-        },
-        {
-          "value": "6",
-          "label": "6"
-        },
-        {
-          "value": "7",
-          "label": "7"
-        },
-        {
-          "value": "8",
-          "label": "8"
-        },
-        {
-          "value": "9",
-          "label": "9"
-        },
-        {
-          "value": "10",
-          "label": "10"
-        },
-        {
-          "value": "11",
-          "label": "11"
-        },
-        {
-          "value": "12",
-          "label": "12"
-        }
-      ]
+      "min": 3,
+      "max": 12,
+      "step": 1,
+      "default": 6
     },
     {
-      "type": "select",
+      "type": "range",
       "id": "rv_per",
       "label": "Products per row",
-      "default": "4",
-      "options": [
-        {
-          "value": "3",
-          "label": "3"
-        },
-        {
-          "value": "4",
-          "label": "4"
-        },
-        {
-          "value": "5",
-          "label": "5"
-        }
-      ]
+      "min": 3,
+      "max": 5,
+      "step": 1,
+      "default": 3
     }
   ],
   "max_blocks": 16,

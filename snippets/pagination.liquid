@@ -5,7 +5,7 @@
 
   Replace Text Example:
     <div class="pagination">
-      {{ paginate | default_pagination | replace: 'Previous', 'Newer articles' | replace: 'Next', 'Older articles' }}
+      {{ paginate | default_pagination | replace: 'Previous', 'Newer articles' | replace: 'Next', 'Older articles'  }}
     </div>
 
   More information:
@@ -17,8 +17,8 @@
     <div class="section clearfix">
       <div class="paginate">
         {% if paginate.pages > 1 %}
-          {{ paginate | default_pagination }}
+          {{ paginate | default_pagination | replace: '&raquo;', '<span class="icon-right-arrow"></span>' | replace: '&laquo;', '<span class="icon-left-arrow"></span>' }}
         {% endif %}
       </div>
     </div>
-  </div>
+  </div> 
