@@ -2435,7 +2435,7 @@
     "quick_shop_product_images_position": "left",
     "quick_shop_product_thumbs": true,
     "quick_shop_thumbnail_position": "bottom-thumbnails",
-    "cart_action": "ajax",
+    "cart_action": "redirect_cart",
     "tos_page": "",
     "go_to_checkout": true,
     "display_special_instructions": true,
@@ -3207,8 +3207,8 @@
             "settings": {
               "image": "shopify:\/\/shop_images\/boonsri-black-xss-indira-active_2000x_3.jpg",
               "link": "",
-              "title": "Free Shipping on two items or more",
-              "text": "",
+              "title": "Free Shipping on two items or more (USA)",
+              "text": "<p>Free shipping - spend $150 or more (Canada)<\/p>",
               "button_label": ""
             }
           },
@@ -3240,7 +3240,7 @@
         "settings": {
           "image": "shopify:\/\/shop_images\/gradient-5.jpg",
           "pretext": "",
-          "title": "Boutique Athleisure",
+          "title": "Boutique Athleisure Wear",
           "subtitle": "<p>Spend $125 or more<\/p>\n<p>Receive 10% off + $15 gift card<\/p>",
           "caption_background": false,
           "caption_background_transparency": true,
