@@ -19,7 +19,6 @@
         <div itemprop="itemListElement" itemscope itemtype="http://schema.org/Product"
              class="product-{{ product.id }} section clearfix product_section slideshow_animation--{{section.settings.slideshow_animation}}"
              data-slideshow-animation="{{section.settings.slideshow_animation}}"
-             data-slideshow-speed="{{section.settings.slideshow_speed}}"
              data-block-id="{{block.id}}"
              {{ block.shopify_attributes }}>
 
@@ -168,7 +167,6 @@
                   </p>
                 </div>
               {% elsif section.settings.frontpage_display_description and product.description != blank %}
-                {% if product.available %}<hr />{% endif %}
                 <div class="description bottom" itemprop="description">
                   {{ product.description | split: '<!-- split -->' | first }}
                 </div>

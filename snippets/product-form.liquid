@@ -11,7 +11,6 @@
         data-enable-state="{% if template contains 'product' %}true{% else %}false{% endif %}"
         data-product="{{ product | json | escape }}"
         data-product-id="{{ product.id }}"
-        data-rv-handle="{{ product.handle }}"
         >
 
     {% if product.options.size > 1 %}
