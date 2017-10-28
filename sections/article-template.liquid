@@ -300,7 +300,7 @@
                 <div class="excerpt">{{ a.excerpt }}</div>
               {% endif %}
               {% if section.settings.read_more_link %}
-                <a href="{{ a.url }}" title="{{ a.title | escape }}" class="{% if settings.read_more_style == 'button' %}action_button continue-button{% else %}{% endif %}">{{ 'blogs.general.continue_reading_html' | t }}</a>
+                <a href="{{ a.url }}" title="{{ a.title | escape }}" class="{% if section.settings.read_more_style == 'button' %}action_button continue-button{% endif %}">{{ 'blogs.general.continue_reading_html' | t }}</a>
               {% endif %}
             </div>
           {% endunless %}
@@ -379,6 +379,22 @@
      "default": true
     },
     {
+      "type": "select",
+      "id": "read_more_style",
+      "label": "Continue reading link style",
+      "options": [
+        {
+          "value": "button",
+          "label": "Button"
+        },
+        {
+          "value": "link",
+          "label": "Link"
+        }
+      ],
+      "default": "button"
+    },
+    {
      "type": "checkbox",
      "id": "blog_additional_posts",
      "label": "Show related blog posts",
@@ -395,7 +411,8 @@
     {
       "type": "checkbox",
       "id": "toggle",
-      "label": "Toggle sidebar content"
+      "label": "Toggle sidebar content",
+      "default": false
     }
   ],
   "blocks": [
@@ -444,7 +461,7 @@
           "label": "Page"
         }
       ]
-    },    
+    },
     {
       "type": "recent_posts",
       "name": "Recent blog posts",
@@ -471,7 +488,7 @@
           "default": "10"
         }
       ]
-    },    
+    },
     {
       "type": "search",
       "name": "Search form",

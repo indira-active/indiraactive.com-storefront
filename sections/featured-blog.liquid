@@ -15,7 +15,7 @@
     {% endif %}
     {% if section.settings.blog_widget_select != blank %}
       {% for article in blogs[section.settings.blog_widget_select].articles limit: section.settings.home_page_articles %}
-        <div class="{% if section.settings.home_page_articles == "2" %}eight columns{% elsif section.settings.home_page_articles == "3" %}one-third column{% else %}four columns{% endif %} article">
+        <div class="{% if section.settings.home_page_articles == 2 %}eight columns{% elsif section.settings.home_page_articles == 3 %}one-third column{% else %}four columns{% endif %} article">
           {% if article.image %}
             <a href="{{ article.url }}">
               <img  src="{{ article.image | img_url: '100x' }}"
@@ -72,13 +72,13 @@
             <div class="excerpt">{{ article.excerpt }}</div>
           {% endif %}
           {% if section.settings.read_more_link %}
-            <a href="{{ article.url }}" class="action_button continue-button">{{ 'blogs.general.continue_reading_html' | t }}</a>
+            <a href="{{ article.url }}" class="{% if section.settings.read_more_style == 'button' %}action_button continue-button{% endif %}">{{ 'blogs.general.continue_reading_html' | t }}</a>
           {% endif %}
         </div>
       {% endfor %}
     {% else %}
       {% for i in (1..section.settings.home_page_articles) %}
-        <div class="{% if section.settings.home_page_articles == "2" %}eight columns{% elsif section.settings.home_page_articles == "3" %}one-third column{% else %}four columns{% endif %} article">
+        <div class="{% if section.settings.home_page_articles == 2 %}eight columns{% elsif section.settings.home_page_articles == 3 %}one-third column{% else %}four columns{% endif %} article">
           {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
 
           <h3 class="sub_title">
@@ -117,7 +117,7 @@
           <div class="excerpt">{{ 'homepage.onboarding.blog_excerpt' | t }}</div>
 
           {% if section.settings.read_more_link %}
-            <a href="{{ article.url }}" class="action_button continue-button">{{ 'blogs.general.continue_reading_html' | t }}</a>
+            <a href="{{ article.url }}" class="{% if section.settings.read_more_style == 'button' %}action_button continue-button{% endif %}">{{ 'blogs.general.continue_reading_html' | t }}</a>
           {% endif %}
         </div>
       {% endfor %}
@@ -143,23 +143,13 @@
       "label": "Blog"
     },
     {
-      "type": "select",
+      "type": "range",
       "id": "home_page_articles",
-      "label": "Blog posts",
-      "options": [
-        {
-          "value": "2",
-          "label": "2"
-        },
-        {
-          "value": "3",
-          "label": "3"
-        },
-        {
-          "value": "4",
-          "label": "4"
-        }
-      ]
+      "label": "Posts",
+      "min": 2,
+      "max": 4,
+      "step": 1,
+      "default": 3
     },
     {
       "type": "checkbox",
@@ -188,14 +178,29 @@
       "id": "read_more_link",
       "label": "Show continue reading link for blog post excerpts",
       "default": true
+    },
+    {
+      "type": "select",
+      "id": "read_more_style",
+      "label": "Continue reading link style",
+      "options": [
+        {
+          "value": "button",
+          "label": "Button"
+        },
+        {
+          "value": "link",
+          "label": "Link"
+        }
+      ],
+      "default": "button"
     }
   ],
   "presets": [{
     "name": "Blog posts",
     "category": "Blog",
     "settings": {
-      "blog_widget_select": "",
-      "home_page_articles": "3"
+      "blog_widget_select": ""
     }
   }]
 }

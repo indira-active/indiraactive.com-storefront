@@ -56,7 +56,7 @@
             <meta itemprop="itemCondition" content="New" />
 
             <span class="sold_out">{% if variant.available == false %}{{ 'products.product.sold_out' | t }}{% endif %}</span>
-            <span itemprop="price" content="{{ variant.price | money_without_currency }}" class="{% if variant.compare_at_price > variant.price %}sale{% endif %}">
+            <span itemprop="price" content="{{ variant.price | money_without_currency | remove: "," }}" class="{% if variant.compare_at_price > variant.price %}sale{% endif %}">
               <span class="current_price {% if product.available == false %}hidden{% endif %}">
                 {% if variant.price > 0 %}
                   <span class="money">{{ variant.price | money }}</span>

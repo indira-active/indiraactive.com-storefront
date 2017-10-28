@@ -616,7 +616,6 @@
       "featured_social_position": "14",
       "instagram_username": "",
       "product_slideshow_animation": "slide",
-      "slideshow_speed": "6",
       "add_to_cart_text": "Add to Cart",
       "sold_out_text": "Sold Out",
       "related_products_title": "Related Items",
@@ -812,7 +811,7 @@
             "1489283758712"
           ],
           "settings": {
-            "featured_promos_per_row": "4",
+            "featured_promos_per_row": 4,
             "featured_promos_grid": "full_width",
             "featured_links_animation": "fadeInDown",
             "feature_style": "square",
@@ -825,8 +824,8 @@
             "title": "Featured collection",
             "collection": "",
             "collection_style": "slider",
-            "products_per": "4",
-            "products_limit": "24"
+            "products_per": 4,
+            "products_limit": 24
           }
         },
         "1489284011497": {
@@ -877,8 +876,7 @@
           ],
           "settings": {
             "slideshow_text_animation": "fadeInDown",
-            "slideshow_animation": "slide",
-            "slideshow_speed": "6000"
+            "slideshow_animation": "slide"
           }
         },
         "1489284503681": {
@@ -989,7 +987,7 @@
           ],
           "settings": {
             "title": "Collection list",
-            "frontpage_collections_per_row": "3"
+            "frontpage_collections_per_row": 3
           }
         },
         "1489285174583": {
@@ -1039,7 +1037,7 @@
           "settings": {
             "title": "Blog posts",
             "blog_widget_select": "",
-            "home_page_articles": "3",
+            "home_page_articles": 3,
             "blog_tags": false,
             "blog_author": false,
             "blog_date": true,
@@ -1055,7 +1053,7 @@
               "settings": {
                 "instagram_client_id": "",
                 "instagram_title": "Instagram",
-                "instagram_count": "4"
+                "instagram_count": 4
               }
             }
           },
@@ -1119,8 +1117,7 @@
             "1489285524898-2"
           ],
           "settings": {
-            "testimonial_text_animation": "fadeInDown",
-            "testimonial_speed": "6000"
+            "testimonial_text_animation": "fadeInDown"
           }
         }
       },
@@ -1758,7 +1755,6 @@
       "featured_social_position": "14",
       "instagram_username": "",
       "product_slideshow_animation": "slide",
-      "slideshow_speed": "6",
       "add_to_cart_text": "Add to Cart",
       "sold_out_text": "Sold Out",
       "related_products_title": "Related Items",
@@ -1954,7 +1950,7 @@
             "1489283758712"
           ],
           "settings": {
-            "featured_promos_per_row": "4",
+            "featured_promos_per_row": 4,
             "featured_promos_grid": "full_width",
             "featured_links_animation": "fadeInDown",
             "feature_style": "square",
@@ -1967,8 +1963,8 @@
             "title": "Featured collection",
             "collection": "",
             "collection_style": "slider",
-            "products_per": "4",
-            "products_limit": "24"
+            "products_per": 4,
+            "products_limit": 24
           }
         },
         "1489284011497": {
@@ -2019,8 +2015,7 @@
           ],
           "settings": {
             "slideshow_text_animation": "fadeInDown",
-            "slideshow_animation": "slide",
-            "slideshow_speed": "6000"
+            "slideshow_animation": "slide"
           }
         },
         "1489284503681": {
@@ -2131,7 +2126,7 @@
           ],
           "settings": {
             "title": "Collection list",
-            "frontpage_collections_per_row": "3"
+            "frontpage_collections_per_row": 3
           }
         },
         "1489285174583": {
@@ -2181,7 +2176,7 @@
           "settings": {
             "title": "Blog posts",
             "blog_widget_select": "",
-            "home_page_articles": "3",
+            "home_page_articles": 3,
             "blog_tags": false,
             "blog_author": false,
             "blog_date": true,
@@ -2197,7 +2192,7 @@
               "settings": {
                 "instagram_client_id": "",
                 "instagram_title": "Instagram",
-                "instagram_count": "4"
+                "instagram_count": 4
               }
             }
           },
@@ -2261,8 +2256,7 @@
             "1489285524898-2"
           ],
           "settings": {
-            "testimonial_text_animation": "fadeInDown",
-            "testimonial_speed": "6000"
+            "testimonial_text_animation": "fadeInDown"
           }
         }
       },
@@ -2291,7 +2285,6 @@
     "regular_color": "#000000",
     "banner_color": "#ffffff",
     "headline_color": "#000000",
-    "headline_border_color": "#aaaaaa",
     "headline_footer_text_color": "#000000",
     "sub_footer_text_color": "#444444",
     "sale_color": "#c57e7e",
@@ -2322,6 +2315,8 @@
     "table_styles_enabled": true,
     "slideshow_arrow_size": "light",
     "border_color": "#cccccc",
+    "headline_border_color": "#aaaaaa",
+    "headline_border": "thin",
     "sub_footer_border_color": "#cccccc",
     "sale_banner_color": "#000000",
     "new_banner_color": "#2d3740",
@@ -2378,9 +2373,8 @@
     "headline_font_text": "normal",
     "headline_font_size": 30,
     "headline_letter_spacing": 2,
-    "headline_border": "thin",
-    "slideshow_headline_size": 37,
     "slideshow_headline_weight": "lighter",
+    "slideshow_headline_size": 37,
     "slideshow_subtitle_font": "Google_'Open+Sans'",
     "slideshow_subtitle_weight": "lighter",
     "slideshow_subtitle_font_style": "none",
@@ -2468,7 +2462,7 @@
     "popup_button2": "",
     "popup_button2_link": "",
     "popup_button2_highlight": false,
-    "newsletter_popup_seconds": "10",
+    "newsletter_popup_seconds": 10,
     "newsletter_popup_days": "365",
     "twitter_link": "https:\/\/twitter.com\/indira_active",
     "facebook_link": "https:\/\/www.facebook.com\/indiraactive\/",
@@ -2939,7 +2933,6 @@
     "featured_social_position": "14",
     "instagram_username": "",
     "product_slideshow_animation": "slide",
-    "slideshow_speed": "6",
     "add_to_cart_text": "Add to Cart",
     "sold_out_text": "Sold Out",
     "related_products_title": "Related Items",
@@ -3067,8 +3060,8 @@
       "collection-template": {
         "type": "collection-template",
         "settings": {
-          "products_per_row": "4",
-          "pagination_limit": "20",
+          "products_per_row": 4,
+          "pagination_limit": 20,
           "display_collection_title": true,
           "collection_breadcrumb": true,
           "collection_tags": false,
@@ -3112,13 +3105,13 @@
           "product_description_position": "top",
           "display_related_products": true,
           "related_products_style": "slider",
-          "related_products_limit": "8",
-          "products_per": "4",
+          "related_products_limit": 8,
+          "products_per": 4,
           "display_recently_viewed": false,
           "rv_title": "Recently Viewed Items",
           "rv_products_style": "grid",
-          "rv_max_display": "4",
-          "rv_per": "4",
+          "rv_max_display": 4,
+          "rv_per": 4,
           "toggle": false
         }
       },
@@ -3170,7 +3163,7 @@
         ],
         "settings": {
           "title": "OUR CHIC COLLECTIONS",
-          "frontpage_collections_per_row": "5"
+          "frontpage_collections_per_row": 5
         }
       },
       "1502045388616": {
@@ -3181,7 +3174,7 @@
             "settings": {
               "instagram_client_id": "4076462032.d90570a.6241f2cd267d481abf95a10b5eef999d",
               "instagram_title": "#INDIRA_ACTIVE",
-              "instagram_count": "4"
+              "instagram_count": 4
             }
           }
         },
@@ -3228,7 +3221,7 @@
           "1502061384317"
         ],
         "settings": {
-          "featured_promos_per_row": "2",
+          "featured_promos_per_row": 2,
           "featured_promos_grid": "full_width",
           "featured_links_animation": "fadeInDown",
           "feature_style": "square",
@@ -3337,14 +3330,14 @@
           "product_description_position": "top",
           "display_related_products": true,
           "related_products_style": "grid",
-          "related_products_limit": "12",
-          "products_per": "3",
+          "related_products_limit": 12,
+          "products_per": 3,
           "related_products_position": "below",
           "display_recently_viewed": false,
           "rv_title": "Recently Viewed Items",
           "rv_products_style": "grid",
-          "rv_max_display": "4",
-          "rv_per": "4"
+          "rv_max_display": 4,
+          "rv_per": 4
         }
       },
       "1502069660689": {
@@ -3353,8 +3346,8 @@
           "title": "New Arrivals",
           "collection": "new-arrivals",
           "collection_style": "slider",
-          "products_per": "5",
-          "products_limit": "15"
+          "products_per": 5,
+          "products_limit": 15
         }
       },
       "product-tabs-template": {
@@ -3395,16 +3388,16 @@
           "title": "Best sellers",
           "collection": "best-sellers",
           "collection_style": "slider",
-          "products_per": "5",
-          "products_limit": "15"
+          "products_per": 5,
+          "products_limit": 15
         }
       },
       "search-template": {
         "type": "search-template",
         "settings": {
           "search_breadcrumb": true,
-          "products_per_row": "2",
-          "pagination_limit": "20",
+          "products_per_row": 2,
+          "pagination_limit": 20,
           "blog_author": false,
           "read_more_link": true,
           "blog_date": true,

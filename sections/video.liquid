@@ -15,18 +15,19 @@
 {% assign size9 = '1900x' %}
 {% assign size10 = '2000x' %}
 
-<section  class="homepage-video darken-video-{{ section.settings.video_dark_overlay }}"
+<section  class="homepage-video darken-video-{{ section.settings.video_dark_overlay }}  placeholder-image--{% if section.settings.image %}true{% else %}false{% endif %}"
       data-video-id="video-{{section.id}}"
       data-autoplay="{{ section.settings.autoplay }}"
       data-autoloop="{{ section.settings.autoloop }}"
-      data-video-text="{{ section.settings.display_text_over_video }}"
+      data-display-text-over-video="{{ section.settings.display_text_over_video }}"
+      data-poster-image="{% if section.settings.image %}{{ section.settings.image | img_url: '1500x' }}{% else %}false{% endif %}"
+      data-video-src="{{ section.settings.video.id }}"
+      data-aspect-ratio="{{ section.settings.aspect_ratio }}"
+      data-provider="{{ section.settings.source }}"
+      data-video-mp4="{{ section.settings.mp4 }}"
+      data-video-ogv="{{ section.settings.ogv }}"
 >
-  <div class="homepage-video--media"
-    data-video-src="{{ section.settings.video.id }}"
-    data-aspect-ratio="{{ section.settings.aspect_ratio }}"
-    data-provider="{{ section.settings.source }}"
-    data-video-mp4="{{ section.settings.mp4 }}"
-    data-video-ogv="{{ section.settings.ogv }}">
+  <div class="homepage-video--media">
     {% if section.settings.image %}
       <img  src="{{ section.settings.image | img_url: '100x', format: 'pjpg' }}"
             alt="{% if section.settings.image.alt != blank %}{{ section.settings.image.alt | escape }}{% else %}{{ section.settings.title | escape }}{% endif %}"
@@ -53,7 +54,7 @@
       </div>
     {% endif %}
     {% unless section.settings.pretext == blank and section.settings.title == blank and section.settings.subtitle == blank and section.settings.button1_label == blank and section.settings.button2_label == blank %}
-      <div class="position-{{ section.settings.text_position }} caption js-caption text-on-video">
+      <div class="position-{{ section.settings.text_position }} caption js-caption text-on-video text-on-video--{{ section.settings.display_text_over_video }}">
         <div class="caption-content
                     caption-background-{{section.settings.caption_background}}
                     caption-transparency-{{ section.settings.caption_background_transparency }}
@@ -74,7 +75,7 @@
             </div>
           {% endif %}
           {% if section.settings.button1_label != blank %}
-            <a {% if section.settings.button1_link != blank %}href="{{ section.settings.button1_link }}"{% else %}data-play-video{% endif %} class="action_button first_button highlight-{{ section.settings.button1_highlight }} {% if section.settings.button1_link == blank %}video__play-button{% endif %}">
+            <a {% if section.settings.button1_link != blank %}href="{{ section.settings.button1_link }}"{% else %}data-play-video-button{% endif %} class="action_button first_button highlight-{{ section.settings.button1_highlight }} {% if section.settings.button1_link == blank %}video__play-button{% endif %}">
               {{ section.settings.button1_label }}
             </a>
           {% endif %}
@@ -107,13 +108,13 @@
           {{ section.settings.subtitle }}
         </div>
       {% endif %}
-      {% if section.settings.button1_label != blank %}
-        <a {% if section.settings.button1_link != blank %}href="{{ section.settings.button1_link }}"{% else %}data-play-video{% endif %} class="action_button first_button highlight-{{ section.settings.button1_highlight }}">
+      {% if section.settings.button1_label != blank and section.settings.button1_link != blank %}
+        <a href="{{ section.settings.button1_link }}" class="action_button first_button highlight-{{ section.settings.button1_highlight }}">
           {{ section.settings.button1_label }}
         </a>
       {% endif %}
-      {% if section.settings.button2_label != blank %}
-        <a {% if section.settings.button2_link != blank %}href="{{ section.settings.button2_link }}"{% else %}data-play-video{% endif %} class="action_button second_button highlight-{{ section.settings.button2_highlight }}">
+      {% if section.settings.button2_label != blank and section.settings.button2_link != blank %}
+        <a href="{{ section.settings.button2_link }}" class="action_button first_button highlight-{{ section.settings.button2_highlight }}">
           {{ section.settings.button2_label }}
         </a>
       {% endif %}
