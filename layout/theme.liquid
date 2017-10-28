@@ -16,11 +16,11 @@
     <!-- End Custom meta & gtm head -->
 
     <!-- Custom Fonts -->
-    {% if settings.logo_font contains 'Google' or settings.headline_font contains 'Google' or settings.nav_font contains 'Google' or settings.slideshow_subtitle_font contains 'Google' or settings.regular_font contains 'Google' %}
-      <link href="//fonts.googleapis.com/css?family=.|{% if settings.logo_font contains 'Google' %}{{ settings.logo_font | replace: 'Google_', '' | replace: "'", "" }}:light,normal,bold|{% endif %}{% if settings.headline_font contains 'Google' %}{{ settings.headline_font | replace: 'Google_', '' | replace: "'", "" }}:light,normal,bold|{% endif %}{% if settings.nav_font contains 'Google' %}{{ settings.nav_font | replace: 'Google_', '' | replace: "'", "" }}:light,normal,bold|{% endif %}{% if settings.slideshow_subtitle_font contains 'Google' %}{{ settings.slideshow_subtitle_font | replace: 'Google_', '' | replace: "'", "" }}:light,normal,bold|{% endif %}{% if settings.regular_font contains 'Google' %}{{ settings.regular_font | replace: 'Google_', '' | replace: "'", "" }}:light,normal,bold{% endif %}" rel="stylesheet" type="text/css" />
+    {% if settings.logo_font contains 'Google' or settings.headline_font contains 'Google' or settings.nav_font contains 'Google' or settings.slideshow_subtitle_font contains 'Google' or settings.slideshow_headline_font contains 'Google' or settings.regular_font contains 'Google' %}
+      <link href="//fonts.googleapis.com/css?family=.|{% if settings.logo_font contains 'Google' %}{{ settings.logo_font | replace: 'Google_', '' | replace: "'", "" }}:light,normal,bold|{% endif %}{% if settings.headline_font contains 'Google' %}{{ settings.headline_font | replace: 'Google_', '' | replace: "'", "" }}:light,normal,bold|{% endif %}{% if settings.nav_font contains 'Google' %}{{ settings.nav_font | replace: 'Google_', '' | replace: "'", "" }}:light,normal,bold|{% endif %}{% if settings.slideshow_headline_font contains 'Google' %}{{ settings.slideshow_headline_font | replace: 'Google_', '' | replace: "'", "" }}:light,normal,bold|{% endif %}{% if settings.slideshow_subtitle_font contains 'Google' %}{{ settings.slideshow_subtitle_font | replace: 'Google_', '' | replace: "'", "" }}:light,normal,bold|{% endif %}{% if settings.regular_font contains 'Google' %}{{ settings.regular_font | replace: 'Google_', '' | replace: "'", "" }}:light,normal,bold{% endif %}" rel="stylesheet" type="text/css" />
     {% endif %}
 
-    <!-- Stylesheets for Turbo 2.1.4 -->
+    <!-- Stylesheets for Turbo 2.2.0 -->
     {{ 'styles.scss.css' | asset_url | stylesheet_tag }}
 
     <!-- Custom styles -->
@@ -92,6 +92,8 @@
   {% elsif template contains "banner" %}
     {% assign feature_image = true %}
   {% elsif template contains "details" %}
+    {% assign feature_image = true %}
+  {% elsif template contains "faq" %}
     {% assign feature_image = true %}
   {% else %}
     {% assign feature_image = false %}
@@ -180,9 +182,6 @@
 
       if (!inIframe()){
         InstantClick.on('change', function() {
-          if (typeof ga == 'function') {
-            ga('send', 'pageview', location.pathname + location.search);
-          }
 
           $('head script[src*="shopify"]').each(function() {
             var script = document.createElement('script');
@@ -191,12 +190,6 @@
 
             $('body').append( script );
           });
-
-          var facebookAnalytics = $('head .analytics').text();
-          var script = document.createElement( 'script' );
-          script.type = 'text/javascript';
-          script.text = facebookAnalytics;
-          $('body').append( script );
 
           $('html').removeClass('remodal-is-locked');
 

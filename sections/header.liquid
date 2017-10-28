@@ -162,7 +162,7 @@
                       </strong>
                       <div class="item_title">
                         {{ item.product.title }}
-                        {% unless item.variant.title contains "Title" %}
+                        {% unless item.product.has_only_default_variant or item.variant.title contains "Title" %}
                           -
                           {% for option in item.product.options %}
                             {{ item.variant.options[forloop.index0] }} {% unless forloop.last %}/{% endunless %}
@@ -389,7 +389,7 @@
   {% endunless %}
 
   {% if section.settings.fixed_header == false %}
-    @media only screen and (max-width: 768px) {
+    @media only screen and (max-width: 798px) {
       .header-section {
         position: absolute;
         top: 0;
@@ -449,7 +449,8 @@
     {
       "type": "link_list",
       "id": "top_bar_menu",
-      "label": "Top bar menu"
+      "label": "Top bar menu",
+      "info": "This menu won't show dropdown items"
     },
     {
       "type": "select",
