@@ -204,13 +204,14 @@
     {% include 'tracking-body' %}
     {% include 'smooch' %}
     {% include 'back-in-stock-helper' %}
-    {% include 'sweettooth-points-balance' %}
+    {% include 'sweettooth-initializer' %} 
     {% include 'sweettooth-tab-widget' %}
     <!-- End Custom body scripts -->
 
     <script>
       {{ settings.custom_scripts }}
     </script>
+
 </body>
 </html>
 {% endcapture %}
