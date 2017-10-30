@@ -1,8 +1,4 @@
-<div data-findify-attr="findify-search-results" style="min-height: 400px;">
-    <div class="findify-component-spinner"></div>
-  </div>
-  <noscript id="findify_fallback" style="display: none;">
-      {% comment %}
+{% comment %}
 ** Collections - default view **
 - Collection template
 - Uses blocks
@@ -48,7 +44,13 @@
 
 <a name="pagecontent" id="pagecontent"></a>
 
-<div class="container">
+<!-- Customer Findify.io Smart Collections-->
+<div data-findify-attr="findify-search-results" style="min-height: 400px;">
+    <div class="findify-component-spinner"></div>
+  </div>
+  <noscript id="findify_fallback" style="display: none;">
+      <!-- Original theme collection template -->
+      <div class="container">
   {% paginate collection.products by section.settings.pagination_limit %}
     <div class="clearfix breadcrumb-collection">
       {% if section.settings.collection_breadcrumb %}
@@ -153,6 +155,9 @@
   {% endpaginate %}
 
 </div>
+  <!-- END original theme collection template -->
+  </noscript>
+  <!-- END Custom Findify.io Smart Colletions -->
 
 {% schema %}
 
@@ -404,5 +409,3 @@
 }
 
 {% endschema %}
-  </noscript>
-
