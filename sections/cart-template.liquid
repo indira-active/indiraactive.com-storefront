@@ -56,7 +56,7 @@
                 <a href="{{ item.url }}">{{ item.product.title }}</a>
               </h3>
 
-              {% unless item.variant.title contains "Title" %}
+              {% unless item.product.has_only_default_variant or item.variant.title contains "Title" %}
                 <p class="meta">
                   {% for option in item.product.options %}
                     <span class="label">{{ option }}:</span> <span>{{ item.variant.options[forloop.index0] }}</span><br />

@@ -18,7 +18,7 @@
 
 {% if section.blocks.size > 0 %}
   <section  id="homepage_slider-{{section.id}}"
-        class="homepage-slideshow js-homepage-slideshow slideshow_animation--{{ section.settings.slideshow_animation }} {% if section.settings.slideshow_text_animation != '' %}text-animation--true{% endif %}"
+        class="homepage-slideshow js-homepage-slideshow slideshow_animation--{{ section.settings.slideshow_animation }} {% if section.settings.slideshow_text_animation != '' %}text-animation--true{% endif %} {% if settings.slideshow_button_style != true %}light-button{% endif %}"
         data-slider-id="homepage_slider-{{section.id}}"
         data-slideshow-speed="{{section.settings.slideshow_speed}}"
         data-slideshow-text-animation="{{section.settings.slideshow_text_animation}}"
@@ -149,28 +149,14 @@
       "default": "slide"
     },
     {
-      "type": "select",
+      "type": "range",
       "id": "slideshow_speed",
-      "label": "Slideshow speed",
-      "default": "6000",
-      "options": [
-        {
-          "value": "0",
-          "label": "None"
-        },
-        {
-          "value": "4000",
-          "label": "4 seconds"
-        },
-        {
-          "value": "6000",
-          "label": "6 seconds"
-        },
-        {
-          "value": "10000",
-          "label": "10 seconds"
-        }
-      ]
+      "label": "Change slides every",
+      "min": 4,
+      "max": 12,
+      "step": 1,
+      "default": 6,
+      "unit": "sec"        
     }
   ],
   "blocks": [

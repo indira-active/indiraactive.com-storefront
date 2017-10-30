@@ -7,7 +7,11 @@
   {% assign loop_limit = limit | plus: 0 %}
 {% endif %}
 
-{% assign visible_products = section.settings.products_per | plus: 0 %}
+{% if section.settings.products_per != blank %}
+  {% assign visible_products = section.settings.products_per | plus: 0 %}
+{% else %}
+  {% assign visible_products = block.settings.products_per | plus: 0 %}
+{% endif %}
 
 {% if template contains 'product' %}
   {% if limit <= visible_products %}
@@ -33,7 +37,7 @@
   {% assign size9 = '900x' %}
   {% assign size10 = '1000x' %}
 
-<div class="slider-gallery products-slider products-length-{{ products_length }}"
+<div class="slider-gallery products-slider products-length-{{ products_length }} {% if settings.slideshow_button_style != true %}light-button{% endif %}"
       data-products-per-slide="{{ visible_products }}"
       data-products-limit="{{ limit }}"
       data-products-available="{{ products_length }}">
@@ -53,7 +57,7 @@
 
     {% if product.id != skip_product.id %}
       {% assign feature_image = product.featured_image %}
-      <div class="gallery-cell thumbnail visible-{{ visible_products }}" itemprop="itemListElement" itemscope itemtype="http://schema.org/Product">
+      <div class="gallery-cell thumbnail visible-{{ visible_products }}">
         <div class="product-wrap">
           <div class="relative product_image swap-{{ settings.collection_secondary_image }}">
             <a href="{{ product.url | within: collection }}" itemprop="url">

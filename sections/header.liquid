@@ -162,7 +162,7 @@
                       </strong>
                       <div class="item_title">
                         {{ item.product.title }}
-                        {% unless item.variant.title contains "Title" %}
+                        {% unless item.product.has_only_default_variant or item.variant.title contains "Title" %}
                           -
                           {% for option in item.product.options %}
                             {{ item.variant.options[forloop.index0] }} {% unless forloop.last %}/{% endunless %}
@@ -242,6 +242,13 @@
             {% include 'currencies-switcher' %}
           </li>
         {% endif %}
+        <!-- Smile.io points balance -->
+        {% if customer %}
+          <li>
+            {% include 'sweettooth-points-balance' %}
+          </li>
+        {% endif %}
+        <!-- End of smile.io points balance -->
         {% if shop.customer_accounts_enabled %}
           <li>
             <a href="/account" class="icon-user" title="{{ 'layout.customer.my_account' | t }} {% if customer %}({{ customer.email }}){% endif %}"> <span>{% if customer %}{{ 'layout.customer.my_account' | t }}{% else %}{{ 'layout.customer.log_in' | t }}{% endif %}</span></a>
@@ -382,7 +389,7 @@
   {% endunless %}
 
   {% if section.settings.fixed_header == false %}
-    @media only screen and (max-width: 768px) {
+    @media only screen and (max-width: 798px) {
       .header-section {
         position: absolute;
         top: 0;
@@ -442,7 +449,8 @@
     {
       "type": "link_list",
       "id": "top_bar_menu",
-      "label": "Top bar menu"
+      "label": "Top bar menu",
+      "info": "This menu won't show dropdown items"
     },
     {
       "type": "select",

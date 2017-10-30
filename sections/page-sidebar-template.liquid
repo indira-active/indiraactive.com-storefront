@@ -44,7 +44,8 @@
     {
       "type": "checkbox",
       "id": "toggle",
-      "label": "Toggle sidebar content"
+      "label": "Toggle sidebar content",
+      "default": false
     }
   ],
   "blocks": [
@@ -91,28 +92,13 @@
           "default": "Recently Viewed"
         },
         {
-          "type": "select",
+          "type": "range",
           "id": "sidebar_rv_per",
           "label": "Products limit",
-          "default": "3",
-          "options": [
-            {
-              "value": "1",
-              "label": "1"
-            },
-            {
-              "value": "2",
-              "label": "2"
-            },
-            {
-              "value": "3",
-              "label": "3"
-            },
-            {
-              "value": "4",
-              "label": "4"
-            }
-          ]
+          "min": 1,
+          "max": 4,
+          "step": 1,
+          "default": 3
         }
       ]
     },

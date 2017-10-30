@@ -166,62 +166,22 @@
   "class": "collection-template-section",
   "settings": [
     {
-      "type": "select",
+      "type": "range",
       "id": "products_per_row",
       "label": "Products per row",
-      "options": [
-        {
-          "value": "2",
-          "label": "2"
-        },
-        {
-          "value": "3",
-          "label": "3"
-        },
-        {
-          "value": "4",
-          "label": "4"
-        },
-        {
-          "value": "5",
-          "label": "5"
-        }
-      ]
+      "min": 2,
+      "max": 5,
+      "step": 1,
+      "default": 3
     },
     {
-      "type": "select",
+      "type": "range",
       "id": "pagination_limit",
       "label": "Products per page",
-      "options": [
-        {
-          "value": "20",
-          "label": "20"
-        },
-        {
-          "value": "24",
-          "label": "24"
-        },
-        {
-          "value": "30",
-          "label": "30"
-        },
-        {
-          "value": "36",
-          "label": "36"
-        },
-        {
-          "value": "40",
-          "label": "40"
-        },
-        {
-          "value": "48",
-          "label": "48"
-        },
-        {
-          "value": "50",
-          "label": "50"
-        }
-      ]
+      "min": 2,
+      "max": 50,
+      "step": 1,
+      "default": 48
     },
     {
       "type": "checkbox",
@@ -277,7 +237,8 @@
     {
       "type": "checkbox",
       "id": "toggle",
-      "label": "Toggle sidebar content"
+      "label": "Toggle sidebar content",
+      "default": false
     }
   ],
   "blocks": [
@@ -324,28 +285,13 @@
           "default": "Recently Viewed"
         },
         {
-          "type": "select",
+          "type": "range",
           "id": "sidebar_rv_per",
           "label": "Products limit",
-          "default": "3",
-          "options": [
-            {
-              "value": "1",
-              "label": "1"
-            },
-            {
-              "value": "2",
-              "label": "2"
-            },
-            {
-              "value": "3",
-              "label": "3"
-            },
-            {
-              "value": "4",
-              "label": "4"
-            }
-          ]
+          "min": 1,
+          "max": 4,
+          "step": 1,
+          "default": 3
         }
       ]
     },
