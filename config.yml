@@ -21,4 +21,15 @@ master:
  - README.md
  - additional/
  timeout: 60s
+temp:
+ password: 371ea5d17111812343c1e6a72e1b1368
+ theme_id: "232226820"
+ store: indira-active.myshopify.com
+ ignore_files:
+ - ".git/"
+ - ".gitignore"
+ - .circleci/  
+ - README.md
+ - additional/
+ timeout: 60s
  
