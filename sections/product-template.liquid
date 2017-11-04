@@ -239,10 +239,7 @@
     {% if sidebar %}
 
             {% if section.settings.display_related_products %}
-              <!-- Custom Findify Reccomendations -->
-              {% comment %} {% include 'related-products' %} {% endcomment %}
-              <div class="findify-element" id="product-findify-rec-3"></div>
-              <!-- END Custom Findify Reccomendations -->
+              {% include 'related-products' %}
             {% endif %}
             {% if section.settings.display_recently_viewed %}
               {% include 'recently-viewed' %}
