@@ -254,7 +254,10 @@
     {% if sidebar %}
 
             {% if section.settings.display_related_products %}
-              {% include 'related-products' %}
+              <!-- Custom Findify Reccomendations -->
+              {% comment %} {% include 'related-products' %} {% endcomment %}
+              <div class="findify-element" id="product-findify-rec-3"></div>
+              <!-- END Custom Findify Reccomendations -->
             {% endif %}
             {% if section.settings.display_recently_viewed %}
               {% include 'recently-viewed' %}
@@ -271,7 +274,10 @@
       </div>
 
       {% if section.settings.display_related_products %}
-        {% include 'related-products' %}
+        <!-- Custom Findify Reccomendations -->
+              {% comment %} {% include 'related-products' %} {% endcomment %}
+              <div class="findify-element" id="product-findify-rec-3"></div>
+              <!-- END Custom Findify Reccomendations -->
       {% endif %}
       {% if section.settings.display_recently_viewed %}
         {% include 'recently-viewed' %}
@@ -279,10 +285,10 @@
 
     {% endif %}
 
-    <!-- Custom klaviyo products tracking -->
+    <!-- Custom product page scripts + tracking -->
 	  <script src="{{ 'product-description-tabs.js' | asset_url }}" defer></script>
     {% include 'klaviyo-track-products' %}
-    <!-- End Custom klaviyo products tracking -->
+   <!-- END Custom product page scripts + tracking -->
 
 {% schema %}
 
