@@ -126,9 +126,9 @@
               <meta itemprop="seller" content="{{ shop.name | escape }}" />
               <link itemprop="availability" href="http://schema.org/{% if variant.available %}InStock{% else %}OutOfStock{% endif %}">
               <!-- Custom SD structured data -->
-               <!-- <meta itemprop="itemCondition" content="New" /> -->
-               <meta itemprop="itemCondition" itemtype="http://schema.org/OfferItemCondition" content="http://schema.org/NewCondition" />
-               <!-- END Custom SD structured data-->
+              <!-- <meta itemprop="itemCondition" content="New" /> -->
+              <meta itemprop="itemCondition" itemtype="http://schema.org/OfferItemCondition" content="http://schema.org/NewCondition" />
+              <!-- END Custom SD structured data-->
 
               <span class="sold_out">{% if variant.available == false %}{{ 'products.product.sold_out' | t }}{% endif %}</span>
               <span itemprop="price" content="{{ variant.price | money_without_currency | remove: "," }}" class="{% if variant.compare_at_price > variant.price %}sale{% endif %}">
