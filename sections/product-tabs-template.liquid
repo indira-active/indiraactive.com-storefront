@@ -55,9 +55,8 @@
       <div class="sixteen columns">
     {% endif %}
 
-    <div  class="product-{{ product.id }}"
-          data-free-text="{{ settings.free_price_text }}"
-          >
+    <div class="product-{{ product.id }}"
+          data-free-text="{{ settings.free_price_text }}">
       <div class="section product_section clearfix js-product_section {% if section.settings.product_images_position == 'right' %}align_right--images{% endif %}" itemscope itemtype="http://schema.org/Product" data-rv-handle="{{ product.handle }}">
 
         <div class="{% if sidebar %}seven{% else %}nine{% endif %} columns {% if section.settings.product_images_position == 'left' %}alpha{% else %}omega{% endif %}">
@@ -85,8 +84,13 @@
             <p class="vendor">
               <span itemprop="brand" class="vendor">{{ product.vendor | link_to_vendor }}</span>
             </p>
-          {% endif %}
+           {% endif %}
 
+          <!-- Custom SD structured data -->
+          <meta itemprop="sku" content="{{variant.sku}}"/>
+          <meta itemprop="mpn" content="{{variant.sku}}"/>
+          <meta itemprop="productId" content="{{variant.id}}"/> <!-- Variant id in our spec -->
+          <!-- END Custom SD structured data -->
           {% if variant.sku != blank and section.settings.display_sku %}
             <p class="sku">
               <span itemprop="sku">{{ variant.sku }}</span>
@@ -121,7 +125,10 @@
               <meta itemprop="priceCurrency" content="{{ shop.currency }}" />
               <meta itemprop="seller" content="{{ shop.name | escape }}" />
               <link itemprop="availability" href="http://schema.org/{% if variant.available %}InStock{% else %}OutOfStock{% endif %}">
-              <meta itemprop="itemCondition" content="New" />
+              <!-- Custom SD structured data -->
+              <!-- <meta itemprop="itemCondition" content="New" /> -->
+              <meta itemprop="itemCondition" itemtype="http://schema.org/OfferItemCondition" content="http://schema.org/NewCondition" />
+              <!-- END Custom SD structured data-->
 
               <span class="sold_out">{% if variant.available == false %}{{ 'products.product.sold_out' | t }}{% endif %}</span>
               <span itemprop="price" content="{{ variant.price | money_without_currency | remove: "," }}" class="{% if variant.compare_at_price > variant.price %}sale{% endif %}">
