@@ -21,7 +21,7 @@
   <body>
 
     <!-- Custom gtm body -->
-    {% include 'gtm-body' %}
+    {% comment %} {% include 'gtm-body' %} {% endcomment %}
     <!-- End Custom gtm body -->
 
     <div class="banner" data-header>
@@ -59,6 +59,8 @@
     </div>
 
     <!-- Custom body scripts-->
+    {% include 'sweettooth-initializer' %}
+    {% include 'sweettooth-points-slider' %}
     {% include 'smooch' %}
     <!-- End Custom body scripts -->
 

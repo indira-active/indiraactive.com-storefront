@@ -1,0 +1,82 @@
+// Border around product size variant buttons
+.swatch-element {
+  border-color: #d03b77;
+}
+// Quantity + button
+.product-quantity-box .product-plus {
+  background-color: #ce3e77;
+  color: #ffffff;
+}
+// Quantity - button
+.product-quantity-box .product-minus {
+  background-color: #ce3e77;
+  color: #ffffff;
+}
+// Quantity - button hover
+.product-quantity-box .product-minus:hover {
+  background-color: #333333;
+}
+// Quantity + button hover
+.product-quantity-box .product-plus:hover {
+  background-color: #333333;
+}
+// Add to cart text
+button.add_to_cart .text {
+  font-size: 18px;
+}
+
+// Stamped.io - Hide 'No Review'
+.spr-badge[data-rating="0.0"] {
+  display:none !important;
+}
+// Stamped.io review stars
+.fa-star, .fa-star-checked, .fa-star-half-o, .fa-star-o {
+  color: #ce3e77 !important;
+}
+// Stamped.io review bars
+.stamped-summary-ratings {
+  display: none;
+}
+
+// Smile.io points balance in navbar
+.smile-points-balance-header {
+  font-family: 'Open Sans';
+  font-weight: lighter;
+  font-size: 16px;
+  text-transform: none;
+  color: white;
+  line-height: 38px;
+}
+
+/* Not applicable when hidden (changes color scheme)
+.summary-rating-bar-content {
+  background: #ce3e77 !important;
+  display: none;
+}
+.summary-rating-bar {
+ color: #ce3e77 !important;
+}
+*/
+
+// Gift Wizard
+.gwbutton {
+  width: 100%;
+  position: relative;
+  margin-top: 15px;
+}
+
+@media (max-width: 767px) {
+  #shopify-section-collection-template .container {
+  	width: 100%;
+  }	
+  
+  .sixteen.columns.page.clearfix .findify-root{
+  	padding: 0;
+  }
+}
+
+// Capitalize product titles on collection & product pages
+.product-details .title,
+.seven .columns .omega .product_name {
+  text-transform: uppercase;
+}
