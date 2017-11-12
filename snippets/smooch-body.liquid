@@ -9,7 +9,7 @@
       });
       // Placeholder for Whipser alternative
       var user = Smooch.getUser()
-      if (!user.properties.hasOwnProperty('Greeting-Message') {
+      if (!user.properties.hasOwnProperty('Greeting-Message')) {
         var timeout;     
         timeout = setTimeout(function() {   
           Smooch.sendMessage({
