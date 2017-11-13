@@ -24,6 +24,7 @@
     {{ 'styles.scss.css' | asset_url | stylesheet_tag }}
 
     <!-- Custom styles -->
+    {{ 'paymentfont.scss.css' | asset_url | stylesheet_tag }}
     {{ 'custom-styles.scss.css' | asset_url | stylesheet_tag }}
     {{ 'custom-table.scss.css' | asset_url | stylesheet_tag }}
     <!-- End Custom styles -->
@@ -75,10 +76,6 @@
     <!-- End Custom tracking head -->
 
     {{ content_for_header }}
-
-    <!-- Custom styles -->
-    {{ 'paymentfont.scss.css' | asset_url | stylesheet_tag }}
-    <!-- END Custom styles -->
     
 </head>
   {% if template contains "index" %}
