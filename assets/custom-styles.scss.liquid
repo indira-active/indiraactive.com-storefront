@@ -63,6 +63,7 @@ button.add_to_cart .text {
   width: 100%;
   position: relative;
   margin-top: 15px;
+  font-size: 18px;
 }
 
 @media (max-width: 767px) {
@@ -79,4 +80,24 @@ button.add_to_cart .text {
 .product-details .title,
 .seven .columns .omega .product_name {
   text-transform: uppercase;
+}
+
+// Trust badges
+#trust-badge-content-div p {
+ display: none; 
+}
+
+#trust-badge-content-div  td {
+ padding-top: 0px !important; 
+}
+
+// Fomo Mobile
+@media only screen and (max-width: 500px) {
+  #someone-purchased {
+    height: 64px !important;
+  }
+
+  #someone-purchased p a {
+    display: inline !important;
+  }
 }

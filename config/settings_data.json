@@ -3053,7 +3053,7 @@
         "settings": {
           "copyright_text": "",
           "display_designed_by": false,
-          "display_payment_methods": false
+          "display_payment_methods": true
         }
       },
       "1489285367207": {
