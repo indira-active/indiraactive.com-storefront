@@ -2991,7 +2991,7 @@
         "settings": {
           "fixed_header": true,
           "search_enabled": true,
-          "promo_text": "<p><strong>FREE SHIPPING ON TWO ITEMS OR MORE<\/strong><\/p>",
+          "promo_text": "<p>BUY 3 ITEMS AND RECEIVE A FREE SUNBURST SPORTS BRA<\/p>",
           "social_icons_header": false,
           "show_cart": true,
           "phone_number": "",
@@ -3053,7 +3053,7 @@
         "settings": {
           "copyright_text": "",
           "display_designed_by": false,
-          "display_payment_methods": false
+          "display_payment_methods": true
         }
       },
       "1489285367207": {
@@ -3220,8 +3220,8 @@
             "settings": {
               "image": "shopify:\/\/shop_images\/phoebe-black-s-indira-active-2_2000x_053d2933-b6e4-4d75-b8d7-6b978fbbab13.jpg",
               "link": "",
-              "title": "SPEND $125 or more",
-              "text": "<p>RECEIVE 10% OFF + A $15 GIFT CARD<\/p>",
+              "title": "PURCHASE 3 ITEMS AND RECEIVE A FREE SUNBURST SPORTS BRA",
+              "text": "<p>&zwnj;&bull; Just add&nbsp;SUNBURST to your cart<br>&bull; Cannot be combined with other offers<\/p>",
               "button_label": ""
             }
           }
@@ -3244,7 +3244,7 @@
           "image": "shopify:\/\/shop_images\/gradient-5.jpg",
           "pretext": "",
           "title": "Boutique Athleisure Wear",
-          "subtitle": "<p>Spend $125 or more<\/p>\n<p>Receive 10% off + $15 gift card<\/p>",
+          "subtitle": "<p>PURCHASE 3 ITEMS AND RECEIVE A FREE SUNBURST SPORTS BRA<\/p>\n<p>&zwnj;&bull; Just add SUNBURST to your cart<br>&bull; Cannot be combined with other offers<\/p>",
           "caption_background": false,
           "caption_background_transparency": true,
           "text_position": "center",
