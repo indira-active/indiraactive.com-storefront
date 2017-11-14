@@ -3366,7 +3366,7 @@
           "gallery_arrows": true,
           "activate_zoom": true,
           "enable_product_lightbox": false,
-          "activate_autoplay": true,
+          "activate_autoplay": false,
           "slideshow_animation": "fade",
           "product_images_position": "left",
           "product_thumbs": true,
