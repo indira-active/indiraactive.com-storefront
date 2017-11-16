@@ -2991,7 +2991,7 @@
         "settings": {
           "fixed_header": true,
           "search_enabled": true,
-          "promo_text": "<p>BUY 3 ITEMS AND RECEIVE A FREE SUNBURST SPORTS BRA<\/p>",
+          "promo_text": "<p>25% LEGGINGS TODAY, USE CODE LG25<\/p>",
           "social_icons_header": false,
           "show_cart": true,
           "phone_number": "",
@@ -3243,8 +3243,8 @@
         "settings": {
           "image": "shopify:\/\/shop_images\/gradient-5.jpg",
           "pretext": "",
-          "title": "Boutique Athleisure Wear",
-          "subtitle": "<p>PURCHASE 3 ITEMS AND RECEIVE A FREE SUNBURST SPORTS BRA<\/p>\n<p>&zwnj;&bull; Just add SUNBURST to your cart<br>&bull; Cannot be combined with other offers<\/p>",
+          "title": "PRE BLACK FRIDAY SALE",
+          "subtitle": "<p>25% OFF ALL LEGGINGS TODAY ONLY<\/p>\n<p>USE&nbsp; CODE LG25<\/p>",
           "caption_background": false,
           "caption_background_transparency": true,
           "text_position": "center",
