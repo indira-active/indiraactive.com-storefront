@@ -2991,7 +2991,7 @@
         "settings": {
           "fixed_header": true,
           "search_enabled": true,
-          "promo_text": "<p>25% OFF LEGGINGS TODAY, USE CODE LG25<\/p>",
+          "promo_text": "<p>25% OFF&nbsp;TOPS TODAY, USE CODE TP25<\/p>",
           "social_icons_header": false,
           "show_cart": true,
           "phone_number": "",
@@ -3244,7 +3244,7 @@
           "image": "shopify:\/\/shop_images\/gradient-5.jpg",
           "pretext": "",
           "title": "PRE BLACK FRIDAY SALE",
-          "subtitle": "<p>25% OFF ALL LEGGINGS TODAY ONLY<\/p>\n<p>USE&nbsp; CODE LG25<\/p>",
+          "subtitle": "<p>25% OFF ALL&nbsp;TOPS TODAY ONLY<br>USE&nbsp; CODE TP25<\/p>",
           "caption_background": false,
           "caption_background_transparency": true,
           "text_position": "center",
