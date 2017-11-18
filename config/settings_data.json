@@ -2311,7 +2311,7 @@
     "btn_hover_color": "#333333",
     "btn_text_color": "#ffffff",
     "button_style": "square",
-    "swatch_style": "rounded",
+    "swatch_style": "square",
     "table_styles_enabled": true,
     "slideshow_arrow_size": "light",
     "arrow_color": "#333333",
@@ -2402,9 +2402,9 @@
     "footer_logo_font_size": 20,
     "footer_heading_font_size": 18,
     "footer_font_size": 13,
-    "mega_menu_1": false,
+    "mega_menu_1": true,
     "mega_menu_2": false,
-    "mega_menu_3": false,
+    "mega_menu_3": true,
     "mega_menu_4": false,
     "mega_menu_5": false,
     "search_option": "products",
@@ -2991,7 +2991,7 @@
         "settings": {
           "fixed_header": true,
           "search_enabled": true,
-          "promo_text": "<p>25% OFF JACKETS TODAY, USE CODE JK25<\/p>",
+          "promo_text": "<p>25% OFF&nbsp;TOPS TODAY, USE CODE TP25<\/p>",
           "social_icons_header": false,
           "show_cart": true,
           "phone_number": "",
@@ -3001,7 +3001,7 @@
           "logo_home": "",
           "logo_mobile": "shopify:\/\/shop_images\/mobile-logo_2.png",
           "logo_display_width": 205,
-          "main_linklist": "featured-collections",
+          "main_linklist": "mega-menu-nav",
           "main_linklist2": "",
           "vertical_menu": false,
           "logo_position": "center",
@@ -3244,7 +3244,7 @@
           "image": "shopify:\/\/shop_images\/gradient-5.jpg",
           "pretext": "",
           "title": "PRE BLACK FRIDAY SALE",
-          "subtitle": "<p>25% OFF ALL&nbsp;JACKETS TODAY ONLY<br>USE CODE JK25<\/p>",
+          "subtitle": "<p>25% OFF ALL&nbsp;TOPS TODAY ONLY<br>USE&nbsp; CODE TP25<\/p>",
           "caption_background": false,
           "caption_background_transparency": true,
           "text_position": "center",
@@ -3412,6 +3412,158 @@
           "read_more_link": true,
           "blog_date": true,
           "toggle": false
+        }
+      },
+      "mega-menu-1": {
+        "type": "mega-menu-1",
+        "blocks": {
+          "1510984344067": {
+            "type": "column",
+            "settings": {
+              "richtext_top": "",
+              "image_top": "",
+              "image_caption_top": "",
+              "image_link_top": "",
+              "menu_1": "sports-bras",
+              "menu_1_link": "shopify:\/\/collections\/sports-bras",
+              "menu_2": "tops",
+              "menu_2_link": "shopify:\/\/collections\/tops",
+              "menu_3": "outwear",
+              "menu_3_link": "shopify:\/\/collections\/outerwear",
+              "menu_4": "",
+              "menu_4_link": "",
+              "image_bottom": "",
+              "image_caption_bottom": "",
+              "image_link_bottom": "",
+              "richtext_bottom": ""
+            }
+          },
+          "1510984696226": {
+            "type": "column",
+            "settings": {
+              "richtext_top": "",
+              "image_top": "",
+              "image_caption_top": "",
+              "image_link_top": "",
+              "menu_1": "bottoms",
+              "menu_1_link": "shopify:\/\/collections\/bottoms",
+              "menu_2": "",
+              "menu_2_link": "",
+              "menu_3": "",
+              "menu_3_link": "",
+              "menu_4": "",
+              "menu_4_link": "",
+              "image_bottom": "",
+              "image_caption_bottom": "",
+              "image_link_bottom": "",
+              "richtext_bottom": ""
+            }
+          },
+          "1510985352283": {
+            "type": "column",
+            "settings": {
+              "richtext_top": "",
+              "image_top": "",
+              "image_caption_top": "",
+              "image_link_top": "",
+              "menu_1": "accessories",
+              "menu_1_link": "shopify:\/\/collections\/accessories",
+              "menu_2": "",
+              "menu_2_link": "",
+              "menu_3": "",
+              "menu_3_link": "",
+              "menu_4": "",
+              "menu_4_link": "",
+              "image_bottom": "",
+              "image_caption_bottom": "",
+              "image_link_bottom": "",
+              "richtext_bottom": ""
+            }
+          },
+          "1510986041191": {
+            "type": "column",
+            "settings": {
+              "richtext_top": "",
+              "image_top": "shopify:\/\/shop_images\/Screen_Shot_2017-11-18_at_1.30.32_AM.png",
+              "image_caption_top": "",
+              "image_link_top": "",
+              "menu_1": "",
+              "menu_1_link": "",
+              "menu_2": "",
+              "menu_2_link": "",
+              "menu_3": "",
+              "menu_3_link": "",
+              "menu_4": "",
+              "menu_4_link": "",
+              "image_bottom": "",
+              "image_caption_bottom": "",
+              "image_link_bottom": "",
+              "richtext_bottom": ""
+            }
+          }
+        },
+        "block_order": [
+          "1510984344067",
+          "1510984696226",
+          "1510985352283",
+          "1510986041191"
+        ],
+        "settings": {
+          "parent": "WOMEN"
+        }
+      },
+      "mega-menu-3": {
+        "type": "mega-menu-3",
+        "blocks": {
+          "1510985844107": {
+            "type": "column",
+            "settings": {
+              "richtext_top": "",
+              "image_top": "",
+              "image_caption_top": "",
+              "image_link_top": "",
+              "menu_1": "questions-anse",
+              "menu_1_link": "",
+              "menu_2": "",
+              "menu_2_link": "",
+              "menu_3": "",
+              "menu_3_link": "",
+              "menu_4": "",
+              "menu_4_link": "",
+              "image_bottom": "",
+              "image_caption_bottom": "",
+              "image_link_bottom": "",
+              "richtext_bottom": ""
+            }
+          },
+          "1510985878920": {
+            "type": "column",
+            "settings": {
+              "richtext_top": "",
+              "image_top": "",
+              "image_caption_top": "",
+              "image_link_top": "",
+              "menu_1": "",
+              "menu_1_link": "",
+              "menu_2": "",
+              "menu_2_link": "",
+              "menu_3": "",
+              "menu_3_link": "",
+              "menu_4": "",
+              "menu_4_link": "",
+              "image_bottom": "",
+              "image_caption_bottom": "",
+              "image_link_bottom": "",
+              "richtext_bottom": ""
+            }
+          }
+        },
+        "block_order": [
+          "1510985844107",
+          "1510985878920"
+        ],
+        "settings": {
+          "parent": "FAQ"
         }
       }
     },
