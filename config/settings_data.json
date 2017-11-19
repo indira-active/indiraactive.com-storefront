@@ -2991,7 +2991,7 @@
         "settings": {
           "fixed_header": true,
           "search_enabled": true,
-          "promo_text": "<p>25% OFF&nbsp;SPORTS BRAS TODAY, USE CODE&nbsp;SB25<\/p>",
+          "promo_text": "<p>25% OFF JACKETS&nbsp;TODAY, USE CODE&nbsp;JK25<\/p>",
           "social_icons_header": false,
           "show_cart": true,
           "phone_number": "",
@@ -3244,7 +3244,7 @@
           "image": "shopify:\/\/shop_images\/gradient-5.jpg",
           "pretext": "",
           "title": "PRE BLACK FRIDAY SALE",
-          "subtitle": "<p>25% OFF ALL&nbsp;SPORTS BRAS&nbsp;TODAY ONLY<br>USE&nbsp; CODE&nbsp;SB25<\/p>",
+          "subtitle": "<p>25% OFF ALL JACKETS&nbsp;TODAY ONLY<br>USE&nbsp; CODE&nbsp;JK25<\/p>",
           "caption_background": false,
           "caption_background_transparency": true,
           "text_position": "center",
@@ -3484,7 +3484,7 @@
             "type": "column",
             "settings": {
               "richtext_top": "",
-              "image_top": "shopify:\/\/shop_images\/Screen_Shot_2017-11-18_at_1.30.32_AM.png",
+              "image_top": "shopify:\/\/shop_images\/Screen_Shot_2017-11-19_at_12.34.00_AM.png",
               "image_caption_top": "",
               "image_link_top": "",
               "menu_1": "",
