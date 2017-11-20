@@ -2411,7 +2411,7 @@
     "mobile_products_per_row": "2",
     "pagination_type": "infinite_scroll",
     "align_height": true,
-    "collection_height": 300,
+    "collection_height": 370,
     "thumbnail_hover_enabled": false,
     "display_vendor": false,
     "collection_secondary_image": false,
@@ -2991,7 +2991,7 @@
         "settings": {
           "fixed_header": true,
           "search_enabled": true,
-          "promo_text": "<p>25% OFF JACKETS&nbsp;TODAY, USE CODE&nbsp;JK25<\/p>",
+          "promo_text": "<p>20% OFF&nbsp;BAGS TODAY, USE CODE&nbsp;BAG20<\/p>",
           "social_icons_header": false,
           "show_cart": true,
           "phone_number": "",
@@ -3131,36 +3131,36 @@
           "1501913982266-0": {
             "type": "collection",
             "settings": {
-              "feature_collection": "leggings",
-              "image": ""
+              "feature_collection": "sports-bras",
+              "image": "shopify:\/\/shop_images\/ultra-black-xs-indira-active_2000x_2.jpeg"
             }
           },
           "1501913982266-1": {
             "type": "collection",
             "settings": {
-              "feature_collection": "sports-bras",
-              "image": ""
+              "feature_collection": "tops",
+              "image": "shopify:\/\/shop_images\/criss-cross-green-xs-indira-active_2000x_271b1c62-0a4f-4c59-bc62-2aab5794837d.jpeg"
             }
           },
           "1501913982266-2": {
             "type": "collection",
             "settings": {
-              "feature_collection": "tops",
-              "image": ""
+              "feature_collection": "outerwear",
+              "image": "shopify:\/\/shop_images\/paulina--indira-active-2_2000x_2000x_2000x_614062a0-7279-4de0-a675-929db12d6e03.jpg"
             }
           },
           "1501914063550": {
             "type": "collection",
             "settings": {
-              "feature_collection": "jackets-hoodies",
-              "image": ""
+              "feature_collection": "bottoms",
+              "image": "shopify:\/\/shop_images\/tove-black-xs-indira-active_2000x_1.jpeg"
             }
           },
           "1501914094186": {
             "type": "collection",
             "settings": {
-              "feature_collection": "accessories",
-              "image": ""
+              "feature_collection": "bags",
+              "image": "shopify:\/\/shop_images\/bagggg_2000x_2000x_9c441db3-7e92-49ab-809a-cdc0cf66a61c.jpg"
             }
           }
         },
@@ -3244,13 +3244,13 @@
           "image": "shopify:\/\/shop_images\/gradient-5.jpg",
           "pretext": "",
           "title": "PRE BLACK FRIDAY SALE",
-          "subtitle": "<p>25% OFF ALL JACKETS&nbsp;TODAY ONLY<br>USE&nbsp; CODE&nbsp;JK25<\/p>",
+          "subtitle": "<p>20% OFF ALL BAGS&nbsp;TODAY ONLY<br>USE&nbsp; CODE&nbsp;BAG20<\/p>",
           "caption_background": false,
           "caption_background_transparency": true,
           "text_position": "center",
           "text_align": "center",
-          "button1": "",
-          "button1_link": "",
+          "button1": "BLACK FRIDAY SPECIALS",
+          "button1_link": "shopify:\/\/pages\/black-friday",
           "button1_highlight": false,
           "button2": "",
           "button2_link": "",
@@ -3484,7 +3484,7 @@
             "type": "column",
             "settings": {
               "richtext_top": "",
-              "image_top": "shopify:\/\/shop_images\/Screen_Shot_2017-11-19_at_12.34.00_AM.png",
+              "image_top": "shopify:\/\/shop_images\/Screen_Shot_2017-11-19_at_11.16.07_PM.png",
               "image_caption_top": "",
               "image_link_top": "",
               "menu_1": "",
