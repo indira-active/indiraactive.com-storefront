@@ -2991,7 +2991,7 @@
         "settings": {
           "fixed_header": true,
           "search_enabled": true,
-          "promo_text": "<p>20% OFF&nbsp;BAGS TODAY, USE CODE&nbsp;BAG20<\/p>",
+          "promo_text": "<p>Buy 1 item, get 40% off the second. UNLIMITED TIMES!<\/p>",
           "social_icons_header": false,
           "show_cart": true,
           "phone_number": "",
@@ -3244,7 +3244,7 @@
           "image": "shopify:\/\/shop_images\/gradient-5.jpg",
           "pretext": "",
           "title": "PRE BLACK FRIDAY SALE",
-          "subtitle": "<p>20% OFF ALL BAGS&nbsp;TODAY ONLY<br>USE&nbsp; CODE&nbsp;BAG20<\/p>",
+          "subtitle": "<p>Buy one item, get 40% off the second.<br>UNLIMITED TIMES!<\/p>",
           "caption_background": false,
           "caption_background_transparency": true,
           "text_position": "center",
@@ -3484,7 +3484,7 @@
             "type": "column",
             "settings": {
               "richtext_top": "",
-              "image_top": "shopify:\/\/shop_images\/Screen_Shot_2017-11-19_at_11.16.07_PM.png",
+              "image_top": "shopify:\/\/shop_images\/Screen_Shot_2017-11-20_at_11.59.59_PM.png",
               "image_caption_top": "",
               "image_link_top": "",
               "menu_1": "",
@@ -3522,28 +3522,7 @@
               "image_top": "",
               "image_caption_top": "",
               "image_link_top": "",
-              "menu_1": "questions-anse",
-              "menu_1_link": "",
-              "menu_2": "",
-              "menu_2_link": "",
-              "menu_3": "",
-              "menu_3_link": "",
-              "menu_4": "",
-              "menu_4_link": "",
-              "image_bottom": "",
-              "image_caption_bottom": "",
-              "image_link_bottom": "",
-              "richtext_bottom": ""
-            }
-          },
-          "1510985878920": {
-            "type": "column",
-            "settings": {
-              "richtext_top": "",
-              "image_top": "",
-              "image_caption_top": "",
-              "image_link_top": "",
-              "menu_1": "",
+              "menu_1": "questions-answers",
               "menu_1_link": "",
               "menu_2": "",
               "menu_2_link": "",
@@ -3559,8 +3538,7 @@
           }
         },
         "block_order": [
-          "1510985844107",
-          "1510985878920"
+          "1510985844107"
         ],
         "settings": {
           "parent": "FAQ"
