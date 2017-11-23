@@ -2991,7 +2991,7 @@
         "settings": {
           "fixed_header": true,
           "search_enabled": true,
-          "promo_text": "<p>Buy 1 item, get 40% off the second. UNLIMITED TIMES!<\/p>",
+          "promo_text": "<p>Black friday special, 30% off using code bfcm30<\/p>",
           "social_icons_header": false,
           "show_cart": true,
           "phone_number": "",
@@ -3205,6 +3205,36 @@
       "1502060479212": {
         "type": "featured-promotions",
         "blocks": {
+          "1511446705338": {
+            "type": "image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/nerissa-black-s-indira-active_2000x_4.jpg",
+              "link": "shopify:\/\/products\/nerissa",
+              "title": "50% OFF",
+              "text": "<p>BLACK FRIDAY CYBER MONDAY SPECIAL<\/p>",
+              "button_label": "SHOP NOW"
+            }
+          },
+          "1511446708691": {
+            "type": "image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/dhana-black-s-indira-active-5_2000x_5e42e714-7099-402a-b115-abbdd993f47e.jpg",
+              "link": "shopify:\/\/products\/dhana",
+              "title": "50% off",
+              "text": "<p>BLACK FRIDAY CYBER MONDAY SPECIAL ON BLACK DHANA<\/p>",
+              "button_label": "SHOP NOW"
+            }
+          },
+          "1502061384317": {
+            "type": "image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/nola-gray-s-sports-bras-indira-active.jpg",
+              "link": "shopify:\/\/products\/nola",
+              "title": "$15 New Arrival",
+              "text": "<p>BLACK FRIDAY CYBER MONDAY SPECIAL<\/p>",
+              "button_label": "SHOP NOW"
+            }
+          },
           "1502060479212-0": {
             "type": "image",
             "settings": {
@@ -3214,21 +3244,13 @@
               "text": "<p><strong>&zwnj;Free shipping:<\/strong> <br>&bull; Spend $150 or more (Canada)&zwnj;<br>&bull; Spend $250 or more (International)&nbsp;<\/p>",
               "button_label": ""
             }
-          },
-          "1502061384317": {
-            "type": "image",
-            "settings": {
-              "image": "shopify:\/\/shop_images\/phoebe-black-s-indira-active-2_2000x_053d2933-b6e4-4d75-b8d7-6b978fbbab13.jpg",
-              "link": "",
-              "title": "PURCHASE 3 ITEMS AND RECEIVE A FREE SUNBURST SPORTS BRA",
-              "text": "<p>&zwnj;&bull; Just add&nbsp;SUNBURST to your cart<br>&bull; Cannot be combined with other offers<\/p>",
-              "button_label": ""
-            }
           }
         },
         "block_order": [
-          "1502060479212-0",
-          "1502061384317"
+          "1511446705338",
+          "1502061384317",
+          "1511446708691",
+          "1502060479212-0"
         ],
         "settings": {
           "featured_promos_per_row": 2,
@@ -3243,8 +3265,8 @@
         "settings": {
           "image": "shopify:\/\/shop_images\/gradient-5.jpg",
           "pretext": "",
-          "title": "PRE BLACK FRIDAY SALE",
-          "subtitle": "<p>Buy one item, get 40% off the second.<br>UNLIMITED TIMES!<\/p>",
+          "title": "BLACK FRIDAY WEEK SPECIAL",
+          "subtitle": "<p>30% OFF, USE CODE BFCM30<br>(cannot be applied to on-sale items)<\/p>",
           "caption_background": false,
           "caption_background_transparency": true,
           "text_position": "center",
