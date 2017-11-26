@@ -2991,7 +2991,7 @@
         "settings": {
           "fixed_header": true,
           "search_enabled": true,
-          "promo_text": "<p>Black friday special, 30% off using code bfcm30<\/p>",
+          "promo_text": "<p>Cyber Monday special, 30% off everything<\/p>",
           "social_icons_header": false,
           "show_cart": true,
           "phone_number": "",
@@ -3211,17 +3211,7 @@
               "image": "shopify:\/\/shop_images\/nerissa-black-s-indira-active_2000x_4.jpg",
               "link": "shopify:\/\/products\/nerissa",
               "title": "50% OFF",
-              "text": "<p>BLACK FRIDAY CYBER MONDAY SPECIAL<\/p>",
-              "button_label": "SHOP NOW"
-            }
-          },
-          "1511446708691": {
-            "type": "image",
-            "settings": {
-              "image": "shopify:\/\/shop_images\/dhana-black-s-indira-active-5_2000x_5e42e714-7099-402a-b115-abbdd993f47e.jpg",
-              "link": "shopify:\/\/products\/dhana",
-              "title": "50% off",
-              "text": "<p>BLACK FRIDAY CYBER MONDAY SPECIAL ON BLACK DHANA<\/p>",
+              "text": "<p>CYBER MONDAY SPECIAL<\/p>",
               "button_label": "SHOP NOW"
             }
           },
@@ -3231,7 +3221,17 @@
               "image": "shopify:\/\/shop_images\/nola-gray-s-sports-bras-indira-active.jpg",
               "link": "shopify:\/\/products\/nola",
               "title": "$15 New Arrival",
-              "text": "<p>BLACK FRIDAY CYBER MONDAY SPECIAL<\/p>",
+              "text": "<p>CYBER MONDAY SPECIAL<\/p>",
+              "button_label": "SHOP NOW"
+            }
+          },
+          "1511446708691": {
+            "type": "image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/dhana-black-s-indira-active-5_2000x_5e42e714-7099-402a-b115-abbdd993f47e.jpg",
+              "link": "shopify:\/\/products\/dhana",
+              "title": "50% off",
+              "text": "<p>CYBER MONDAY SPECIAL ON BLACK DHANA<\/p>",
               "button_label": "SHOP NOW"
             }
           },
@@ -3265,13 +3265,13 @@
         "settings": {
           "image": "shopify:\/\/shop_images\/gradient-5.jpg",
           "pretext": "",
-          "title": "BLACK FRIDAY WEEK SPECIAL",
-          "subtitle": "<p>30% OFF, USE CODE BFCM30<br>(cannot be applied to on-sale items)<\/p>",
+          "title": "CYBER MONDAY SPECIAL",
+          "subtitle": "<p>30% OFF EVERYTHING<br>(cannot be applied to on-sale items)<\/p>",
           "caption_background": false,
           "caption_background_transparency": true,
           "text_position": "center",
           "text_align": "center",
-          "button1": "BLACK FRIDAY SPECIALS",
+          "button1": "CYBER MONDAY DEALS",
           "button1_link": "shopify:\/\/pages\/black-friday",
           "button1_highlight": false,
           "button2": "",
