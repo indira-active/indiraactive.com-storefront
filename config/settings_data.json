@@ -3244,7 +3244,7 @@
           "image": "shopify:\/\/shop_images\/gradient-5.jpg",
           "pretext": "",
           "title": "VIP SPECIAL",
-          "subtitle": "<p>BUY ONE ITEM, GET A SECOND<\/p>\n<p><strong>40% OFF<\/strong><\/p>",
+          "subtitle": "<p>BUY ONE ITEM, GET A SECOND<br><strong>40% OFF<\/strong><\/p>",
           "caption_background": false,
           "caption_background_transparency": true,
           "text_position": "center",
