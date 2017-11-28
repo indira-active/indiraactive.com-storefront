@@ -2991,7 +2991,7 @@
         "settings": {
           "fixed_header": true,
           "search_enabled": true,
-          "promo_text": "<p>Cyber Monday special, 30% off everything<\/p>",
+          "promo_text": "<p>BUY ONE ITEM, GET A SECOND 40% OFF<\/p>",
           "social_icons_header": false,
           "show_cart": true,
           "phone_number": "",
@@ -3205,36 +3205,6 @@
       "1502060479212": {
         "type": "featured-promotions",
         "blocks": {
-          "1511446705338": {
-            "type": "image",
-            "settings": {
-              "image": "shopify:\/\/shop_images\/nerissa-black-s-indira-active_2000x_4.jpg",
-              "link": "shopify:\/\/products\/nerissa",
-              "title": "50% OFF",
-              "text": "<p>CYBER MONDAY SPECIAL<\/p>",
-              "button_label": "SHOP NOW"
-            }
-          },
-          "1502061384317": {
-            "type": "image",
-            "settings": {
-              "image": "shopify:\/\/shop_images\/nola-gray-s-sports-bras-indira-active.jpg",
-              "link": "shopify:\/\/products\/nola",
-              "title": "$14.99 New Arrival",
-              "text": "<p>CYBER MONDAY SPECIAL<\/p>",
-              "button_label": "SHOP NOW"
-            }
-          },
-          "1511446708691": {
-            "type": "image",
-            "settings": {
-              "image": "shopify:\/\/shop_images\/dhana-black-s-indira-active-5_2000x_5e42e714-7099-402a-b115-abbdd993f47e.jpg",
-              "link": "shopify:\/\/products\/dhana",
-              "title": "50% off",
-              "text": "<p>CYBER MONDAY SPECIAL ON BLACK DHANA<\/p>",
-              "button_label": "SHOP NOW"
-            }
-          },
           "1502060479212-0": {
             "type": "image",
             "settings": {
@@ -3244,13 +3214,21 @@
               "text": "<p><strong>&zwnj;Free shipping:<\/strong> <br>&bull; Spend $150 or more (Canada)&zwnj;<br>&bull; Spend $250 or more (International)&nbsp;<\/p>",
               "button_label": ""
             }
+          },
+          "1511582196985": {
+            "type": "image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/nola-sports-bras-indira-active_2000x_cecca2f7-4de0-4bba-96bc-338d772e9f7a.jpg",
+              "link": "shopify:\/\/products\/nola",
+              "title": "INDIRA SPecial",
+              "text": "<p>EXPIENCE AN INDIRA SPORTS BRA FOR ONLY $14.99<\/p>",
+              "button_label": "SHOP NOW"
+            }
           }
         },
         "block_order": [
-          "1511446705338",
-          "1502061384317",
-          "1511446708691",
-          "1502060479212-0"
+          "1502060479212-0",
+          "1511582196985"
         ],
         "settings": {
           "featured_promos_per_row": 2,
@@ -3265,14 +3243,14 @@
         "settings": {
           "image": "shopify:\/\/shop_images\/gradient-5.jpg",
           "pretext": "",
-          "title": "CYBER MONDAY SPECIAL",
-          "subtitle": "<p>30% OFF EVERYTHING<br>(cannot be applied to on-sale items)<\/p>",
+          "title": "VIP SPECIAL",
+          "subtitle": "<p>BUY ONE ITEM, GET A SECOND<\/p>\n<p><strong>40% OFF<\/strong><\/p>",
           "caption_background": false,
           "caption_background_transparency": true,
           "text_position": "center",
           "text_align": "center",
-          "button1": "CYBER MONDAY DEALS",
-          "button1_link": "shopify:\/\/pages\/black-friday",
+          "button1": "JOIN THE PASSPORT CLUB",
+          "button1_link": "https:\/\/www.indiraactive.com\/pages\/passport?st_intent=st:core:home",
           "button1_highlight": false,
           "button2": "",
           "button2_link": "",
