@@ -12,7 +12,7 @@
 
     <!-- Custom meta & gtm head -->
     {% include 'meta-head' %}
-    {% comment %} {% include 'gtm-head' %} {% endcomment %}
+    {% include 'gtm-head' %}
     <!-- End Custom meta & gtm head -->
 
     <!-- Custom Fonts -->
@@ -105,7 +105,7 @@
   <body class="{{ template | replace: '.', '-' | handle }}">
 
     <!-- Custom gtm body -->
-    {% comment %} {% include 'gtm-body' %} {% endcomment %}
+    {% include 'gtm-body' %}
     <!-- End Custom gtm body -->
 
     {% section 'header' %}
