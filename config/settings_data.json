@@ -2991,7 +2991,7 @@
         "settings": {
           "fixed_header": true,
           "search_enabled": true,
-          "promo_text": "<p>BUY ONE ITEM, GET A SECOND 40% OFF<\/p>",
+          "promo_text": "<p>25% OFF SITEWIDE, USE CODE DEC25<\/p>",
           "social_icons_header": false,
           "show_cart": true,
           "phone_number": "",
@@ -3243,8 +3243,8 @@
         "settings": {
           "image": "shopify:\/\/shop_images\/gradient-5.jpg",
           "pretext": "",
-          "title": "VIP SPECIAL",
-          "subtitle": "<p>BUY ONE ITEM, GET A SECOND<br><strong>40% OFF<\/strong><\/p>",
+          "title": "HOLIDAY SPECIAL",
+          "subtitle": "<p>25% OFF SITEWIDE<br><strong>USE CODE DEC25<\/strong><\/p>",
           "caption_background": false,
           "caption_background_transparency": true,
           "text_position": "center",
@@ -3484,7 +3484,7 @@
             "type": "column",
             "settings": {
               "richtext_top": "",
-              "image_top": "shopify:\/\/shop_images\/Screen_Shot_2017-11-20_at_11.59.59_PM.png",
+              "image_top": "",
               "image_caption_top": "",
               "image_link_top": "",
               "menu_1": "",
