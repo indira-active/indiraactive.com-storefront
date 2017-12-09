@@ -297,6 +297,22 @@
     {% include 'klaviyo-track-products' %}
    <!-- END Custom product page scripts + tracking -->
 
+
+<script>
+document.sezzleConfig = {
+    targetXPath: '.current_price /.money',
+    renderToPath: './../../../../.modal_price',
+    forcedShow: false,
+    alignment: 'left',
+    merchantID: '2a65dea8-7ad4-4cd9-8798-9ab2d7946608',
+    theme: 'light',
+    widgetType: 'product-page',
+    minPrice: 0,
+    maxPrice: 100000,
+  }
+</script>
+<script src="https://widget.sezzle.com/v1/javascript/price-widget?uuid=2a65dea8-7ad4-4cd9-8798-9ab2d7946608"></script>
+
 {% schema %}
 
 {

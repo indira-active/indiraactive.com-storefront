@@ -183,6 +183,21 @@
   {% include 'cart-shipping-calculator' %}
 {% endif %}
 
+<script>
+document.sezzleConfig = {
+    targetXPath: '.cart_subtotal/.money',
+    renderToPath: './../../../../.cart_subtotal js-cart_subtotal',
+    forcedShow: false,
+    alignment: 'center',
+    merchantID: '2a65dea8-7ad4-4cd9-8798-9ab2d7946608',
+    theme: 'light',
+    widgetType: 'cart',
+    minPrice: 0,
+    maxPrice: 100000,
+  }
+</script>
+<script src="https://widget.sezzle.com/v1/javascript/price-widget?uuid=2a65dea8-7ad4-4cd9-8798-9ab2d7946608"></script>
+
 {% schema %}
 
 {
