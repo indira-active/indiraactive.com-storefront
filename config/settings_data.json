@@ -3375,7 +3375,7 @@
           "display_vendor": false,
           "display_sku": false,
           "display_savings": true,
-          "display_collections": false,
+          "display_collections": true,
           "display_type": false,
           "display_tags": false,
           "display_social_buttons": true,
