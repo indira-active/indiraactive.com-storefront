@@ -1,13 +1,13 @@
 <script>
   // Store users language as property
   Smooch.on('ready', function() {
-      var language = window.navigator.userLanguage || window.navigator.language;
+    /*  var language = window.navigator.userLanguage || window.navigator.language;
       Smooch.updateUser({
         properties: {
         'Language': language
         }
       });
-      /* Placeholder for Whipser alternative ?9
+      Placeholder for Whipser alternative ?9
       var user = Smooch.getUser()
       if (!user.properties.hasOwnProperty('Greeting-Message')) {
         var timeout;
