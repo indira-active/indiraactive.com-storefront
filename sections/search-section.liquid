@@ -19,10 +19,12 @@
     <div class="search-container">
       <form class="search" action="/pages/search-results">
         <div class="search-wrapper">
+          {% comment %} Findify search results page
           {% if settings.search_option != 'everything' %}
             <input type="hidden" name="type" value="product" />
           {% endif %}
-          <input type="text" name="q" placeholder="{{ section.settings.search_term }}" value="{{ search.terms }}" x-webkit-speech autocapitalize="off" autocomplete="off" autocorrect="off" />
+          {% endcomment %} End Findify search results page
+          <input type="text" name="findify_q" placeholder="{{ section.settings.search_term }}" value="{{ search.terms }}" x-webkit-speech autocapitalize="off" autocomplete="off" autocorrect="off" />
           <button type="submit" name="submit" class="search_button icon-search" value=" " style="margin-top:0" >
             <span class"icon-search"></span>
           </button>

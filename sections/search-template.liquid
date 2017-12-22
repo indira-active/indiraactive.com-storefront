@@ -60,10 +60,12 @@
           &nbsp;
         </div>
         <div class="four columns center">
+          {% comment %} Findify search results page
           {% if settings.search_option != 'everything' %}
             <input type="hidden" name="type" value="product" />
           {% endif %}
-          <input type="text" name="q" placeholder="{{ 'general.search.placeholder' | t }}" value="{{ search.terms }}" x-webkit-speech autocapitalize="off" autocomplete="off" autocorrect="off" />
+          {% endcomment %} End Findify search results page
+          <input type="text" name="findify_q" placeholder="{{ 'general.search.placeholder' | t }}" value="{{ search.terms }}" x-webkit-speech autocapitalize="off" autocomplete="off" autocorrect="off" />
         </div>
         <div class="two columns">
           <input type="submit" name="submit" class="action_button" value="{{ 'general.search.submit' | t }}" style="margin-top:0" />
@@ -177,10 +179,12 @@
             &nbsp;
           </div>
           <div class="four columns center">
+            {% comment %} Findify search results page
             {% if settings.search_option != 'everything' %}
               <input type="hidden" name="type" value="product" />
             {% endif %}
-            <input type="text" name="q" placeholder="{{ 'general.search.placeholder' | t }}" value="{{ search.terms }}" x-webkit-speech autocapitalize="off" autocomplete="off" autocorrect="off" />
+            {% endcomment %} Findify search results page
+            <input type="text" name="findify_q" placeholder="{{ 'general.search.placeholder' | t }}" value="{{ search.terms }}" x-webkit-speech autocapitalize="off" autocomplete="off" autocorrect="off" />
           </div>
           <div class="two columns">
             <input type="submit" name="submit" class="action_button" value="{{ 'general.search.submit' | t }}" style="margin-top:0" />
