@@ -31,7 +31,7 @@
       {% endif %}
     </a>
     {% if section.settings.search_enabled %}
-      <a href="/search" class="icon-search dropdown_link" title="{{ 'general.search.title' | t | escape }}" data-dropdown-rel="search"></a>
+      <a href="/pages/search-results" class="icon-search dropdown_link" title="{{ 'general.search.title' | t | escape }}" data-dropdown-rel="search"></a>
     {% endif %}
     {% if section.settings.show_cart %}
       <div class="cart_container">
@@ -42,7 +42,7 @@
   {% if section.settings.search_enabled %}
     <div class="dropdown_container center" data-dropdown="search">
       <div class="dropdown">
-        <form action="/search" class="header_search_form">
+        <form action="/pages/search-results" class="header_search_form">
           {% if settings.search_option != 'everything' %}
             <input type="hidden" name="type" value="product" />
           {% endif %}
@@ -292,7 +292,7 @@
           {% endif %}
           {% if section.settings.search_enabled %}
             <li class="search_container">
-              <form action="/search" class="search_form">
+              <form action="/pages/search-results" class="search_form">
                 {% if settings.search_option != 'everything' %}
                   <input type="hidden" name="type" value="product" />
                 {% endif %}
@@ -301,7 +301,7 @@
               </form>
             </li>
             <li class="search_link">
-              <a href="/search" class="icon-search dropdown_link" title="{{ 'general.search.title' | t | escape }}" data-dropdown-rel="search"></a>
+              <a href="/pages/search-results" class="icon-search dropdown_link" title="{{ 'general.search.title' | t | escape }}" data-dropdown-rel="search"></a>
             </li>
           {% endif %}
         {% endcapture %}
@@ -330,7 +330,7 @@
         {% if section.settings.search_enabled %}
           <div class="dropdown_container center" data-dropdown="search">
             <div class="dropdown">
-              <form action="/search" class="header_search_form">
+              <form action="/pages/search-results" class="header_search_form">
                 {% if settings.search_option != 'everything' %}
                   <input type="hidden" name="type" value="product" />
                 {% endif %}

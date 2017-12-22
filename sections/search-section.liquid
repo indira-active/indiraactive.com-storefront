@@ -17,7 +17,7 @@
         <div class="search-text">{{ section.settings.search_text }}</div>
       {% endif %}
     <div class="search-container">
-      <form class="search" action="/search">
+      <form class="search" action="/pages/search-results">
         <div class="search-wrapper">
           {% if settings.search_option != 'everything' %}
             <input type="hidden" name="type" value="product" />
