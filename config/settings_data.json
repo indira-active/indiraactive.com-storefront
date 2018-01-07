@@ -2991,7 +2991,7 @@
         "settings": {
           "fixed_header": true,
           "search_enabled": true,
-          "promo_text": "<p>BUY ONE ITEM, GET A SECOND 40% OFF<\/p>",
+          "promo_text": "<p>25% OFF SITEWIDE, USE CODE DEC25<\/p>",
           "social_icons_header": false,
           "show_cart": true,
           "phone_number": "",
@@ -3218,10 +3218,10 @@
           "1511582196985": {
             "type": "image",
             "settings": {
-              "image": "shopify:\/\/shop_images\/nola-sports-bras-indira-active_2000x_cecca2f7-4de0-4bba-96bc-338d772e9f7a.jpg",
-              "link": "shopify:\/\/products\/nola",
-              "title": "INDIRA SPecial",
-              "text": "<p>EXPIENCE AN INDIRA SPORTS BRA FOR ONLY $14.99<\/p>",
+              "image": "shopify:\/\/shop_images\/Screen_Shot_2018-01-02_at_11.25.05_PM.png",
+              "link": "shopify:\/\/products\/level",
+              "title": "OUR CURRENT FAVE",
+              "text": "<p>HOLY CHIC<\/p>",
               "button_label": "SHOP NOW"
             }
           }
@@ -3243,8 +3243,8 @@
         "settings": {
           "image": "shopify:\/\/shop_images\/gradient-5.jpg",
           "pretext": "",
-          "title": "VIP SPECIAL",
-          "subtitle": "<p>BUY ONE ITEM, GET A SECOND<br><strong>40% OFF<\/strong><\/p>",
+          "title": "NEW YEAR SPECIAL",
+          "subtitle": "<p>SPEND $125 OR MORE, RECEIVE A $15 GIFT CARD<\/p>",
           "caption_background": false,
           "caption_background_transparency": true,
           "text_position": "center",
@@ -3375,7 +3375,7 @@
           "display_vendor": false,
           "display_sku": false,
           "display_savings": true,
-          "display_collections": false,
+          "display_collections": true,
           "display_type": false,
           "display_tags": false,
           "display_social_buttons": true,
@@ -3484,7 +3484,7 @@
             "type": "column",
             "settings": {
               "richtext_top": "",
-              "image_top": "shopify:\/\/shop_images\/Screen_Shot_2017-11-20_at_11.59.59_PM.png",
+              "image_top": "",
               "image_caption_top": "",
               "image_link_top": "",
               "menu_1": "",

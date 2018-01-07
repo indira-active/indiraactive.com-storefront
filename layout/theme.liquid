@@ -12,7 +12,7 @@
 
     <!-- Custom meta & gtm head -->
     {% include 'meta-head' %}
-    {% comment %} {% include 'gtm-head' %} {% endcomment %}
+    {% include 'gtm-head' %}
     <!-- End Custom meta & gtm head -->
 
     <!-- Custom Fonts -->
@@ -48,7 +48,8 @@
     <!-- Mobile Specific Metas -->
     <meta name="HandheldFriendly" content="True">
     <meta name="MobileOptimized" content="320">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <!-- <meta name="viewport" content="width=device-width,initial-scale=1"> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"> <!-- Smooch bug fix -->
     <meta name="theme-color" content="{{ settings.shop_bg_color }}">
 
     {% if settings.favicon != nil %}
@@ -105,7 +106,7 @@
   <body class="{{ template | replace: '.', '-' | handle }}">
 
     <!-- Custom gtm body -->
-    {% comment %} {% include 'gtm-body' %} {% endcomment %}
+    {% include 'gtm-body' %}
     <!-- End Custom gtm body -->
 
     {% section 'header' %}

@@ -1,12 +1,12 @@
 <script>
   // Store users language as property
-  Smooch.on('ready', function() {
-      var language = window.navigator.userLanguage || window.navigator.language;
-      Smooch.updateUser({
-        properties: {
-        'Language': language
-        }
-      });
+  // Smooch.on('ready', function() {
+      // var language = window.navigator.userLanguage || window.navigator.language;
+      // Smooch.updateUser({
+      //   properties: {
+      //   'Language': language
+      //   }
+      // });
       /* Placeholder for Whipser alternative ?9
       var user = Smooch.getUser()
       if (!user.properties.hasOwnProperty('Greeting-Message')) {
@@ -24,7 +24,7 @@
         }, 25000);  
       }
       */
-  }); 
+  // }); 
 
   var skPromise = Smooch.init({
       appId: "5892a9a16c77636e014b54f3",
@@ -35,26 +35,26 @@
       }
   });
 
-  {% if customer %}
-  skPromise.then(function() {
-      Smooch.updateUser({
-          userId: "{{ customer.email }}",
-          givenName: "{{ customer.first_name }}",
-          surname: "{{ customer.last_name }}",
-          email: "{{ customer.email }}",
-          properties: {
-              "Customer Account": "{{ shop.secure_url }}/admin/customers/{{ customer.id }}",
-              {% if customer.orders_count > 0 %}
-              "Orders Count": "{{ customer.orders_count  }}",
-              {% endif %}
-              {% if customer.total_spent > 0 %}
-              "Lifetime Spent": "{{ customer.total_spent | money }}",
-              {% endif %}
-              {% if customer.last_order %}
-              "Last Order": "{{ customer.last_order.created_at | date: "%B %d, %Y %I:%M%p" }}"
-              {% endif %}
-          },
-      });
-  });
-  {% endif %}
+  // {% if customer %}
+  // skPromise.then(function() {
+  //     Smooch.updateUser({
+  //         userId: "{{ customer.email }}",
+  //         givenName: "{{ customer.first_name }}",
+  //         surname: "{{ customer.last_name }}",
+  //         email: "{{ customer.email }}",
+  //         properties: {
+  //             "Customer Account": "{{ shop.secure_url }}/admin/customers/{{ customer.id }}",
+  //             {% if customer.orders_count > 0 %}
+  //             "Orders Count": "{{ customer.orders_count  }}",
+  //             {% endif %}
+  //             {% if customer.total_spent > 0 %}
+  //             "Lifetime Spent": "{{ customer.total_spent | money }}",
+  //             {% endif %}
+  //             {% if customer.last_order %}
+  //             "Last Order": "{{ customer.last_order.created_at | date: "%B %d, %Y %I:%M%p" }}"
+  //             {% endif %}
+  //         },
+  //     });
+  // });
+  // {% endif %}
 </script>
