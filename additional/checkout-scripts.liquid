@@ -101,7 +101,7 @@ twq('track','PageView');
      "email": "{{customer.email}}",
      "delivery_country": "{{shipping_address.country_code}}",
      // 1814000 is 21 days in seconds
-     "estimated_delivery_date": "{{ order.created_at | date:'%s' | plus:1814000  | date:"%F" }}" 
+     "estimated_delivery_date": "{{ order.created_at | date:'%s' | plus:1814000  | date:"%F" }}"
     });
   });
  }
@@ -147,3 +147,9 @@ _linkedin_data_partner_id = "95846";
 </noscript>
 <!--  END LinkedIn Insight Tag conversion tracking -->
 
+
+<!-- ShareASale tracking -->
+{% if first_time_accessed %}
+<img src="https://shareasale.com/sale.cfm?amount={{subtotal_price|money_without_currency}}&tracking={{order_name|handleize}}&transtype=sale&merchantID=76345" width="1" height="1">
+{% endif %}
+<!-- End ShareASale -->
