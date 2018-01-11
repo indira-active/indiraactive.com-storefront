@@ -2296,17 +2296,17 @@
     "newsletter_section_color": "#000000",
     "collection_filter_color": "#333333",
     "top_bar_color": "#ffffff",
-    "top_bar_color_hover": "#d03b77",
+    "top_bar_color_hover": "#e783a3",
     "nav_color": "#000000",
     "nav_color_home": "#000000",
-    "nav_color_hover": "#d03b77",
-    "link_color": "#d03b77",
-    "link_hover_color": "#d03b77",
+    "nav_color_hover": "#e783a3",
+    "link_color": "#e783a3",
+    "link_hover_color": "#e783a3",
     "sidebar_nav_color": "#363636",
-    "sidebar_nav_color_hover": "#d03b77",
+    "sidebar_nav_color_hover": "#e783a3",
     "sub_footer_link_color": "#000000",
-    "sub_footer_link_color_hover": "#d03b77",
-    "btn_color": "#ce3e77",
+    "sub_footer_link_color_hover": "#e783a3",
+    "btn_color": "#e783a3",
     "banner_button_color": "#ffffff",
     "btn_hover_color": "#333333",
     "btn_text_color": "#ffffff",
@@ -2341,7 +2341,7 @@
     "bg_fixed": false,
     "bg_stretched": false,
     "top_bar_bg_color": "#333333",
-    "top_bar_cart_bg_color": "#d03b77",
+    "top_bar_cart_bg_color": "#e783a3",
     "banner_placeholder_background_color": "#666666",
     "banner_background_color": "#f69848",
     "header_bg_color": "#ffffff",
@@ -2991,7 +2991,7 @@
         "settings": {
           "fixed_header": true,
           "search_enabled": true,
-          "promo_text": "<p>25% OFF SITEWIDE, USE CODE DEC25<\/p>",
+          "promo_text": "<p>20% OFF SITEWIDE, USE CODE&nbsp;CHIC20<\/p>",
           "social_icons_header": false,
           "show_cart": true,
           "phone_number": "",
@@ -3132,28 +3132,28 @@
             "type": "collection",
             "settings": {
               "feature_collection": "sports-bras",
-              "image": "shopify:\/\/shop_images\/ultra-black-xs-indira-active_2000x_2.jpeg"
+              "image": "shopify:\/\/shop_images\/revo-black-xs-indira-active_2000x_1.jpeg"
             }
           },
           "1501913982266-1": {
             "type": "collection",
             "settings": {
               "feature_collection": "tops",
-              "image": "shopify:\/\/shop_images\/criss-cross-green-xs-indira-active_2000x_271b1c62-0a4f-4c59-bc62-2aab5794837d.jpeg"
+              "image": "shopify:\/\/shop_images\/nomad-dolman-purple-xs-indira-active_2000x_1.jpeg"
             }
           },
           "1501913982266-2": {
             "type": "collection",
             "settings": {
               "feature_collection": "outerwear",
-              "image": "shopify:\/\/shop_images\/paulina--indira-active-2_2000x_2000x_2000x_614062a0-7279-4de0-a675-929db12d6e03.jpg"
+              "image": "shopify:\/\/shop_images\/harley-jacket-black-s-outerwear-indira-active_2000x_1.jpg"
             }
           },
           "1501914063550": {
             "type": "collection",
             "settings": {
               "feature_collection": "bottoms",
-              "image": "shopify:\/\/shop_images\/tove-black-xs-indira-active_2000x_1.jpeg"
+              "image": "shopify:\/\/shop_images\/chryssa-gray-xs-indira-active_2000x_09129d95-e3e8-469c-9d77-40bb666d220e.jpg"
             }
           },
           "1501914094186": {
