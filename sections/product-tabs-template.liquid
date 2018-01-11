@@ -90,6 +90,17 @@
           <meta itemprop="sku" content="{{variant.sku}}"/>
           <meta itemprop="mpn" content="{{variant.sku}}"/>
           <meta itemprop="productId" content="{{variant.id}}"/> <!-- Variant id in our spec -->
+          {% capture gtin_length %}{{ product.variants.first.barcode | size }}{% endcapture %}
+          <!-- gtin length {{ gtin_length }} -->
+            {% if gtin_length == "14" %}
+            <meta itemprop="gtin14" content="{{product.variants.first.barcode}}"/>
+          
+            {% elsif gtin_length == "13" %}
+            <meta itemprop="gtin13" content="{{product.variants.first.barcode}}"/>
+            
+            {% elsif gtin_length == "12" %}
+            <meta itemprop="gtin12" content="{{product.variants.first.barcode}}"/>
+            {% endif %}
           <!-- END Custom SD structured data -->
           {% if variant.sku != blank and section.settings.display_sku %}
             <p class="sku">
