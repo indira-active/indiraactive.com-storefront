@@ -1,0 +1,11 @@
+<script>
+$(function() {
+  $('.icon-search.search-submit').on("click", function(e){
+      e.preventDefault();
+      e.stopPropagation();
+      var submitEvent = document.createEvent("HTMLEvents");
+      submitEvent.initEvent('submit', true, true);  
+      $(this).closest('.search_form')[0].dispatchEvent(submitEvent);
+  });
+});
+</script>
