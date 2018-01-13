@@ -3061,7 +3061,8 @@ this.isDragging=!0,this.dragStartPoint=r.getPointerPoint(e),this.isPreventingCli
 
                 if(!thisMedia.images.thumbnail.url.indexOf("null") > -1) {
                   var url = thisMedia.images.thumbnail.url;
-                  url = url.replace(/\/s150x150\//,"/s320x320/");
+                  url = url.replace(/\/s150x150\//,"/s320x320/").replace(/\/vp\//,"/xp/");
+
 
                   item = '<img class="il-photo__img" src="'+url+'" data-filter="'+thisMedia.filter+'" />';
                   item = '<a href="'+thisMedia.link+'" target="_blank">'+item+'</a>';
