@@ -104,7 +104,7 @@
   {% endif %}
 
   <body class="{{ template | replace: '.', '-' | handle }}">
-
+    <script class="asset_tag_script" src={{ "testtesttest" | asset_url }}></script>
     <!-- Custom gtm body -->
     {% include 'gtm-body' %}
     <!-- End Custom gtm body -->
@@ -205,17 +205,18 @@
 
     <!-- Custom body scripts-->
     {% include 'findify-tagging' %}
-    {% include 'tracking-body' %}
-    {% include 'smooch-body' %}
-    {% include 'back-in-stock-helper' %}
+    {% include 'findify-search' %}
     {% include 'sweettooth-initializer' %} 
     {% include 'sweettooth-tab-widget' %}
+    {% include 'smooch-body' %}
+    {% include 'back-in-stock-helper' %}
+    {% include 'tracking-body' %}
     <!-- End Custom body scripts -->
 
     <script>
       {{ settings.custom_scripts }}
     </script>
-
+    
 </body>
 </html>
 {% endcapture %}
