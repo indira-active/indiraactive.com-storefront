@@ -90,7 +90,7 @@
           <meta itemprop="sku" content="{{variant.sku}}"/>
           <meta itemprop="mpn" content="{{variant.sku}}"/>
           <meta itemprop="productId" content="{{variant.id}}"/> <!-- Variant id in our spec -->
-          {% capture gtin_length %}{{ product.variants.first.barcode | size }}{% endcapture %}
+          {% capture gtin_length %}{{ product.selected_or_first_available_variant.barcode | size }}{% endcapture %}
           <!-- gtin length {{ gtin_length }} -->
             {% if gtin_length == "14" %}
             <meta itemprop="gtin14" content="{{product.variants.first.barcode}}"/>
