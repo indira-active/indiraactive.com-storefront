@@ -174,7 +174,7 @@
         </h3>
       </div>
       <br class="clear" />
-        <form class="search" action="/pages/search-results">
+        <form class="search" action="/search">
           <div class="{% if sidebar %}three{% else %}five{% endif %} columns">
             &nbsp;
           </div>
@@ -184,7 +184,7 @@
               <input type="hidden" name="type" value="product" />
             {% endif %}
             {% endcomment %}
-            <input type="text" name="findify_q" placeholder="{{ 'general.search.placeholder' | t }}" value="{{ search.terms }}" x-webkit-speech autocapitalize="off" autocomplete="off" autocorrect="off" />
+            <input type="text" name="q" placeholder="{{ 'general.search.placeholder' | t }}" value="{{ search.terms }}" x-webkit-speech autocapitalize="off" autocomplete="off" autocorrect="off" />
           </div>
           <div class="two columns">
             <input type="submit" name="submit" class="action_button" value="{{ 'general.search.submit' | t }}" style="margin-top:0" />
