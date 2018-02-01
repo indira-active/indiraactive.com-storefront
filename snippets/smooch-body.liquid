@@ -32,17 +32,20 @@
     return res
   })
   let jwt = jwtObj.jwt;*/
+  //the jwt for andrewjameswilliams.aw@gmail.com is below - testing purposes only
+  const jwt = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6ImFwcF81YTcwMTQxYmU5NjRjNjAwM2ZlMDhhZmMifQ.eyJzY29wZSI6ImFwcFVzZXIiLCJ1c2VySWQiOiJhbmRyZXdqYW1lc3dpbGxpYW1zMTk5NUBnbWFpbC5jb20iLCJpYXQiOjE1MTc0NzAwNDZ9.PtQyRaVjMxEPzhYTJgkD0hQL_D9-YLTUyfCHHSZbUk0"
   var skPromise = Smooch.init({
       appId: "5896b6d344a2206400db6b40",
+      jwt,
+      userId: "{{ customer.email }}",
       customText: {
         introductionText: 'We try to be quick, so ask us anything!',
         introAppText: 'Chat with us below or from your favorite app, email, or SMS.',
         inputPlaceholder: 'Type a message....'                       
       }
   });
-  console.log("{{ customer.email }}")
-
-  /* {% if customer %}
+  console.log(skPromise)
+  {% if customer %}
   skPromise.then(function() {
       Smooch.updateUser({
           userId: "{{ customer.email }}",
@@ -63,5 +66,5 @@
           },
       });
   });
-  {% endif %}*/
+  {% endif %}
 </script>
