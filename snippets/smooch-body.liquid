@@ -45,9 +45,9 @@
   {% endif %}
   
   {% if customer %}
-  //the jwt for andrewjameswilliams.aw@gmail.com is below - testing purposes only
-  const jwt = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6ImFwcF81YTcwMTQxYmU5NjRjNjAwM2ZlMDhhZmMifQ.eyJzY29wZSI6ImFwcFVzZXIiLCJ1c2VySWQiOiJhbmRyZXdqYW1lc3dpbGxpYW1zMTk5NUBnbWFpbC5jb20iLCJpYXQiOjE1MTc0NzAwNDZ9.PtQyRaVjMxEPzhYTJgkD0hQL_D9-YLTUyfCHHSZbUk0"
-  var skPromise = Smooch.init({
+ fetch("https://morning-cliffs-18397.herokuapp.com/api?userId="+"{{ customer.email }}").then(res => res.json()).then(val => {
+    const jwt = val.jwt;
+     var skPromise = Smooch.init({
       appId: "5896b6d344a2206400db6b40",
       jwt,
       userId: "{{ customer.email }}",
@@ -78,5 +78,6 @@
           },
       });
   });
+})
   {% endif %}
 </script>
