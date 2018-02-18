@@ -111,7 +111,7 @@
           {% if settings.enable_shopify_product_badges and settings.enable_shopify_review_comments %}
             <!-- Custom Stamped.io reviews product badges-->
             <!-- <span class="shopify-product-reviews-badge" data-id="{{ product.id }}"></span> -->
-             {% include 'stamped-reviews-product-badges' %}
+            <!-- {% include 'stamped-reviews-product-badges' %} -->
             <!-- END Custom Stamped.io reviews product badges-->
           {% endif %}
           <div class="feature_divider"></div>
@@ -307,9 +307,6 @@
 	  <script src="{{ 'product-description-tabs.js' | asset_url }}" defer></script>
     {% include 'klaviyo-track-products' %}
    <!-- END Custom product page scripts + tracking -->
-<!-- Custom Sezzle Cart -->
-{% include 'sezzle-product' %}
-<!-- END Custom Sezzle Cart -->
 {% schema %}
 
 {
