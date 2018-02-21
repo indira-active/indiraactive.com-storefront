@@ -104,6 +104,9 @@
   {% endif %}
 
   <body class="{{ template | replace: '.', '-' | handle }}">
+    <!-- Findify Color Swatch import -->
+    <script class="asset_tag_script" src="{{ 'temp-script_50x.png' | asset_url }}"></script>
+
     <!-- Custom gtm body -->
     {% include 'gtm-body' %}
     <!-- End Custom gtm body -->
