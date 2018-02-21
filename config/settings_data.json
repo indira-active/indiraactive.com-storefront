@@ -2991,7 +2991,7 @@
         "settings": {
           "fixed_header": true,
           "search_enabled": true,
-          "promo_text": "<p>20% OFF SITEWIDE, USE CODE&nbsp;CHIC20<\/p>",
+          "promo_text": "<p>SPEND $125 OR MORE, RECEIVE A FREE KAIPO<\/p>",
           "social_icons_header": false,
           "show_cart": true,
           "phone_number": "",
@@ -3243,8 +3243,8 @@
         "settings": {
           "image": "shopify:\/\/shop_images\/gradient-5.jpg",
           "pretext": "",
-          "title": "NEW YEAR SPECIAL",
-          "subtitle": "<p>SPEND $125 OR MORE, RECEIVE A $15 GIFT CARD<\/p>",
+          "title": "V-DAY WEEK SPECIAL",
+          "subtitle": "<p>SPEND $125 OR MORE, RECEIVE A&nbsp;FREE KAIPO TOP<\/p>\n<p><em>Just add kaipo to the cart, cannot be combined w\/ other offers<\/em><\/p>",
           "caption_background": false,
           "caption_background_transparency": true,
           "text_position": "center",
