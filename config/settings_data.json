@@ -2991,7 +2991,7 @@
         "settings": {
           "fixed_header": true,
           "search_enabled": true,
-          "promo_text": "<p>SPEND $125 OR MORE, RECEIVE A FREE KAIPO<\/p>",
+          "promo_text": "<p>20% off sitewide! Use code sassy20<\/p>",
           "social_icons_header": false,
           "show_cart": true,
           "phone_number": "",
@@ -3132,21 +3132,21 @@
             "type": "collection",
             "settings": {
               "feature_collection": "sports-bras",
-              "image": "shopify:\/\/shop_images\/revo-black-xs-indira-active_2000x_1.jpeg"
+              "image": "shopify:\/\/shop_images\/unwind-black-xs-sports-bras-indira-active_2000x_2bd9a708-8741-4ad1-8c42-24346369200b.jpg"
             }
           },
           "1501913982266-1": {
             "type": "collection",
             "settings": {
               "feature_collection": "tops",
-              "image": "shopify:\/\/shop_images\/nomad-dolman-purple-xs-indira-active_2000x_1.jpeg"
+              "image": "shopify:\/\/shop_images\/27953919_23842715248950725_5934505245169156096_n.png"
             }
           },
           "1501913982266-2": {
             "type": "collection",
             "settings": {
               "feature_collection": "outerwear",
-              "image": "shopify:\/\/shop_images\/harley-jacket-black-s-outerwear-indira-active_2000x_1.jpg"
+              "image": "shopify:\/\/shop_images\/bomber-jacket-white-xs-jackets-indira-active_2000x_1.jpg"
             }
           },
           "1501914063550": {
@@ -3243,8 +3243,8 @@
         "settings": {
           "image": "shopify:\/\/shop_images\/gradient-5.jpg",
           "pretext": "",
-          "title": "V-DAY WEEK SPECIAL",
-          "subtitle": "<p>SPEND $125 OR MORE, RECEIVE A&nbsp;FREE KAIPO TOP<\/p>\n<p><em>Just add kaipo to the cart, cannot be combined w\/ other offers<\/em><\/p>",
+          "title": "SITE-WIDE SALE",
+          "subtitle": "<p>20% OFF TODAY! USE CODE SASSY20<\/p>",
           "caption_background": false,
           "caption_background_transparency": true,
           "text_position": "center",
