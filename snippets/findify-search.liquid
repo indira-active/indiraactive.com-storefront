@@ -4,8 +4,8 @@ $(function() {
       e.preventDefault();
       e.stopPropagation();
       var submitEvent = document.createEvent("HTMLEvents");
-      submitEvent.initEvent('submit', true, true);  
-      $(this).closest('.search_form')[0].dispatchEvent(submitEvent);
+      submitEvent.initEvent('submit', true, true);
+      $(this).closest('form')[0].dispatchEvent(submitEvent);
   });
 });
 </script>
