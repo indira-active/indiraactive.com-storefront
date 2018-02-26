@@ -25,13 +25,6 @@
       }
       */
   // }); 
-
-  /*const jwtObj = await fetch("http://localhost:3000/?userId="+"{{ customer.email }}").then((...res) => {
-    return res[0].json();
-  }).then(res => {
-    return res
-  })
-  let jwt = jwtObj.jwt;*/
   
   {% if customer.has_account != true %}
   var skPromise = Smooch.init({
@@ -45,7 +38,7 @@
   {% endif %}
   
   {% if customer %}
- fetch("https://chatauth.api.indiraactive.com/?userId="+"{{ customer.email }}").then(res => res.json()).then(val => {
+ fetch("https://sleepy-harbor-26184.herokuapp.com/?userId="+"{{ customer.email }}").then(res => res.json()).then(val => {
     const jwt = val.jwt;
      var skPromise = Smooch.init({
       appId: "5896b6d344a2206400db6b40",
