@@ -114,7 +114,7 @@
         {% if section.settings.display_payment_methods %}
           <div class="payment_methods">
             <!-- Custom Payment Badge icons -->
-            {% comment %} {% for type in shop.enabled_payment_types %} 
+            {% comment %} {% for type in shop.enabled_payment_types %}
               <!-- <img src="{{ type | payment_type_img_url }}" alt="{{ type | replace: "_", " " | capitalize }}" /> -->
             {% endfor %} {% endcomment %}
             <!-- <div id="hektor-trust-badge"></div> -->
@@ -124,6 +124,10 @@
       </div><!--end footer_credits-->
     </div>
   </div>
+
+  <!-- JustUno Script -->
+    {% include 'just-uno-footer-scriptt' %}
+  <!-- End JustUno Script -->
 </footer>
 
 {% schema %}
