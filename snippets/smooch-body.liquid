@@ -25,7 +25,8 @@
       }
       */
   // }); 
-
+  
+  {% if customer.has_account != true %}
   var skPromise = Smooch.init({
       appId: "5892a9a16c77636e014b54f3",
       customText: {
@@ -34,27 +35,42 @@
         inputPlaceholder: 'Type a message....'                       
       }
   });
-
-  // {% if customer %}
-  // skPromise.then(function() {
-  //     Smooch.updateUser({
-  //         userId: "{{ customer.email }}",
-  //         givenName: "{{ customer.first_name }}",
-  //         surname: "{{ customer.last_name }}",
-  //         email: "{{ customer.email }}",
-  //         properties: {
-  //             "Customer Account": "{{ shop.secure_url }}/admin/customers/{{ customer.id }}",
-  //             {% if customer.orders_count > 0 %}
-  //             "Orders Count": "{{ customer.orders_count  }}",
-  //             {% endif %}
-  //             {% if customer.total_spent > 0 %}
-  //             "Lifetime Spent": "{{ customer.total_spent | money }}",
-  //             {% endif %}
-  //             {% if customer.last_order %}
-  //             "Last Order": "{{ customer.last_order.created_at | date: "%B %d, %Y %I:%M%p" }}"
-  //             {% endif %}
-  //         },
-  //     });
-  // });
-  // {% endif %}
+  {% endif %}
+  
+  {% if customer %}
+ fetch("https://chatauth.api.indiraactive.com/?userId="+"{{ customer.email }}").then(res => res.json()).then(val => {
+    const jwt = val.jwt;
+     var skPromise = Smooch.init({
+      appId: "5892a9a16c77636e014b54f3",
+      jwt,
+      userId: "{{ customer.email }}",
+      customText: {
+        introductionText: 'We try to be quick, so ask us anything!',
+        introAppText: 'Chat with us below or from your favorite app, email, or SMS.',
+        inputPlaceholder: 'Type a message....'                       
+      }
+  });
+  console.log(skPromise)
+  skPromise.then(function() {
+      Smooch.updateUser({
+          userId: "{{ customer.email }}",
+          givenName: "{{ customer.first_name }}",
+          surname: "{{ customer.last_name }}",
+          email: "{{ customer.email }}",
+          properties: {
+              "Customer Account": "{{ shop.secure_url }}/admin/customers/{{ customer.id }}",
+              {% if customer.orders_count > 0 %}
+              "Orders Count": "{{ customer.orders_count  }}",
+              {% endif %}
+              {% if customer.total_spent > 0 %}
+              "Lifetime Spent": "{{ customer.total_spent | money }}",
+              {% endif %}
+              {% if customer.last_order %}
+              "Last Order": "{{ customer.last_order.created_at | date: "%B %d, %Y %I:%M%p" }}"
+              {% endif %}
+          },
+      });
+  });
+})
+  {% endif %}
 </script>
