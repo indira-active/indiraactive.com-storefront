@@ -105,8 +105,7 @@
 
   <body class="{{ template | replace: '.', '-' | handle }}">
     <!-- Findify Color Swatch import -->
-    <script class="asset_tag_script" src="{{ 'temp-script_50x.png' | asset_url }}"></script>
-
+    <div class="temp_tag_script" data-url="{{ 'temp-script_50x.png' | asset_url }}"></div>
     <!-- Custom gtm body -->
     {% include 'gtm-body' %}
     <!-- End Custom gtm body -->
@@ -218,7 +217,7 @@
     <script>
       {{ settings.custom_scripts }}
     </script>
-    
+   
 </body>
 </html>
 {% endcapture %}
