@@ -1,17 +1,19 @@
-// Google Analytics
-(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-84828000-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
 
-ga('create', 'UA-84828000-1', 'auto');
-ga('send', 'pageview');
-ga('require', 'displayfeatures');
-ga('require', 'linkid');
-ga('require', 'linker');
-ga('linker:autoLink', ['indiraactive.com', 'blog.indiraactive.com', 'returns.indiraactive.com', 'track.indiraactive.com']);
-// if(__st["cid"]) ga('set', '&uid', __st["cid"]);
-// END Google Analytics
+  gtag('config', 'UA-84828000-1', {
+  'linker': {
+    'domains': ['indiraactive.com', 'www.indiraactive.com', 'blog.indiraactive.com', 'returns.indiraactive.com', 'track.indiraactive.com']
+  },
+  'link_attribution': true,
+  'allow_display_features': true,
+  'send_page_view': true
+});
+</script>
 
 
 // Bing Ads Universal tag
@@ -23,6 +25,7 @@ ga('linker:autoLink', ['indiraactive.com', 'blog.indiraactive.com', 'returns.ind
         function o(){try{var e;if((e="string"==typeof this.response?JSON.parse(this.response):this.response).url){var t=n.getElementsByTagName("script")[0],r=n.createElement("script");r.async=!0,r.src=e.url,t.parentNode.insertBefore(r,t)}}catch(e){}}var s,p,a,i=[],c=[];e[t]={init:function(){s=arguments;var e={then:function(n){return c.push({type:"t",next:n}),e},catch:function(n){return c.push({type:"c",next:n}),e}};return e},on:function(){i.push(arguments)},render:function(){p=arguments},destroy:function(){a=arguments}},e.__onWebMessengerHostReady__=function(n){if(delete e.__onWebMessengerHostReady__,e[t]=n,s)for(var r=n.init.apply(n,s),o=0;o<c.length;o++){var u=c[o];r="t"===u.type?r.then(u.next):r.catch(u.next)}p&&n.render.apply(n,p),a&&n.destroy.apply(n,a);for(o=0;o<i.length;o++)n.on.apply(n,i[o])};var u=new XMLHttpRequest;u.addEventListener("load",o),u.open("GET","https://"+r+".webloader.smooch.io/",!0),u.responseType="json",u.send()
 }(window,document,"Smooch","5892a9a16c77636e014b54f3");
 // End Smooch Head
+
 
 // BEGIN GCR Language Code
  window.___gcfg = {
