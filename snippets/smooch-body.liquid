@@ -25,11 +25,10 @@
       }
       */
   // }); 
-  //changing back to sand box info https://sleepy-harbor-26184.herokuapp.com from https://chatauth.api.indiraactive.com
-  // changing back from 5892a9a16c77636e014b54f3 to 5896b6d344a2206400db6b40 in order to have a sandbox once again
+  
   {% if customer.has_account != true %}
   var skPromise = Smooch.init({
-      appId: "5896b6d344a2206400db6b40",
+      appId: "5892a9a16c77636e014b54f3",
       customText: {
         introductionText: 'We try to be quick, so ask us anything!',
         introAppText: 'Chat with us below or from your favorite app, email, or SMS.',
@@ -39,10 +38,10 @@
   {% endif %}
   
   {% if customer %}
- fetch("https://sleepy-harbor-26184.herokuapp.com/?userId="+"{{ customer.email }}").then(res => res.json()).then(val => {
+ fetch("https://chatauth.api.indiraactive.com/?userId="+"{{ customer.email }}").then(res => res.json()).then(val => {
     const jwt = val.jwt;
      var skPromise = Smooch.init({
-      appId: "5896b6d344a2206400db6b40",
+      appId: "5892a9a16c77636e014b54f3",
       jwt,
       userId: "{{ customer.email }}",
       customText: {
