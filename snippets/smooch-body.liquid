@@ -25,9 +25,9 @@
       }
       */
   // }); 
-  
+  var skPromise;
   {% if customer.has_account != true %}
-  var skPromise = Smooch.init({
+  skPromise = Smooch.init({
       appId: "5896b6d344a2206400db6b40",
       customText: {
         introductionText: 'We try to be quick, so ask us anything!',
@@ -42,7 +42,7 @@
   console.log('this is the testing site');
  fetch("https://sleepy-harbor-26184.herokuapp.com/?userId="+"{{ customer.email }}").then(res => res.json()).then(val => {
     const jwt = val.jwt;
-     var skPromise = Smooch.init({
+     skPromise = Smooch.init({
       appId: "5896b6d344a2206400db6b40",
       jwt,
       userId: "{{ customer.email }}",
