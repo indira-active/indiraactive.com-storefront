@@ -38,7 +38,8 @@
   {% endif %}
   
   {% if customer %}
- fetch("https://chatauth.api.indiraactive.com/?userId="+"{{ customer.email }}").then(res => res.json()).then(val => {
+  // FOR TESTING NEEDS TO BE CHANGED AS SOON AS IT IS SENT TO PRODUCTION
+ fetch("https://sleepy-harbor-26184.herokuapp.com/?userId="+"{{ customer.email }}").then(res => res.json()).then(val => {
     const jwt = val.jwt;
      var skPromise = Smooch.init({
       appId: "5892a9a16c77636e014b54f3",
