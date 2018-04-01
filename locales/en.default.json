@@ -50,9 +50,11 @@
     "search": {
       "title": "Search",
       "description": "Search our shop",
-      "no_results_html": "Your search for \"{{ terms }}\" did not match any results.",
+      "no_results_html": "Your search for \"{{ terms }}\" did not match any results. Please modify your search terms and try again.",
       "advanced_search_html": "Advanced Search &#8594;",
-      "no_results": "No results found.",
+      "no_results": "Sorry, no results!",
+      "load_more": "Load more results",
+      "all_results": "View all results",
       "results_count": {
         "zero": "{{ count }} results",
         "one": "{{ count }} result",
@@ -218,6 +220,7 @@
       "no_addresses": "No addresses currently on file",
       "title": "Your Addresses",
       "default": "Default",
+      "primary": "Primary Address",
       "add_new": "Add a New Address",
       "edit_address": "Edit address",
       "company": "Company",
@@ -301,7 +304,8 @@
       "last_name": "Last Name",
       "email": "Email",
       "password": "Password",
-      "or": "or"
+      "or": "or",
+      "accepts_marketing": "Subscribe to our newsletter?"
     }
   },
   "homepage": {
