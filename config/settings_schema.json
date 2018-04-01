@@ -3,7 +3,7 @@
     "name": "theme_info",
     "theme_name": "Turbo",
     "theme_author": "Out of the Sandbox",
-    "theme_version": "2.2.0",
+    "theme_version": "3.0.2",
     "theme_documentation_url": "https:\/\/help.outofthesandbox.com\/",
     "theme_support_url": "https:\/\/help.outofthesandbox.com\/hc\/en-us\/requests\/new"
   },
@@ -281,6 +281,22 @@
           }
         ],
         "default": "square"
+      },
+      {
+        "type": "select",
+        "id": "read_more_style",
+        "label": "Continue reading link style",
+        "options": [
+          {
+            "value": "button",
+            "label": "Button"
+          },
+          {
+            "value": "link",
+            "label": "Link"
+          }
+        ],
+        "default": "button"
       },
       {
         "type": "header",
@@ -663,28 +679,16 @@
         "content": "Password page"
       },
       {
-        "type": "image_picker",
-        "id": "custom_logo",
-        "label": "Logo",
-        "info": "720px wide recommended"
-      },
-      {
         "type": "color",
         "id": "password_page_text_color",
-        "label": "Password page text",
+        "label": "Text",
         "default": "#ffffff"
       },
       {
-        "type": "image_picker",
-        "id": "password-page-background",
-        "label": "Background image",
-        "info": "1800 x 1000px recommended"
-      },
-      {
-        "type": "checkbox",
-        "id": "pagework_page_bg_stretched",
-        "label": "Stretch background to fill the password page",
-        "default": true
+        "type": "color",
+        "id": "password_page_background_color",
+        "label": "Background",
+        "default": "#000000"
       }
     ]
   },
@@ -1677,6 +1681,28 @@
         "id": "nav_shadow",
         "label": "Home page text shadow",
         "default": true
+      },
+      {
+        "type": "header",
+        "content": "Dropdown menu"
+      },
+      {
+        "type": "range",
+        "id": "mega_text_font_size",
+        "label": "Base size",
+        "min": 10,
+        "max": 18,
+        "default": 14,
+        "unit": "px"
+      },
+      {
+        "type": "range",
+        "id": "mega_text_letter_spacing",
+        "label": "Letter spacing",
+        "min": 0,
+        "max": 5,
+        "default": 1,
+        "unit": "px"
       },
       {
         "type": "header",
@@ -3797,6 +3823,43 @@
             "label": "Everything"
           }
         ]
+      },
+      {
+        "type": "select",
+        "id": "search_pagination_type",
+        "label": "Pagination type",
+        "options": [
+          {
+            "value": "basic_pagination",
+            "label": "Page links"
+          },
+          {
+            "value": "load_more",
+            "label": "Load more results button"
+          },
+          {
+            "value": "infinite_scroll",
+            "label": "Infinite scroll"
+          }
+        ]
+      },
+      {
+        "type": "header",
+        "content": "Predictive search"
+      },
+      {
+        "type": "checkbox",
+        "id": "enable_autocomplete",
+        "label": "Enable",
+        "default": true
+      },
+      {
+        "type": "range",
+        "id": "search_to_display",
+        "label": "Items to display",
+        "min": 2,
+        "max": 10,
+        "default": 5
       }
     ]
   },
@@ -3914,8 +3977,22 @@
       },
       {
         "type": "checkbox",
+        "id": "limit_quantity",
+        "label": "Limit quantity to available inventory"
+      },
+      {
+        "type": "checkbox",
         "id": "display_inventory_left",
         "label": "Show inventory remaining"
+      },
+      {
+        "type": "range",
+        "id": "inventory_threshold",
+        "label": "Inventory remaining threshold",
+        "min": 1,
+        "max": 100,
+        "default": 10,
+        "info": "Inventory remaining text will be displayed below this value"
       },
       {
         "type": "text",
