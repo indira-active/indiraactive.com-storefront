@@ -3176,23 +3176,6 @@
           "frontpage_collections_per_row": 5
         }
       },
-      "1502045388616": {
-        "type": "social-feeds",
-        "blocks": {
-          "1502045388616-1": {
-            "type": "instagram",
-            "settings": {
-              "instagram_client_id": "4076462032.d90570a.6241f2cd267d481abf95a10b5eef999d",
-              "instagram_title": "#INDIRA_ACTIVE",
-              "instagram_count": 4
-            }
-          }
-        },
-        "block_order": [
-          "1502045388616-1"
-        ],
-        "settings": {}
-      },
       "cart-template": {
         "type": "cart-template",
         "settings": {
@@ -3548,11 +3531,10 @@
     "content_for_index": [
       "1502060653880",
       "1501913982266",
-      "1502069660689",
-      "1502060479212",
       "1502083839718",
-      "1489285367207",
-      "1502045388616"
+      "1502060479212",
+      "1502069660689",
+      "1489285367207"
     ]
   }
 }
