@@ -1,0 +1,47 @@
+{% comment %}
+** Divider - homepage partial **
+- Draggable section
+{% endcomment %}
+
+<div class="section__divider"></div>
+
+<style>
+  #shopify-section-{{section.id}} .section__divider {
+    padding-bottom: {{section.settings.divider_spacing}}px;
+  }
+
+</style>
+
+{% schema %}
+
+{
+  "name": "Divider",
+  "class": "divider-section",
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "Add spacing in between your sections by using a divider."
+    },
+    {
+      "type": "range",
+      "id": "divider_spacing",
+      "min": 0,
+      "max": 50,
+      "step": 5,
+      "unit": "px",
+      "label": "Spacing",
+      "default": 20
+    }
+  ],
+  "presets": [
+    {
+      "name": "Divider",
+      "category": "Layout",
+      "settings": {
+
+      }
+    }
+  ]
+}
+
+{% endschema %}
