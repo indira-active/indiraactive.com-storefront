@@ -1,5 +1,5 @@
 staging:
- password: 371ea5d17111812343c1e6a72e1b1368
+ password: #PRIVATE_APP_PASSWORD
  theme_id: "194828164"
  store: indira-active.myshopify.com
  ignore_files:
@@ -10,7 +10,7 @@ staging:
    - additional/
  timeout: 60s
 master:
- password: 371ea5d17111812343c1e6a72e1b1368
+ password: #PRIVATE_APP_PASSWORD
  theme_id: "194349508"
  store: indira-active.myshopify.com
  ignore_files:
@@ -22,7 +22,7 @@ master:
  timeout: 60s
  readonly: true
 testing:
- password: 85183366cf970345ae72b31ff5358daa
+ password: #PRIVATE_APP_PASSWORD
  theme_id: "461307929"
  store: indira-testing.myshopify.com
  ignore_files:
