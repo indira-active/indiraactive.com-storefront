@@ -36,6 +36,11 @@
             <input type="password" value="" name="customer[password]" id="password" class="large password" size="30" />
           </div>
 
+          <div class="acceptsMarketing">
+            <input type="checkbox" id="customer[accepts_marketing]" name="customer[accepts_marketing]">
+            <label for="customer[accepts_marketing]">{{ 'customer.register.accepts_marketing' | t }}</label>
+          </div>
+
           <div class="action_bottom">
             <input class="btn action_button" type="submit" value="{{ 'customer.register.sign_up' | t }}" />
             <p class="right" style="padding-top: 8px;">

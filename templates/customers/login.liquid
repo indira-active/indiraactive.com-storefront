@@ -37,12 +37,14 @@
       {% endunless %}
     {% endform %}
 
-    {% if shop.checkout.guest_login %}
-      <span class="or"> {{ 'customer.login.or' | t }} </span>
-      {% form 'guest_login' %}
-        <input class="guest_button" type="submit" value="{{ 'customer.login.guest_title_html' | t }}" />
-      {% endform %}
-    {% endif %}
+    <div class="large--right">
+      {% if shop.checkout.guest_login %}
+        <span class="or"> {{ 'customer.login.or' | t }} </span>
+        {% form 'guest_login' %}
+          <input class="guest_button" type="submit" value="{{ 'customer.login.guest_title_html' | t }}" />
+        {% endform %}
+      {% endif %}
+    </div>
   </div>
 
     <div id="recover-password" style='display:none'>
