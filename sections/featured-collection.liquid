@@ -11,14 +11,13 @@
   {%- assign section_onboarding = false -%}
 {% endif %}
 
-<div class="container featured_products
-                product-{{ section.settings.collection_style }}">
+<div class="container featured_products product-{{ section.settings.collection_style }}">
   <div class="sixteen columns center homepage_content">
     {% if section.settings.title != blank %}
       <a href="{{ collections[section.settings.collection].url }}"><h2 class="title">{{ section.settings.title }}</h2></a>
-    <div class="feature_divider"></div>
+      <div class="feature_divider"></div>
     {% endif %}
-    {% if collections[section.settings.collection].description != blank %}
+    {% if section.settings.collection_description and collections[section.settings.collection].description != blank %}
       <div class="section clearfix">
         {{ collections[section.settings.collection].description }}
       </div>
@@ -163,6 +162,12 @@
           "label": "Grid"
         }
       ]
+    },
+    {
+      "type": "checkbox",
+      "id": "collection_description",
+      "label": "Show description",
+      "default": true
     },
     {
       "type": "range",

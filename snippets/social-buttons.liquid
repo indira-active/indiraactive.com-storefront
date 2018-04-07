@@ -2,12 +2,12 @@
 
 {% capture buttons %}
 <div class="social_buttons">
-  {% capture title %}{% if social-buttons == 'article' %}{{ article.title | strip_html | url_escape }}{% else %}{{ product.title | strip_html | url_escape }}{% endif %}{% endcapture %}
+  {% capture title %}{% if social-buttons == 'article' %}{{ article.title | truncate: 30 | url_escape }}{% else %}{{ product.title | truncate: 30 | url_escape }}{% endif %}{% endcapture %}
   {% capture shop_name %}{{ shop.name | url_param_escape }}{% endcapture %}
   {% capture twitter_name %}{{ settings.twitter_link | split: 'twitter.com/' | last }}{% endcapture %}
 
   <div class="share-btn twitter"><!--Twitter-->
-    <a target="_blank" class="icon-twitter-share" title="{{ 'layout.social_sharing.twitter_title' | t }}" href="https://twitter.com/intent/tweet?text={{ title | truncate: 30 }}&url={{ current_url }}{%- if twitter_name != blank -%}&via={{ twitter_name }}{%- endif -%}"></a>
+    <a target="_blank" class="icon-twitter-share" title="{{ 'layout.social_sharing.twitter_title' | t }}" href="https://twitter.com/intent/tweet?text={{ title | replace: '&','%26' }}&url={{ current_url }}{%- if twitter_name != blank -%}&via={{ twitter_name }}{%- endif -%}"></a>
   </div>
 
   <div class="share-btn facebook"><!--Facebook-->

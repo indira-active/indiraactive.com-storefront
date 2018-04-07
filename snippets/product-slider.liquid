@@ -7,11 +7,16 @@
   {% assign loop_limit = limit | plus: 0 %}
 {% endif %}
 
-{% if section.settings.products_per != blank %}
-  {% assign visible_products = section.settings.products_per | plus: 0 %}
+{% if per_slide != blank %}
+  {% assign visible_products = per_slide %}
 {% else %}
-  {% assign visible_products = block.settings.products_per | plus: 0 %}
+  {% if section.settings.products_per != blank %}
+    {% assign visible_products = section.settings.products_per | plus: 0 %}
+  {% else %}
+    {% assign visible_products = block.settings.products_per | plus: 0 %}
+  {% endif %}
 {% endif %}
+
 
 {% if template contains 'product' %}
   {% if limit <= visible_products %}
