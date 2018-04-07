@@ -3,11 +3,10 @@ staging:
  theme_id: # Online store Theme
  store: # Shopify Domain
  ignore_files:
-   - .git/
-   - .gitignore
-   - .circleci/
-   - README.md
-   - additional/
+ - ".git/"
+ - ".gitignore"
+ - README.md
+ - additional/
  timeout: 60s
 master:
  password: # API Password
@@ -16,7 +15,6 @@ master:
  ignore_files:
  - ".git/"
  - ".gitignore"
- - .circleci/  
  - README.md
  - additional/
  timeout: 60s
@@ -28,7 +26,6 @@ testing:
  ignore_files:
  - ".git/"
  - ".gitignore"
- - .circleci/  
  - README.md
  - additional/
  timeout: 60s
