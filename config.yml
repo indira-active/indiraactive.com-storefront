@@ -1,0 +1,33 @@
+staging:
+ password: # API Password
+ theme_id: # Online store Theme
+ store: # Shopify Domain
+ ignore_files:
+ - ".git/"
+ 
+ 
+ - ".gitignore"
+ - README.md
+ - additional/
+ timeout: 60s
+master:
+ password: # API Password
+ theme_id: # Online store Theme
+ store: # Shopify Domain
+ ignore_files:
+ - ".git/"
+ - ".gitignore"
+ - README.md
+ - additional/
+ timeout: 60s
+ readonly: true
+testing:
+ password: # API Password
+ theme_id: # Online store Theme
+ store: # Shopify Domain
+ ignore_files:
+ - ".git/"
+ - ".gitignore"
+ - README.md
+ - additional/
+ timeout: 60s
