@@ -10,6 +10,11 @@
     <meta http-equiv="cleartype" content="on">
     <meta name="robots" content="index,follow">
 
+    <!-- Custom meta & gtm head -->
+    {% include 'meta-head' %}
+    {% include 'gtm-head' %}
+    <!-- End Custom meta & gtm head -->
+
     <!-- Custom Fonts -->
     {% if settings.logo_font contains 'Google' or settings.headline_font contains 'Google' or settings.nav_font contains 'Google' or settings.slideshow_subtitle_font contains 'Google' or settings.slideshow_headline_font contains 'Google' or settings.regular_font contains 'Google' %}
       <link href="//fonts.googleapis.com/css?family=.|{% if settings.logo_font contains 'Google' %}{{ settings.logo_font | replace: 'Google_', '' | replace: "'", "" }}:light,normal,bold|{% endif %}{% if settings.headline_font contains 'Google' %}{{ settings.headline_font | replace: 'Google_', '' | replace: "'", "" }}:light,normal,bold|{% endif %}{% if settings.nav_font contains 'Google' %}{{ settings.nav_font | replace: 'Google_', '' | replace: "'", "" }}:light,normal,bold|{% endif %}{% if settings.slideshow_headline_font contains 'Google' %}{{ settings.slideshow_headline_font | replace: 'Google_', '' | replace: "'", "" }}:light,normal,bold|{% endif %}{% if settings.slideshow_subtitle_font contains 'Google' %}{{ settings.slideshow_subtitle_font | replace: 'Google_', '' | replace: "'", "" }}:light,normal,bold|{% endif %}{% if settings.regular_font contains 'Google' %}{{ settings.regular_font | replace: 'Google_', '' | replace: "'", "" }}:light,normal,bold{% endif %}" rel="stylesheet" type="text/css" />
@@ -17,6 +22,12 @@
 
     <!-- Stylesheets for Turbo 3.0.2 -->
     {{ 'styles.scss.css' | asset_url | stylesheet_tag }}
+
+    <!-- Custom styles -->
+    {{ 'paymentfont.scss.css' | asset_url | stylesheet_tag }}
+    {{ 'custom-styles.scss.css' | asset_url | stylesheet_tag }}
+    {{ 'custom-table.scss.css' | asset_url | stylesheet_tag }}
+    <!-- End Custom styles -->
 
     <script>
       /*! lazysizes - v3.0.0 */
@@ -36,8 +47,9 @@
 
     <!-- Mobile Specific Metas -->
     <meta name="HandheldFriendly" content="True">
-    <meta name="MobileOptimized" content="320">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
+     <meta name="MobileOptimized" content="320">
+    <!-- <meta name="viewport" content="width=device-width,initial-scale=1"> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"> <!-- Smooch bug fix -->
     <meta name="theme-color" content="{{ settings.shop_bg_color }}">
 
     {% if settings.favicon != nil %}
@@ -51,6 +63,19 @@
       {{ "shopify_common.js" | shopify_asset_url | script_tag }}
       {{ "customer_area.js" | shopify_asset_url | script_tag }}
     {% endif %}
+
+    <!-- Custom Stamped.io reviews css/js -->
+    {% if template contains "product" %}
+      {% include "stamped-reviews-css-js" %}
+    {% endif %}
+    <!-- End Custom Stamped.io reviews css/js -->
+
+    <!-- Custom head scripts -->
+    {% include 'findify-script' %} 
+    {% include 'tracking-head' %}
+    {% include 'smooch-head' %}
+    <!-- End Custom tracking head -->
+
     {{ content_for_header }}
   </head>
   {% if template contains "index" %}
@@ -92,8 +117,7 @@
     </style>
   </noscript>
 
-  <body class="{{ template | replace: '.', '-' | handle }}"
-    data-money-format="{{ shop.money_format }}">
+  <body class="{{ template | replace: '.', '-' | handle }}" data-money-format="{{ shop.money_format }}">
      <!-- Findify Color Swatch import -->
     <div class="temp_tag_script" data-url="{{ 'temp-script_50x.png' | asset_url }}"></div>
     <!-- Custom gtm body -->
@@ -192,6 +216,16 @@
       }
       </script>
     {% endunless %}
+
+    <!-- Custom body scripts-->
+    {% include 'findify-tagging' %}
+    {% include 'findify-search' %}
+    {% include 'sweettooth-initializer' %} 
+    {% include 'sweettooth-tab-widget' %}
+    {% include 'smooch-body' %}
+    {% include 'back-in-stock-helper' %}
+    {% include 'tracking-body' %}
+    <!-- End Custom body scripts -->
 
     <script>
       {{ settings.custom_scripts }}
