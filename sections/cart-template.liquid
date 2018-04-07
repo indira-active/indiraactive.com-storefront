@@ -96,7 +96,7 @@
 
               <div class="product-quantity-box left">
                 <span class="ss-icon product-minus js-change-quantity" data-func="minus"><span class="icon-minus"></span></span>
-                <input type="number" min="0" size="2" class="quantity" name="updates[]" id="updates_{{ item.id }}" value="{{ item.quantity }}" data-line-id="{{ forloop.index }}" />
+                <input type="number" min="0" size="2" class="quantity" name="updates[]" id="updates_{{ item.id }}" value="{{ item.quantity }}" data-line-id="{{ forloop.index }}" {% if settings.limit_quantity and item.variant.inventory_management != blank and item.variant.inventory_quantity > 0 and item.variant.inventory_policy == "deny" %}max="{{ item.variant.inventory_quantity }}"{% endif %} />
                 <span class="ss-icon product-plus js-change-quantity" data-func="plus"><span class="icon-plus"></span></span>
               </div>
             </div>
@@ -160,7 +160,7 @@
               <input type="submit" class="action_button add_to_cart" id="checkout" name="checkout" value="{{ 'cart.general.checkout' | t }}" />
             </p>
 
-            {% if content_for_additional_checkout_buttons and settings.cart_action != 'ajax' %}
+            {% if content_for_additional_checkout_buttons %}
               <div class="additional-checkout-buttons">
                 {{ content_for_additional_checkout_buttons }}
               </div>

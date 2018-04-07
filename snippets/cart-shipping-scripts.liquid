@@ -5,8 +5,8 @@
 
 <script>
     Shopify.Cart.ShippingCalculator.show( {
-      submitButton: {{ settings.shipping_calculator_submit_button_label | default: 'Calculate shipping' | json }},
-      submitButtonDisabled: {{ settings.shipping_calculator_submit_button_label_disabled | default: 'Calculating...' | json }}{% if customer %},
+      submitButton: {{ 'cart.shipping_calculator.submit_button_label' | t | json }},
+      submitButtonDisabled: {{ 'cart.shipping_calculator.submit_button_label_disabled' | t | json }}{% if customer %},
       customerIsLoggedIn: true{% endif %},
       moneyFormat: {{ shop.money_with_currency_format | json }}
     });
