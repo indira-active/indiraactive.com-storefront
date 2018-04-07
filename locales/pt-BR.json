@@ -53,6 +53,8 @@
       "no_results_html": "Sua pesquisa por \"{{ terms }}\" não obteve nenhum resultado.",
       "advanced_search_html": "Pesquisa Avançada →",
       "no_results": "Nenhum resultado encontrado.",
+      "load_more": "Carregar Mais",
+      "all_results": "Ver todos os resultados",
       "results_count": {
         "zero": "{{ count }} resultados",
         "one": "{{ count }} resultado",
@@ -218,6 +220,7 @@
       "no_addresses": "Nenhum endereço",
       "title": "Seus endereços",
       "default": "Padrão",
+      "primary": "endereço primário",
       "add_new": "Adicionar um novo endereço",
       "edit_address": "Editar endereço",
       "company": "Empresa",
@@ -301,7 +304,8 @@
       "last_name": "Sobrenome",
       "email": "E-mail",
       "password": "Senha",
-      "or": "ou"
+      "or": "ou",
+      "accepts_marketing": "Assine a nossa newsletter?"
     }
   },
   "homepage": {

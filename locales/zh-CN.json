@@ -50,6 +50,8 @@
       "no_results_html": " \"{{ terms }}\" ，无任何相关的商品。",
       "advanced_search_html": "进阶搜寻",
       "no_results": "无任相关搜寻结果",
+      "load_more": "更多",
+      "all_results": "更多",
       "placeholder": "搜寻...",
       "placeholder_with_shop_name": "搜寻{{ shop_name }}...",
       "submit": "搜寻",
@@ -215,6 +217,7 @@
       "no_addresses": "没有地址",
       "title": "您的地址",
       "default": "预设",
+      "primary": "主要地址",
       "add_new": "新增地址",
       "edit_address": "编辑地址",
       "company": "公司",
@@ -298,7 +301,8 @@
       "last_name": "姓",
       "email": "电邮地址",
       "password": "密码",
-      "or": "或"
+      "or": "或",
+      "accepts_marketing": "訂閱我們的新聞?"
     }
   },
   "homepage": {

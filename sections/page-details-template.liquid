@@ -12,276 +12,14 @@
   {% for block in section.blocks %}
 
     {% if block.type == "image_with_text_overlay" or block.type == "featured_video" %}
-      <div {{ block.shopify_attributes }} class="under-menu">
+      <div {{ block.shopify_attributes }} class="under-menu block__{{ block.type }}">
     {% elsif block.type == "featured_collection" %}
-      <div {{ block.shopify_attributes }} class="featured-collection-section">
+      <div {{ block.shopify_attributes }} class="featured-collection-section block__{{ block.type }}">
     {% else %}
-      <div {{ block.shopify_attributes }}>
+      <div {{ block.shopify_attributes }} class="block__{{ block.type }}">
     {% endif %}
 
-      {% if block.type == "image_with_text_overlay" %}
-
-        {% assign default = '1400x' %}
-        {% assign size1 = '480x' %}
-        {% assign size2 = '765x' %}
-        {% assign size3 = '900x' %}
-        {% assign size4 = '1000x' %}
-        {% assign size5 = '1100x' %}
-        {% assign size6 = '1300x' %}
-        {% assign size7 = '1500x' %}
-        {% assign size8 = '1700x' %}
-        {% assign size9 = '1900x' %}
-        {% assign size10 = '2000x' %}
-
-        <section id="banner-{{block.id}}" class="banner">
-          {% if block.settings.image != nil %}
-            <img  src="{{ block.settings.image | img_url: '100x', format: 'pjpg' }}"
-                  alt="{{ block.settings.image.alt | escape }}"
-                  class="lazyload {{ block.image_loading_style }}"
-                  sizes="100vw"
-                  data-src="{{ block.settings.image | img_url: default, format: 'pjpg' }}"
-                  srcset="
-                  {{ block.settings.image | img_url: default, format: 'pjpg' }} {{default | replace: 'x', 'w'}},
-                  {{ block.settings.image | img_url: size1, format: 'pjpg' }} {{size1 | replace: 'x', 'w'}},
-                  {{ block.settings.image | img_url: size2, format: 'pjpg' }} {{size2 | replace: 'x', 'w'}},
-                  {{ block.settings.image | img_url: size3, format: 'pjpg' }} {{size3 | replace: 'x', 'w'}},
-                  {{ block.settings.image | img_url: size4, format: 'pjpg' }} {{size4 | replace: 'x', 'w'}},
-                  {{ block.settings.image | img_url: size5, format: 'pjpg' }} {{size5 | replace: 'x', 'w'}},
-                  {{ block.settings.image | img_url: size6, format: 'pjpg' }} {{size6 | replace: 'x', 'w'}},
-                  {{ block.settings.image | img_url: size7, format: 'pjpg' }} {{size7 | replace: 'x', 'w'}},
-                  {{ block.settings.image | img_url: size8, format: 'pjpg' }} {{size8 | replace: 'x', 'w'}},
-                  {{ block.settings.image | img_url: size9, format: 'pjpg' }} {{size9 | replace: 'x', 'w'}},
-                  {{ block.settings.image | img_url: size10, format: 'pjpg' }} {{size10 | replace: 'x', 'w'}}"
-
-                   />
-          {% else %}
-            {{ 'lifestyle-1' | placeholder_svg_tag: 'placeholder-svg placeholder-svg--banner' }}
-          {% endif %}
-          {% unless block.settings.button1_link != blank and block.settings.button2_link != blank %}
-            {% if block.settings.button1_link != blank %}
-              <a href="{{ block.settings.button1_link }}" class="banner-full-link">
-                {{ block.settings.title }}
-              </a>
-            {% elsif block.settings.button2_link != blank %}
-              <a href="{{ block.settings.button2_link }}" class="banner-full-link">
-                {{ block.settings.title }}
-              </a>
-            {% endif %}
-          {% endunless %}
-          {% unless block.settings.pretext == blank and block.settings.title == blank and block.settings.subtitle == blank and block.settings.button1 == blank and block.settings.button2 == blank %}
-            <div class="position-{{ block.settings.text_position }} caption js-caption">
-              <div class="caption-content caption-background-{{ block.settings.caption_background }} caption-transparency-{{ block.settings.caption_background_transparency }} align-{{ block.settings.text_align }}">
-                {% if block.settings.pretext != blank %}
-                  <div class="pretext">
-                    {{ block.settings.pretext }}
-                  </div>
-                {% endif %}
-                {% if block.settings.title != blank %}
-                  <h1 class="headline">
-                    {{ block.settings.title }}
-                  </h1>
-                {% endif %}
-                {% if block.settings.subtitle != blank %}
-                  <div class="subtitle">
-                    {{ block.settings.subtitle }}
-                  </div>
-                {% endif %}
-                {% if block.settings.button1 != blank %}
-                  <a {% if block.settings.button1_link != blank %}href="{{ block.settings.button1_link }}"{% endif %} class="action_button first_button highlight-{{ block.settings.button1_highlight }}">
-                    {{ block.settings.button1 }}
-                  </a>
-                {% endif %}
-                {% if block.settings.button2 != blank %}
-                  <a {% if block.settings.button2_link != blank %}href="{{ block.settings.button2_link }}"{% endif %} class="action_button second_button highlight-{{ block.settings.button2_highlight }}">
-                    {{ block.settings.button2 }}
-                  </a>
-                {% endif %}
-              </div>
-            </div>
-          {% endunless %}
-        </section>
-      {% endif %}
-
-      {% if block.type == "rich_text_and_image" %}
-        <div class="container">
-          <div class="sixteen columns">
-            <div class="homepage_content section {{ block.settings.text_alignment }} clearfix">
-              {% if block.settings.image %}
-                {{ block.settings.image | img_url: '1180x', scale: 2 | img_tag: block.settings.image.alt, 'lazyload transition-in' }}
-              {% endif %}
-
-              {% if block.settings.title != blank %}
-                <h2 class="title">
-                  {{ block.settings.title }}
-                </h2>
-                <div class="feature_divider"></div>
-              {% endif %}
-
-              <div class="{{ block.settings.text_size }}">
-                {% if block.settings.content != blank %}
-                  {{ block.settings.content }}
-                {% endif %}
-
-                {% if block.settings.button_label != blank %}
-                  <a href="{{ block.settings.button_link }}" class="action_button">
-                    {{ block.settings.button_label }}
-                  </a>
-                {% endif %}
-              </div>
-            </div>
-          </div>
-        </div>
-      {% endif %}
-
-      {% if block.type == "featured_collection" %}
-        {% if block.settings.collection == blank %}
-          {%- assign section_onboarding = true -%}
-          {% comment %}assign product length to be selected limit for onboarding{% endcomment %}
-          {% assign products_length = block.settings.products_limit | plus: 0 %}
-        {% else %}
-          {%- assign section_onboarding = false -%}
-        {% endif %}
-
-        <div class="container featured_products
-                        product-{{ block.settings.collection_style }}">
-          <div class="sixteen columns center homepage_content">
-            {% if block.settings.title != blank %}
-              <a href="{{ collections[block.settings.collection].url }}"><h2 class="title">{{ block.settings.title }}</h2></a>
-            <div class="feature_divider"></div>
-            {% endif %}
-            {% if collections[block.settings.collection].description != blank %}
-              <div class="section clearfix">
-                {{ collections[block.settings.collection].description }}
-              </div>
-            {% endif %}
-          </div>
-        </div>
-
-        {% assign limit = block.settings.products_limit %}
-
-        {% if block.settings.collection_style == 'slider' %}
-          {% assign col = block.settings.collection %}
-          {% assign products = collections[block.settings.collection].products %}
-          {% assign per_slide = block.settings.products_per %}
-
-          <div class="container js-product-slider homepage-product-slider full-width {% if per_slide == 2 or per_slide == 4 or per_slide == 6 %}even-num-slides{% endif %}">
-            {% if section_onboarding == false %}
-              {% if col and collections[col].all_products_count > 0 %}
-                {% include 'product-slider', per_slide: block.settings.products_per, featured_collection: col  %}
-              {% endif %}
-            {% else %}
-              <div class="slider-gallery products-slider products-length-{{ products_length }}"
-                    data-products-per-slide="{{ per_slide }}"
-                    data-products-limit="{{ limit }}"
-                    data-products-available="{{ products_length }}">
-                {% for i in (1..limit) %}
-                  {% assign per_slide_num = block.settings.products_per | plus: 0 %}
-                  <div class="gallery-cell thumbnail
-                  {% if products_length > per_slide_num %}visible-{{ per_slide }}{% else %}visible-{{ products_length }}{% endif %}
-                  " itemprop="itemListElement" itemscope itemtype="http://schema.org/Product">
-                    <div class="product-wrap">
-                      <div class="relative product_image">
-                        <a href="#" itemprop="url">
-                          <object class="placeholder-image">
-                            {% capture num %}{% cycle "1", "2", "3", "4", "5", "6" %}{% endcapture %}
-                            {{ 'product-' | append: num | placeholder_svg_tag: 'placeholder-svg placeholder-svg--product' }}
-                          </object>
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                {% endfor %}
-              </div>
-            {% endif %}
-          </div>
-        {% else %}
-          {% if section_onboarding == false %}
-            {% assign limit = block.settings.products_limit | plus: 1 %}
-            {% assign collection = collections[block.settings.collection] %}
-            {% assign products = collections[block.settings.collection].products %}
-            {% assign products_per_row = block.settings.products_per %}
-            <div class="container">
-              <div class="sixteen columns">
-                {% include 'product-loop' %}
-              </div>
-            </div>
-          {% else %}
-            {% assign products_per_row = block.settings.products_per %}
-            <div class="container">
-              <div class="sixteen columns">
-                {% capture new_row %}
-                    <br class="clear product_clear" />
-                {% endcapture %}
-
-                <div itemtype="http://schema.org/ItemList" class="product-list collection-matrix clearfix">
-                  {% for i in (1..limit) %}
-                    {% comment %}{% assign collection_group = products | map: 'id' %}{% endcomment %}
-                    {% assign collection_group_thumb = collection_group | append : 'thumb' %}
-                    {% assign collection_group_mobile = collection_group | append : 'mobile' %}
-                      <div class="
-                      {% if products_per_row == 2 %}
-                        eight columns {% cycle collection_group_thumb: 'alpha', 'omega' %}
-                      {% elsif products_per_row == 3 %}
-                        one-third column {% cycle collection_group_thumb: 'alpha', '', 'omega' %}
-                      {% elsif products_per_row == 4 %}
-                        four columns {% cycle collection_group_thumb: 'alpha', '', '', 'omega' %}
-                      {% elsif products_per_row == 5 %}
-                        one-fifth column {% cycle collection_group_thumb: 'alpha', '', '', '', 'omega' %}
-                      {% elsif products_per_row == 6 %}
-                        one-sixth column {% cycle collection_group_thumb: 'alpha', '', '', '', '', 'omega' %}
-                      {% else %}
-                        one-seventh column {% cycle collection_group_thumb: 'alpha', '', '', '', '', '', 'omega' %}
-                      {% endif %} thumbnail {% cycle collection_group_mobile: 'even', 'odd' %}" itemprop="itemListElement" itemscope itemtype="http://schema.org/Product">
-
-                      <div class="product-wrap">
-                        <div class="relative product_image swap-{{ settings.collection_secondary_image }}">
-                          <a href="#" itemprop="url">
-                            {% capture num %}{% cycle "1", "2", "3", "4", "5", "6" %}{% endcapture %}
-                            {{ 'product-' | append: num | placeholder_svg_tag: 'placeholder-svg placeholder-svg--product' }}
-                          </a>
-                        </div>
-                      </div>
-                    </div>
-
-                    {% if products_per_row == 2 %}
-                      {% cycle collection_group: '', new_row %}
-                    {% elsif products_per_row == 3 %}
-                      {% cycle collection_group: '', '', new_row %}
-                    {% elsif products_per_row == 4 %}
-                      {% cycle collection_group: '', '', '', new_row %}
-                    {% elsif products_per_row == 5 %}
-                      {% cycle collection_group: '', '', '', '', new_row %}
-                    {% elsif products_per_row == 6 %}
-                      {% cycle collection_group: '', '', '', '', '', new_row %}
-                    {% elsif products_per_row == 7 %}
-                      {% cycle collection_group: '', '', '', '', '', '', new_row %}
-                    {% endif %}
-                  {% endfor %}
-                </div>
-              </div>
-            </div>
-          {% endif %}
-        {% endif %}
-      {% endif %}
-
-      {% if block.type == "page" %}
-        <div class="homepage_content featured_content clearfix">
-          <div class="container">
-            <div class="sixteen columns">
-              <div class="section clearfix">
-                {% if block.settings.content_page != blank %}
-                  {% include 'page-multi-column', content: pages[block.settings.content_page].content %}
-                {% else %}
-                  <p class="center onboard-text">
-                    {{ 'homepage.onboarding.no_content' | t }}
-                  </p>
-                {% endif %}
-              </div>
-            </div>
-          </div>
-        </div>
-      {% endif %}
-
+      <!-- Blog posts -->
       {% if block.type == "blog_posts" %}
         <div class="container">
           <div class="section clearfix homepage_content">
@@ -351,7 +89,7 @@
                     <div class="excerpt">{{ article.excerpt }}</div>
                   {% endif %}
                   {% if block.settings.read_more_link %}
-                    <a href="{{ article.url }}" class="action_button continue-button">{{ 'blogs.general.continue_reading_html' | t }}</a>
+                    <a href="{{ article.url }}" {% if settings.read_more_style == 'button' %}class="action_button continue-button"{% endif %}>{{ 'blogs.general.continue_reading_html' | t }}</a>
                   {% endif %}
                 </div>
               {% endfor %}
@@ -396,175 +134,19 @@
                   <div class="excerpt">{{ 'homepage.onboarding.blog_excerpt' | t }}</div>
 
                   {% if block.settings.read_more_link %}
-                    <a href="{{ article.url }}" class="action_button continue-button">{{ 'blogs.general.continue_reading_html' | t }}</a>
+                    <a href="{{ article.url }}" {% if settings.read_more_style == 'button' %}class="action_button continue-button"{% endif %}>{{ 'blogs.general.continue_reading_html' | t }}</a>
                   {% endif %}
                 </div>
               {% endfor %}
             {% endif %}
           </div>
         </div>
-      {% endif %}
 
-      {% if block.type == "featured_video" %}
-        {% assign default = '1400x' %}
-        {% assign size1 = '480x' %}
-        {% assign size2 = '765x' %}
-        {% assign size3 = '900x' %}
-        {% assign size4 = '1000x' %}
-        {% assign size5 = '1100x' %}
-        {% assign size6 = '1300x' %}
-        {% assign size7 = '1500x' %}
-        {% assign size8 = '1700x' %}
-        {% assign size9 = '1900x' %}
-        {% assign size10 = '2000x' %}
-        <div class="video-section">
-          <section  class="homepage-video darken-video-{{ block.settings.video_dark_overlay }}  placeholder-image--{% if block.settings.image %}true{% else %}false{% endif %}"
-                data-video-id="video-{{block.id}}"
-                data-autoplay="{{ block.settings.autoplay }}"
-                data-autoloop="{{ block.settings.autoloop }}"
-                data-display-text-over-video="{{ block.settings.display_text_over_video }}"
-                data-poster-image="{% if block.settings.image %}{{ block.settings.image | img_url: '1500x' }}{% else %}false{% endif %}"
-                data-video-src="{{ block.settings.video.id }}"
-                data-aspect-ratio="{{ block.settings.aspect_ratio }}"
-                data-provider="{{ block.settings.source }}"
-                data-video-mp4="{{ block.settings.mp4 }}"
-                data-video-ogv="{{ block.settings.ogv }}"
-          >
-            <div class="homepage-video--media">
-              {% if block.settings.image %}
-                <img  src="{{ block.settings.image | img_url: '100x', format: 'pjpg' }}"
-                      alt="{% if block.settings.image.alt != blank %}{{ block.settings.image.alt | escape }}{% else %}{{ block.settings.title | escape }}{% endif %}"
-                      class="lazyload {{ settings.image_loading_style }} homepage-video__image"
-                      data-play-video
-                      sizes="100vw"
-                      data-src="{{ block.settings.image | img_url: default, format: 'pjpg' }}"
-                      srcset="
-                      {{ block.settings.image | img_url: default, format: 'pjpg' }} {{default | replace: 'x', 'w'}},
-                      {{ block.settings.image | img_url: size1, format: 'pjpg' }} {{size1 | replace: 'x', 'w'}},
-                      {{ block.settings.image | img_url: size2, format: 'pjpg' }} {{size2 | replace: 'x', 'w'}},
-                      {{ block.settings.image | img_url: size3, format: 'pjpg' }} {{size3 | replace: 'x', 'w'}},
-                      {{ block.settings.image | img_url: size4, format: 'pjpg' }} {{size4 | replace: 'x', 'w'}},
-                      {{ block.settings.image | img_url: size5, format: 'pjpg' }} {{size5 | replace: 'x', 'w'}},
-                      {{ block.settings.image | img_url: size6, format: 'pjpg' }} {{size6 | replace: 'x', 'w'}},
-                      {{ block.settings.image | img_url: size7, format: 'pjpg' }} {{size7 | replace: 'x', 'w'}},
-                      {{ block.settings.image | img_url: size8, format: 'pjpg' }} {{size8 | replace: 'x', 'w'}},
-                      {{ block.settings.image | img_url: size9, format: 'pjpg' }} {{size9 | replace: 'x', 'w'}},
-                      {{ block.settings.image | img_url: size10, format: 'pjpg' }} {{size10 | replace: 'x', 'w'}}"
-                       />
-              {% else %}
-                <div class="homepage-video__placeholder" data-play-video>
-                  {{ 'lifestyle-1' | placeholder_svg_tag: 'placeholder-svg placeholder-svg--video' }}
-                </div>
-              {% endif %}
-              {% unless block.settings.pretext == blank and block.settings.title == blank and block.settings.subtitle == blank and block.settings.button1_label == blank and block.settings.button2_label == blank %}
-                <div class="position-{{ block.settings.text_position }} caption js-caption text-on-video text-on-video--{{ block.settings.display_text_over_video }}">
-                  <div class="caption-content
-                              caption-background-{{block.settings.caption_background}}
-                              caption-transparency-{{ block.settings.caption_background_transparency }}
-                              align-{{block.settings.text_align}}">
-                    {% if block.settings.pretext != blank %}
-                      <div class="pretext">
-                        {{ block.settings.pretext }}
-                      </div>
-                    {% endif %}
-                    {% if block.settings.title != blank %}
-                      <h1 class="headline">
-                        {{ block.settings.title }}
-                      </h1>
-                    {% endif %}
-                    {% if block.settings.subtitle != blank %}
-                      <div class="subtitle">
-                        {{ block.settings.subtitle }}
-                      </div>
-                    {% endif %}
-                    {% if block.settings.button1_label != blank %}
-                      <a {% if block.settings.button1_link != blank %}href="{{ block.settings.button1_link }}"{% else %}data-play-video-button{% endif %} class="action_button first_button highlight-{{ block.settings.button1_highlight }} {% if block.settings.button1_link == blank %}video__play-button{% endif %}">
-                        {{ block.settings.button1_label }}
-                      </a>
-                    {% endif %}
-                    {% if block.settings.button2_label != blank %}
-                      <a {% if block.settings.button2_link != blank %}href="{{ block.settings.button2_link }}"{% else %}data-play-video{% endif %} class="action_button second_button highlight-{{ block.settings.button2_highlight }} {% if block.settings.button2_link == blank %}video__play-button{% endif %}">
-                        {{ block.settings.button2_label }}
-                      </a>
-                    {% endif %}
-                  </div>
-                </div>
-              {% endunless %}
-            </div>
-          </section>
-
-          {% unless block.settings.pretext == blank and block.settings.title == blank and block.settings.subtitle == blank and block.settings.button1_label == blank and block.settings.button2_label == blank %}
-            <section class="position-{{ block.settings.text_position }} caption js-caption text-on-video outside-homepage-video">
-              <div class="caption-content align-{{ block.settings.text_align }}">
-                {% if block.settings.pretext != blank %}
-                  <div class="pretext">
-                    {{ block.settings.pretext }}
-                  </div>
-                {% endif %}
-                {% if block.settings.title != blank %}
-                  <h1 class="headline">
-                    {{ block.settings.title }}
-                  </h1>
-                {% endif %}
-                {% if block.settings.subtitle != blank %}
-                  <div class="subtitle">
-                    {{ block.settings.subtitle }}
-                  </div>
-                {% endif %}
-                {% if block.settings.button1_label != blank and block.settings.button1_link != blank %}
-                  <a href="{{ block.settings.button1_link }}" class="action_button first_button highlight-{{ block.settings.button1_highlight }}">
-                    {{ block.settings.button1_label }}
-                  </a>
-                {% endif %}
-                {% if block.settings.button2_label != blank and block.settings.button2_link != blank %}
-                  <a href="{{ block.settings.button2_link }}" class="action_button first_button highlight-{{ block.settings.button2_highlight }}">
-                    {{ block.settings.button2_label }}
-                  </a>
-                {% endif %}
-              </div>
-            </section>
-          {% endunless %}
-        </div>
-      {% endif %}
-
-      {% if block.type == 'image_gallery' %}
+      <!-- Contact form -->
+      {% elsif block.type == "contact_form" %}
         <div class="container">
-          <div class="sixteen columns">
-           <div class="one-third column alpha thumbnail">
-              {% if block.settings.page_landing_image_1 %}
-                <a href="{{ block.settings.page_landing_image_1 | img_url: '1520x' }}" class="lightbox" rel="detail-gallery">
-                  <img src="{{ block.settings.page_landing_image_1 | img_url: '760x' }}" alt="{{ block.settings.page_landing_image_1.alt }}">
-                </a>
-              {% else %}
-                {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
-              {% endif %}
-            </div>
-            <div class="one-third column thumbnail">
-              {% if block.settings.page_landing_image_2 %}
-                <a href="{{ block.settings.page_landing_image_2 | img_url: '1520x' }}" class="lightbox" rel="detail-gallery">
-                  <img src="{{ block.settings.page_landing_image_2 | img_url: '760x' }}" alt="{{ block.settings.page_landing_image_2.alt }}">
-                </a>
-              {% else %}
-                {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
-              {% endif %}
-            </div>
-            <div class="one-third column omega thumbnail">
-              {% if block.settings.page_landing_image_3 %}
-                <a href="{{ block.settings.page_landing_image_3 | img_url: '1520x' }}" class="lightbox" rel="detail-gallery">
-                  <img src="{{ block.settings.page_landing_image_3 | img_url: '760x' }}" alt="{{ block.settings.page_landing_image_3.alt }}">
-                </a>
-              {% else %}
-                {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
-              {% endif %}
-            </div>
-          </div>
-        </div>
-      {% endif %}
-
-      {% if block.type == "contact_form" %}
-        <div class="container">
-          {% if block.settings.contact_heading != blank %}
-            <h2 class="title center">{{ block.settings.contact_heading }}</h2>
+          {% if block.settings.title != blank %}
+            <h2 class="title center">{{ block.settings.title }}</h2>
             <div class="feature_divider"></div>
           {% endif %}
           {% if block.settings.contact_text_position == "left" %}
@@ -737,63 +319,178 @@
             </div>
           {% endif %}
         </div>
-      {% endif %}
 
-      {% if block.type == 'divider' %}
-        <div class="container" style="padding: 0; {% if block.settings.divider_mobile %}display: none;{% endif %}">
+      <!-- Featured video -->
+      {% elsif block.type == "featured_video" %}
+        {% assign default = '1400x' %}
+        {% assign size1 = '480x' %}
+        {% assign size2 = '765x' %}
+        {% assign size3 = '900x' %}
+        {% assign size4 = '1000x' %}
+        {% assign size5 = '1100x' %}
+        {% assign size6 = '1300x' %}
+        {% assign size7 = '1500x' %}
+        {% assign size8 = '1700x' %}
+        {% assign size9 = '1900x' %}
+        {% assign size10 = '2000x' %}
+        <div class="video-section">
+          <section  class="homepage-video darken-video-{{ block.settings.video_dark_overlay }}  placeholder-image--{% if block.settings.image %}true{% else %}false{% endif %}"
+                data-video-id="video-{{block.id}}"
+                data-autoplay="{{ block.settings.autoplay }}"
+                data-autoloop="{{ block.settings.autoloop }}"
+                data-display-text-over-video="{{ block.settings.display_text_over_video }}"
+                data-poster-image="{% if block.settings.image %}{{ block.settings.image | img_url: '1500x' }}{% else %}false{% endif %}"
+                data-video-src="{{ block.settings.video.id }}"
+                data-aspect-ratio="{{ block.settings.aspect_ratio }}"
+                data-provider="{{ block.settings.source }}"
+                data-video-mp4="{{ block.settings.mp4 }}"
+                data-video-ogv="{{ block.settings.ogv }}"
+          >
+            <div class="homepage-video--media">
+              {% if block.settings.image %}
+                <img  src="{{ block.settings.image | img_url: '100x', format: 'pjpg' }}"
+                      alt="{% if block.settings.image.alt != blank %}{{ block.settings.image.alt | escape }}{% else %}{{ block.settings.title | escape }}{% endif %}"
+                      class="lazyload {{ settings.image_loading_style }} homepage-video__image"
+                      data-play-video
+                      sizes="100vw"
+                      data-src="{{ block.settings.image | img_url: default, format: 'pjpg' }}"
+                      srcset="
+                      {{ block.settings.image | img_url: default, format: 'pjpg' }} {{default | replace: 'x', 'w'}},
+                      {{ block.settings.image | img_url: size1, format: 'pjpg' }} {{size1 | replace: 'x', 'w'}},
+                      {{ block.settings.image | img_url: size2, format: 'pjpg' }} {{size2 | replace: 'x', 'w'}},
+                      {{ block.settings.image | img_url: size3, format: 'pjpg' }} {{size3 | replace: 'x', 'w'}},
+                      {{ block.settings.image | img_url: size4, format: 'pjpg' }} {{size4 | replace: 'x', 'w'}},
+                      {{ block.settings.image | img_url: size5, format: 'pjpg' }} {{size5 | replace: 'x', 'w'}},
+                      {{ block.settings.image | img_url: size6, format: 'pjpg' }} {{size6 | replace: 'x', 'w'}},
+                      {{ block.settings.image | img_url: size7, format: 'pjpg' }} {{size7 | replace: 'x', 'w'}},
+                      {{ block.settings.image | img_url: size8, format: 'pjpg' }} {{size8 | replace: 'x', 'w'}},
+                      {{ block.settings.image | img_url: size9, format: 'pjpg' }} {{size9 | replace: 'x', 'w'}},
+                      {{ block.settings.image | img_url: size10, format: 'pjpg' }} {{size10 | replace: 'x', 'w'}}"
+                       />
+              {% else %}
+                <div class="homepage-video__placeholder" data-play-video>
+                  {{ 'lifestyle-1' | placeholder_svg_tag: 'placeholder-svg placeholder-svg--video' }}
+                </div>
+              {% endif %}
+              {% unless block.settings.pretext == blank and block.settings.title == blank and block.settings.subtitle == blank and block.settings.button1_label == blank and block.settings.button2_label == blank %}
+                <div class="position-{{ block.settings.text_position }} caption js-caption text-on-video text-on-video--{{ block.settings.display_text_over_video }}">
+                  <div class="caption-content
+                              caption-background-{{block.settings.caption_background}}
+                              caption-transparency-{{ block.settings.caption_background_transparency }}
+                              align-{{block.settings.text_align}}">
+                    {% if block.settings.pretext != blank %}
+                      <div class="pretext">
+                        {{ block.settings.pretext }}
+                      </div>
+                    {% endif %}
+                    {% if block.settings.title != blank %}
+                      <h1 class="headline">
+                        {{ block.settings.title }}
+                      </h1>
+                    {% endif %}
+                    {% if block.settings.subtitle != blank %}
+                      <div class="subtitle">
+                        {{ block.settings.subtitle }}
+                      </div>
+                    {% endif %}
+                    {% if block.settings.button1_label != blank %}
+                      <a {% if block.settings.button1_link != blank %}href="{{ block.settings.button1_link }}"{% else %}data-play-video-button{% endif %} class="action_button first_button highlight-{{ block.settings.button1_highlight }} {% if block.settings.button1_link == blank %}video__play-button{% endif %}">
+                        {{ block.settings.button1_label }}
+                      </a>
+                    {% endif %}
+                    {% if block.settings.button2_label != blank %}
+                      <a {% if block.settings.button2_link != blank %}href="{{ block.settings.button2_link }}"{% else %}data-play-video{% endif %} class="action_button second_button highlight-{{ block.settings.button2_highlight }} {% if block.settings.button2_link == blank %}video__play-button{% endif %}">
+                        {{ block.settings.button2_label }}
+                      </a>
+                    {% endif %}
+                  </div>
+                </div>
+              {% endunless %}
+            </div>
+          </section>
+
+          {% unless block.settings.pretext == blank and block.settings.title == blank and block.settings.subtitle == blank and block.settings.button1_label == blank and block.settings.button2_label == blank %}
+            <section class="position-{{ block.settings.text_position }} caption js-caption text-on-video outside-homepage-video">
+              <div class="caption-content align-{{ block.settings.text_align }}">
+                {% if block.settings.pretext != blank %}
+                  <div class="pretext">
+                    {{ block.settings.pretext }}
+                  </div>
+                {% endif %}
+                {% if block.settings.title != blank %}
+                  <h1 class="headline">
+                    {{ block.settings.title }}
+                  </h1>
+                {% endif %}
+                {% if block.settings.subtitle != blank %}
+                  <div class="subtitle">
+                    {{ block.settings.subtitle }}
+                  </div>
+                {% endif %}
+                {% if block.settings.button1_label != blank and block.settings.button1_link != blank %}
+                  <a href="{{ block.settings.button1_link }}" class="action_button first_button highlight-{{ block.settings.button1_highlight }}">
+                    {{ block.settings.button1_label }}
+                  </a>
+                {% endif %}
+                {% if block.settings.button2_label != blank and block.settings.button2_link != blank %}
+                  <a href="{{ block.settings.button2_link }}" class="action_button first_button highlight-{{ block.settings.button2_highlight }}">
+                    {{ block.settings.button2_label }}
+                  </a>
+                {% endif %}
+              </div>
+            </section>
+          {% endunless %}
+        </div>
+
+      <!-- Image gallery -->
+      {% elsif block.type == 'image_gallery' %}
+        <div class="container">
           <div class="sixteen columns">
-            <hr class="page-divider {% if block.settings.divider_border %}active-divider{% endif %}" style="{% if block.settings.divider_spacing %}margin: {{ block.settings.divider_spacing }}px 0px;{% endif %}">
+           <div class="one-third column alpha thumbnail gallery-image-wrapper">
+              {% if block.settings.page_landing_image_1 %}
+                <div class="gallery-cell">
+                  <a href="{{ block.settings.page_landing_image_1 | img_url: '1520x' }}" class="lightbox" rel="detail-gallery">
+                    <img src="{{ block.settings.page_landing_image_1 | img_url: '760x' }}" alt="{{ block.settings.page_landing_image_1.alt }}">
+                  </a>
+                </div>
+              {% else %}
+                {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+              {% endif %}
+            </div>
+            <div class="one-third column thumbnail gallery-image-wrapper">
+              {% if block.settings.page_landing_image_2 %}
+                <div class="gallery-cell">
+                  <a href="{{ block.settings.page_landing_image_2 | img_url: '1520x' }}" class="lightbox" rel="detail-gallery">
+                    <img src="{{ block.settings.page_landing_image_2 | img_url: '760x' }}" alt="{{ block.settings.page_landing_image_2.alt }}">
+                  </a>
+                </div>
+              {% else %}
+                {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+              {% endif %}
+            </div>
+            <div class="one-third column omega thumbnail gallery-image-wrapper">
+              {% if block.settings.page_landing_image_3 %}
+                <div class="gallery-cell">
+                  <a href="{{ block.settings.page_landing_image_3 | img_url: '1520x' }}" class="lightbox" rel="detail-gallery">
+                    <img src="{{ block.settings.page_landing_image_3 | img_url: '760x' }}" alt="{{ block.settings.page_landing_image_3.alt }}">
+                  </a>
+                </div>
+              {% else %}
+                {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+              {% endif %}
+            </div>
           </div>
         </div>
-      {% endif %}
 
-      {% if block.type == 'map' %}
-        {% if block.settings.contact_address != blank %}
-          {% if block.settings.map_stretch %}
-            <div class="embed-container maps {% if block.settings.map_greyscale %}grey-map{% endif %}">
-              <iframe width="100%" height="{{ block.settings.map_height }}" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?f=q&amp;source=embed&amp;hl=en&amp;geocode=&amp;q={% if block.settings.contact_address != blank %}{{ block.settings.contact_address | replace: ' ', '+' }}{% endif %}&amp;z={{ block.settings.zoom_level }}&amp;output=embed" {% if block.settings.map_scrolling %}style="pointer-events: auto;"{% endif %}></iframe>
-            </div>
-          {% else %}
-            <div class="container">
-              <div class="sixteen columns">
-                <div class="embed-container maps {% if block.settings.map_greyscale %}grey-map{% endif %}">
-                  <iframe width="100%" height="{{ block.settings.map_height }}" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?f=q&amp;source=embed&amp;hl=en&amp;geocode=&amp;q={% if block.settings.contact_address != blank %}{{ block.settings.contact_address | replace: ' ', '+' }}{% endif %}&amp;z={{ block.settings.zoom_level }}&amp;output=embed" {% if block.settings.map_scrolling %}style="pointer-events: auto;"{% endif %}></iframe>
-                </div>
-              </div>
-            </div>
-          {% endif %}
-        {% else %}
-          {% if block.settings.map_stretch %}
-            <div class="map-placeholder" style="height: {{ block.settings.map_height }}px;">
-              {% capture i %}{% cycle "1", "2" %}{% endcapture %}
-              {{ 'lifestyle-' | append: i | placeholder_svg_tag: 'placeholder-svg placeholder-svg--map' }}
-            </div>
-          {% else %}
-            <div class="container">
-              <div class="sixteen columns">
-                <div class="map-placeholder" style="height: {{ block.settings.map_height }}px;">
-                  {% capture i %}{% cycle "1", "2" %}{% endcapture %}
-                  {{ 'lifestyle-' | append: i | placeholder_svg_tag: 'placeholder-svg placeholder-svg--map' }}
-                </div>
-              </div>
-            </div>
-          {% endif %}
+      <!-- Image with text -->
+      {% elsif block.type == "image_with_text" %}
+        {% if block.settings.layout == 'standard' %}
+          <div class="container standard--width">
         {% endif %}
-      {% endif %}
-
-      {% if block.type == 'quote' %}
-        <div class="container page-quote">
-          {% if block.settings.page_quote != blank %}
-            <a {% if block.settings.quote_link != blank %}href="{{ block.settings.quote_link }}"{% else %} style="color: {{ settings.headline_color }};"{% endif %}>{{ block.settings.page_quote }}</a>
-          {% endif %}
-        </div>
-      {% endif %}
-
-      {% if block.type == "image_with_text" %}
         <div class="featured_collections
           clearfix across-1 image-align--{{ block.settings.frontpage_image_position }}">
           <section class="featured-link--section featured-link--image section-{{ forloop.index }}">
-            <div class="featured-link--half featured-link--image">
+            <div class="featured-link--half featured-link--image {% if block.settings.layout == 'standard' %}featured-link--margin{% endif %}">
               <div class="featured-link--wrap">
                 <a {% if block.settings.link != blank %}href="{{ block.settings.link }}"{% endif %} title="{{ block.settings.title }}">
                   {% if block.settings.image %}
@@ -834,37 +531,370 @@
             </div>
           </section>
         </div>
-      {% endif %}
+        {% if block.settings.layout == 'standard' %}
+          </div>
+        {% endif %}
 
+        {% if block.settings.layout == 'standard' %}
+          <style>
+            .standard--width .featured-link--margin {
+              margin-left: 0%;
+              margin-right: 3%;
+            }
+
+            .standard--width .image-align--right .featured-link--margin {
+              margin-left: 3%;
+              margin-right: 0%;
+            }
+
+            .standard--width .featured-link--half {
+              width: 45%;
+            }
+          </style>
+        {% endif %}
+
+      <!-- Map -->
+      {% elsif block.type == 'map' %}
+        {% if block.settings.contact_address != blank %}
+          {% if block.settings.map_stretch %}
+            <div class="embed-container maps {% if block.settings.map_greyscale %}grey-map{% endif %}">
+              <iframe width="100%" height="{{ block.settings.map_height }}" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?f=q&amp;source=embed&amp;hl=en&amp;geocode=&amp;q={% if block.settings.contact_address != blank %}{{ block.settings.contact_address | replace: ' ', '+' }}{% endif %}&amp;z={{ block.settings.zoom_level }}&amp;output=embed" {% if block.settings.map_scrolling %}style="pointer-events: auto;"{% endif %}></iframe>
+            </div>
+          {% else %}
+            <div class="container">
+              <div class="sixteen columns">
+                <div class="embed-container maps {% if block.settings.map_greyscale %}grey-map{% endif %}">
+                  <iframe width="100%" height="{{ block.settings.map_height }}" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?f=q&amp;source=embed&amp;hl=en&amp;geocode=&amp;q={% if block.settings.contact_address != blank %}{{ block.settings.contact_address | replace: ' ', '+' }}{% endif %}&amp;z={{ block.settings.zoom_level }}&amp;output=embed" {% if block.settings.map_scrolling %}style="pointer-events: auto;"{% endif %}></iframe>
+                </div>
+              </div>
+            </div>
+          {% endif %}
+        {% else %}
+          {% if block.settings.map_stretch %}
+            <div class="map-placeholder" style="height: {{ block.settings.map_height }}px;">
+              {% capture i %}{% cycle "1", "2" %}{% endcapture %}
+              {{ 'lifestyle-' | append: i | placeholder_svg_tag: 'placeholder-svg placeholder-svg--map' }}
+            </div>
+          {% else %}
+            <div class="container">
+              <div class="sixteen columns">
+                <div class="map-placeholder" style="height: {{ block.settings.map_height }}px;">
+                  {% capture i %}{% cycle "1", "2" %}{% endcapture %}
+                  {{ 'lifestyle-' | append: i | placeholder_svg_tag: 'placeholder-svg placeholder-svg--map' }}
+                </div>
+              </div>
+            </div>
+          {% endif %}
+        {% endif %}
+
+      <!-- Page -->
+      {% elsif block.type == "page" %}
+        <div class="homepage_content featured_content clearfix">
+          <div class="container">
+            <div class="sixteen columns">
+              <div class="section clearfix">
+                {% if block.settings.content_page != blank %}
+                  {% include 'page-multi-column', content: pages[block.settings.content_page].content %}
+                {% else %}
+                  <p class="center onboard-text">
+                    {{ 'homepage.onboarding.no_content' | t }}
+                  </p>
+                {% endif %}
+              </div>
+            </div>
+          </div>
+        </div>
+
+      <!-- Quote -->
+      {% elsif block.type == 'quote' %}
+        <div class="container" data-block-id="{{block.id}}">
+          <div class="sixteen columns">
+            <h4 class="quote">
+              {% if block.settings.quote_link != blank %}
+                <a href="{{ block.settings.quote_link }}">
+                  {{ block.settings.quote_text }}
+                </a>
+              {% else %}
+                {{ block.settings.quote_text }}
+              {% endif %}
+            </h4>
+          </div>
+        </div>
+
+      <!-- Rich text and image -->
+      {% elsif block.type == "rich_text_and_image" %}
+        <div class="container">
+          <div class="sixteen columns">
+            <div class="homepage_content section {{ block.settings.text_alignment }} clearfix">
+              {% if block.settings.image %}
+                <img  src="{{ block.settings.image.src | img_url: '300x' }}"
+                      class="lazyload {{ settings.image_loading_style }}"
+                      alt="{{ block.settings.image.alt }}"
+                      style="max-width: {{- section.settings.image.width -}}px;"
+                      data-sizes="auto"
+                      data-src="{{ block.settings.image | img_url: '2048x' }}"
+                      data-srcset=" {{ block.settings.image | img_url: '2048x' }} 2048w,
+                                    {{ block.settings.image | img_url: '1600x' }} 1600w,
+                                    {{ block.settings.image | img_url: '1200x' }} 1200w,
+                                    {{ block.settings.image | img_url: '1000x' }} 1000w,
+                                    {{ block.settings.image | img_url: '800x' }} 800w,
+                                    {{ block.settings.image | img_url: '600x' }} 600w,
+                                    {{ block.settings.image | img_url: '400x' }} 400w"
+                      />
+              {% endif %}
+              {% if block.settings.title != blank %}
+                <h2 class="title">
+                  {{ block.settings.title }}
+                </h2>
+                <div class="feature_divider"></div>
+              {% endif %}
+              <div class="{{ block.settings.text_size }}">
+                {% if block.settings.content != blank %}
+                  {{ block.settings.content }}
+                {% endif %}
+                {% if block.settings.button_label != blank %}
+                  <a href="{{ block.settings.button_link }}" class="action_button">
+                    {{ block.settings.button_label }}
+                  </a>
+                {% endif %}
+              </div>
+            </div>
+          </div>
+        </div>
+
+      <!-- Divider -->
+      {% elsif block.type == 'divider' %}
+        <div class="container" style="padding: 0; {% if block.settings.divider_mobile %}display: none;{% endif %}">
+          <div class="sixteen columns">
+            <hr class="page-divider {% if block.settings.divider_border %}active-divider{% endif %}" style="{% if block.settings.divider_spacing %}margin: {{ block.settings.divider_spacing }}px 0px;{% endif %}">
+          </div>
+        </div>
+
+      <!-- Featured collection -->
+      {% elsif block.type == "featured_collection" %}
+        {% if block.settings.collection == blank %}
+          {%- assign section_onboarding = true -%}
+          {% comment %}assign product length to be selected limit for onboarding{% endcomment %}
+          {% assign products_length = block.settings.products_limit | plus: 0 %}
+        {% else %}
+          {%- assign section_onboarding = false -%}
+        {% endif %}
+
+        <div class="container featured_products
+                        product-{{ block.settings.collection_style }}">
+          <div class="sixteen columns center homepage_content">
+            {% if block.settings.title != blank %}
+              <a href="{{ collections[block.settings.collection].url }}"><h2 class="title">{{ block.settings.title }}</h2></a>
+            <div class="feature_divider"></div>
+            {% endif %}
+            {% if collections[block.settings.collection].description != blank %}
+              <div class="section clearfix">
+                {{ collections[block.settings.collection].description }}
+              </div>
+            {% endif %}
+          </div>
+        </div>
+
+        {% assign limit = block.settings.products_limit %}
+
+        {% if block.settings.collection_style == 'slider' %}
+          {% assign col = block.settings.collection %}
+          {% assign products = collections[block.settings.collection].products %}
+          {% assign per_slide = block.settings.products_per %}
+
+          <div class="container js-product-slider homepage-product-slider full-width {% if per_slide == 2 or per_slide == 4 or per_slide == 6 %}even-num-slides{% endif %}">
+            {% if section_onboarding == false %}
+              {% if col and collections[col].all_products_count > 0 %}
+                {% include 'product-slider', per_slide: block.settings.products_per, featured_collection: col  %}
+              {% endif %}
+            {% else %}
+              <div class="slider-gallery products-slider products-length-{{ products_length }}"
+                    data-products-per-slide="{{ per_slide }}"
+                    data-products-limit="{{ limit }}"
+                    data-products-available="{{ products_length }}">
+                {% for i in (1..limit) %}
+                  {% assign per_slide_num = block.settings.products_per | plus: 0 %}
+                  <div class="gallery-cell thumbnail
+                  {% if products_length > per_slide_num %}visible-{{ per_slide }}{% else %}visible-{{ products_length }}{% endif %}
+                  " itemprop="itemListElement" itemscope itemtype="http://schema.org/Product">
+                    <div class="product-wrap">
+                      <div class="relative product_image">
+                        <a href="#" itemprop="url">
+                          <object class="placeholder-image">
+                            {% capture num %}{% cycle "1", "2", "3", "4", "5", "6" %}{% endcapture %}
+                            {{ 'product-' | append: num | placeholder_svg_tag: 'placeholder-svg placeholder-svg--product' }}
+                          </object>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                {% endfor %}
+              </div>
+            {% endif %}
+          </div>
+        {% else %}
+          {% if section_onboarding == false %}
+            {% assign limit = block.settings.products_limit | plus: 1 %}
+            {% assign collection = collections[block.settings.collection] %}
+            {% assign products = collections[block.settings.collection].products %}
+            {% assign products_per_row = block.settings.products_per %}
+            <div class="container">
+              <div class="sixteen columns">
+                {% include 'product-loop' %}
+              </div>
+            </div>
+          {% else %}
+            {% assign products_per_row = block.settings.products_per %}
+            <div class="container">
+              <div class="sixteen columns">
+                {% capture new_row %}
+                    <br class="clear product_clear" />
+                {% endcapture %}
+
+                <div itemtype="http://schema.org/ItemList" class="product-list collection-matrix clearfix">
+                  {% for i in (1..limit) %}
+                    {% comment %}{% assign collection_group = products | map: 'id' %}{% endcomment %}
+                    {% assign collection_group_thumb = collection_group | append : 'thumb' %}
+                    {% assign collection_group_mobile = collection_group | append : 'mobile' %}
+                      <div class="
+                      {% if products_per_row == 2 %}
+                        eight columns {% cycle collection_group_thumb: 'alpha', 'omega' %}
+                      {% elsif products_per_row == 3 %}
+                        one-third column {% cycle collection_group_thumb: 'alpha', '', 'omega' %}
+                      {% elsif products_per_row == 4 %}
+                        four columns {% cycle collection_group_thumb: 'alpha', '', '', 'omega' %}
+                      {% elsif products_per_row == 5 %}
+                        one-fifth column {% cycle collection_group_thumb: 'alpha', '', '', '', 'omega' %}
+                      {% elsif products_per_row == 6 %}
+                        one-sixth column {% cycle collection_group_thumb: 'alpha', '', '', '', '', 'omega' %}
+                      {% else %}
+                        one-seventh column {% cycle collection_group_thumb: 'alpha', '', '', '', '', '', 'omega' %}
+                      {% endif %} thumbnail {% cycle collection_group_mobile: 'even', 'odd' %}" itemprop="itemListElement" itemscope itemtype="http://schema.org/Product">
+
+                      <div class="product-wrap">
+                        <div class="relative product_image swap-{{ settings.collection_secondary_image }}">
+                          <a href="#" itemprop="url">
+                            {% capture num %}{% cycle "1", "2", "3", "4", "5", "6" %}{% endcapture %}
+                            {{ 'product-' | append: num | placeholder_svg_tag: 'placeholder-svg placeholder-svg--product' }}
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+
+                    {% if products_per_row == 2 %}
+                      {% cycle collection_group: '', new_row %}
+                    {% elsif products_per_row == 3 %}
+                      {% cycle collection_group: '', '', new_row %}
+                    {% elsif products_per_row == 4 %}
+                      {% cycle collection_group: '', '', '', new_row %}
+                    {% elsif products_per_row == 5 %}
+                      {% cycle collection_group: '', '', '', '', new_row %}
+                    {% elsif products_per_row == 6 %}
+                      {% cycle collection_group: '', '', '', '', '', new_row %}
+                    {% elsif products_per_row == 7 %}
+                      {% cycle collection_group: '', '', '', '', '', '', new_row %}
+                    {% endif %}
+                  {% endfor %}
+                </div>
+              </div>
+            </div>
+          {% endif %}
+        {% endif %}
+
+      <!-- Image with text overlay -->
+      {% elsif block.type == "image_with_text_overlay" %}
+
+        {% assign default = '1400x' %}
+        {% assign size1 = '480x' %}
+        {% assign size2 = '765x' %}
+        {% assign size3 = '900x' %}
+        {% assign size4 = '1000x' %}
+        {% assign size5 = '1100x' %}
+        {% assign size6 = '1300x' %}
+        {% assign size7 = '1500x' %}
+        {% assign size8 = '1700x' %}
+        {% assign size9 = '1900x' %}
+        {% assign size10 = '2000x' %}
+
+        <section id="banner-{{block.id}}" class="banner">
+          {% if block.settings.image != nil %}
+            <img  src="{{ block.settings.image | img_url: '100x', format: 'pjpg' }}"
+                  alt="{{ block.settings.image.alt | escape }}"
+                  class="lazyload {{ block.image_loading_style }}"
+                  sizes="100vw"
+                  data-src="{{ block.settings.image | img_url: default, format: 'pjpg' }}"
+                  srcset="
+                  {{ block.settings.image | img_url: default, format: 'pjpg' }} {{default | replace: 'x', 'w'}},
+                  {{ block.settings.image | img_url: size1, format: 'pjpg' }} {{size1 | replace: 'x', 'w'}},
+                  {{ block.settings.image | img_url: size2, format: 'pjpg' }} {{size2 | replace: 'x', 'w'}},
+                  {{ block.settings.image | img_url: size3, format: 'pjpg' }} {{size3 | replace: 'x', 'w'}},
+                  {{ block.settings.image | img_url: size4, format: 'pjpg' }} {{size4 | replace: 'x', 'w'}},
+                  {{ block.settings.image | img_url: size5, format: 'pjpg' }} {{size5 | replace: 'x', 'w'}},
+                  {{ block.settings.image | img_url: size6, format: 'pjpg' }} {{size6 | replace: 'x', 'w'}},
+                  {{ block.settings.image | img_url: size7, format: 'pjpg' }} {{size7 | replace: 'x', 'w'}},
+                  {{ block.settings.image | img_url: size8, format: 'pjpg' }} {{size8 | replace: 'x', 'w'}},
+                  {{ block.settings.image | img_url: size9, format: 'pjpg' }} {{size9 | replace: 'x', 'w'}},
+                  {{ block.settings.image | img_url: size10, format: 'pjpg' }} {{size10 | replace: 'x', 'w'}}"
+
+                   />
+          {% else %}
+            {{ 'lifestyle-1' | placeholder_svg_tag: 'placeholder-svg placeholder-svg--banner' }}
+          {% endif %}
+          {% unless block.settings.button1_link != blank and block.settings.button2_link != blank %}
+            {% if block.settings.button1_link != blank %}
+              <a href="{{ block.settings.button1_link }}" class="banner-full-link">
+                {{ block.settings.title }}
+              </a>
+            {% elsif block.settings.button2_link != blank %}
+              <a href="{{ block.settings.button2_link }}" class="banner-full-link">
+                {{ block.settings.title }}
+              </a>
+            {% endif %}
+          {% endunless %}
+          {% unless block.settings.pretext == blank and block.settings.title == blank and block.settings.subtitle == blank and block.settings.button1 == blank and block.settings.button2 == blank %}
+            <div class="position-{{ block.settings.text_position }} caption js-caption">
+              <div class="caption-content caption-background-{{ block.settings.caption_background }} caption-transparency-{{ block.settings.caption_background_transparency }} align-{{ block.settings.text_align }}">
+                {% if block.settings.pretext != blank %}
+                  <div class="pretext">
+                    {{ block.settings.pretext }}
+                  </div>
+                {% endif %}
+                {% if block.settings.title != blank %}
+                  <h1 class="headline">
+                    {{ block.settings.title }}
+                  </h1>
+                {% endif %}
+                {% if block.settings.subtitle != blank %}
+                  <div class="subtitle">
+                    {{ block.settings.subtitle }}
+                  </div>
+                {% endif %}
+                {% if block.settings.button1 != blank %}
+                  <a {% if block.settings.button1_link != blank %}href="{{ block.settings.button1_link }}"{% endif %} class="action_button first_button highlight-{{ block.settings.button1_highlight }}">
+                    {{ block.settings.button1 }}
+                  </a>
+                {% endif %}
+                {% if block.settings.button2 != blank %}
+                  <a {% if block.settings.button2_link != blank %}href="{{ block.settings.button2_link }}"{% endif %} class="action_button second_button highlight-{{ block.settings.button2_highlight }}">
+                    {{ block.settings.button2 }}
+                  </a>
+                {% endif %}
+              </div>
+            </div>
+          {% endunless %}
+        </section>
+      {% endif %}
     </div>
   {% endfor %}
 {% endif %}
 </div>
-
-<style>
-  div.container .featured_products {
-    padding-top: 0px;
-  }
-  @media (max-width: 480px){
-    .caption {
-      margin-bottom: 0 !important;
-    }
-  }
-  .grey-map {
-    filter: url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'grayscale\'><feColorMatrix type=\'matrix\' values=\'0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0\'/></filter></svg>#grayscale"); /* Firefox 10+ */
-    filter: gray; /* IE6-9 */
-    -webkit-filter: grayscale(99%); /* Chrome 19+ & Safari 6+ */
-    -webkit-backface-visibility: hidden;  /* Fix for transition flickering */
-  }
-</style>
 
 {% schema %}
 
 {
   "name": "Page",
   "class": "page-details-section",
-  "settings": [
-  ],
+  "max_blocks": 20,
   "blocks": [
     {
       "type": "blog_posts",
@@ -926,7 +956,7 @@
       "settings": [
         {
           "type": "text",
-          "id": "contact_heading",
+          "id": "title",
           "label": "Heading",
           "default": "Get in touch"
         },
@@ -989,17 +1019,13 @@
       "name": "Divider",
       "settings": [
         {
-          "type": "paragraph",
-          "content": "Add spacing in between your sections by using a divider."
-        },
-        {
           "type": "range",
           "id": "divider_spacing",
           "min": 0,
           "max": 30,
           "step": 5,
           "unit": "px",
-          "label": "Spacing",
+          "label": "Space",
           "default": 20
         },
         {
@@ -1278,6 +1304,22 @@
       "settings": [
         {
           "type": "select",
+          "id": "layout",
+          "label": "Wide display",
+          "options": [
+            {
+              "value": "standard",
+              "label": "Standard"
+            },
+            {
+              "value": "fullwidth",
+              "label": "Full width"
+            }
+          ],
+          "default": "fullwidth"
+        },
+        {
+          "type": "select",
           "id": "frontpage_text_align",
           "label": "Text alignment",
           "options": [
@@ -1353,17 +1395,20 @@
         {
           "type": "richtext",
           "id": "pretext",
-          "label": "Preheading"
+          "label": "Preheading",
+          "default": "<p>This is</p>"
         },
         {
           "type": "text",
           "id": "title",
-          "label": "Heading"
+          "label": "Heading",
+          "default": "Your headline"
         },
         {
           "type": "richtext",
           "id": "subtitle",
-          "label": "Subheading"
+          "label": "Subheading",
+          "default": "<p>Customize this section</p>"
         },
         {
           "type": "checkbox",
@@ -1417,7 +1462,8 @@
         {
           "type": "text",
           "id": "button1",
-          "label": "First button label"
+          "label": "First button label",
+          "default": "Button"
         },
         {
           "type": "url",
@@ -1511,15 +1557,15 @@
       "name": "Quote",
       "settings": [
         {
-          "type": "richtext",
-          "id": "page_quote",
+          "type": "text",
+          "id": "quote_text",
           "label": "Text",
-          "default": "<p><i>40% of online shoppers abandon a site that takes more than 3 seconds to load</i></p>"
+          "default": "40% of online shoppers abandon a site that takes more than 3 seconds to load"
         },
         {
           "type": "url",
           "id": "quote_link",
-          "label": "Quote link"
+          "label": "Link"
         }
       ]
     },
@@ -1590,141 +1636,139 @@
     }
   ],
   "default": {
-      "settings": {
+    "blocks": [
+      {
+        "type": "image_with_text_overlay",
+        "settings": {
+          "pretext": "<p>Introducing Your</p>",
+          "title": "Page Details Template",
+          "subtitle": "<p>Let's Get Started!</p>",
+          "text_position": "center",
+          "text_align": "center"
+        }
       },
-      "blocks": [
-        {
-          "type": "image_with_text_overlay",
-          "settings": {
-            "pretext": "<p>Introducing Your</p>",
-            "title": "Page Details Template",
-            "subtitle": "<p>Let's Get Started!</p>",
-            "text_position": "center",
-            "text_align": "center"
-          }
-        },
-        {
-          "type": "divider",
-          "settings": {
-            "divider_spacing": 20
-          }
-        },
-        {
-          "type": "rich_text_and_image",
-          "settings": {
-            "title": "Talk about your brand",
-            "content": "<p>Use this text to share information about your brand with your customers.</p><p>Describe a product, share announcements, or welcome customers to your store.</p>"
-          }
-        },
-        {
-          "type": "divider",
-          "settings": {
-            "divider_spacing": 10
-          }
-        },
-        {
-          "type": "featured_collection",
-          "settings": {
-            "collection_style": "grid",
-            "products_per": 4,
-            "products_limit": 8
-          }
-        },
-        {
-          "type": "divider",
-          "settings": {
-            "divider_spacing": 10
-          }
-        },
-        {
-          "type": "featured_video",
-          "settings": {
-            "autoplay": false,
-            "video": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
-            "source": "youtube",
-            "title": "Featured Video Section",
-            "button1_label": "Play Video"
-          }
-        },
-        {
-          "type": "image_with_text",
-          "settings": {
-          }
-        },
-        {
-          "type": "image_with_text",
-          "settings": {
-            "frontpage_image_position": "right"
-          }
-        },
-        {
-          "type": "divider",
-          "settings": {
-            "divider_spacing": 10
-          }
-        },
-        {
-          "type": "blog_posts",
-          "settings": {
-          }
-        },
-        {
-          "type": "divider",
-          "settings": {
-            "divider_spacing": 10
-          }
-        },
-        {
-          "type": "contact_form",
-          "settings": {
-            "contact_heading": "Get in touch",
-            "contact_subheading": "Leave a message",
-            "contact_content": "<p>Phasellus viverra nulla ut metus varius laoreet. Etiam sollicitudin, ipsum eu pulvinar rutrum, tellus ipsum laoreet sapien, quis venenatis ante odio sit amet eros. Etiam imperdiet imperdiet orci.</p>",
-            "contact_text_position": "left",
-            "contact_text_alignment": "left"
+      {
+        "type": "divider",
+        "settings": {
+          "divider_spacing": 20
         }
-        },
-        {
-          "type": "divider",
-          "settings": {
-            "divider_spacing": 10
-          }
-        },
-        {
-          "type": "map",
-          "settings": {
-          }
-        },
-        {
-          "type": "divider",
-          "settings": {
-          }
-        },
-        {
-          "type": "image_gallery",
-          "settings": {
-          }
-        },
-        {
-          "type": "divider",
-          "settings": {
-            "divider_spacing": 20
-          }
-        },
-        {
-          "type": "quote",
-          "settings": {
-            "page_quote": "<p><i>40% of online shoppers abandon a site that takes more than 3 seconds to load</i></p>"
-          }
-        },
-        {
-          "type": "divider",
-          "settings": {
-            "divider_spacing": 20
-          }
+      },
+      {
+        "type": "rich_text_and_image",
+        "settings": {
+          "title": "Talk about your brand",
+          "content": "<p>Use this text to share information about your brand with your customers.</p><p>Describe a product, share announcements, or welcome customers to your store.</p>"
         }
-      ]
-    }
+      },
+      {
+        "type": "divider",
+        "settings": {
+          "divider_spacing": 10
+        }
+      },
+      {
+        "type": "featured_collection",
+        "settings": {
+          "collection_style": "grid",
+          "products_per": 4,
+          "products_limit": 8
+        }
+      },
+      {
+        "type": "divider",
+        "settings": {
+          "divider_spacing": 10
+        }
+      },
+      {
+        "type": "featured_video",
+        "settings": {
+          "autoplay": false,
+          "video": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
+          "source": "youtube",
+          "title": "Featured Video Section",
+          "button1_label": "Play Video"
+        }
+      },
+      {
+        "type": "image_with_text",
+        "settings": {
+        }
+      },
+      {
+        "type": "image_with_text",
+        "settings": {
+          "frontpage_image_position": "right"
+        }
+      },
+      {
+        "type": "divider",
+        "settings": {
+          "divider_spacing": 10
+        }
+      },
+      {
+        "type": "blog_posts",
+        "settings": {
+        }
+      },
+      {
+        "type": "divider",
+        "settings": {
+          "divider_spacing": 10
+        }
+      },
+      {
+        "type": "contact_form",
+        "settings": {
+          "title": "Get in touch",
+          "contact_subheading": "Leave a message",
+          "contact_content": "<p>Phasellus viverra nulla ut metus varius laoreet. Etiam sollicitudin, ipsum eu pulvinar rutrum, tellus ipsum laoreet sapien, quis venenatis ante odio sit amet eros. Etiam imperdiet imperdiet orci.</p>",
+          "contact_text_position": "left",
+          "contact_text_alignment": "left"
+      }
+      },
+      {
+        "type": "divider",
+        "settings": {
+          "divider_spacing": 10
+        }
+      },
+      {
+        "type": "map",
+        "settings": {
+        }
+      },
+      {
+        "type": "divider",
+        "settings": {
+        }
+      },
+      {
+        "type": "image_gallery",
+        "settings": {
+        }
+      },
+      {
+        "type": "divider",
+        "settings": {
+          "divider_spacing": 20
+        }
+      },
+      {
+        "type": "quote",
+        "settings": {
+          "quote_text": "40% of online shoppers abandon a site that takes more than 3 seconds to load"
+        }
+      },
+      {
+        "type": "divider",
+        "settings": {
+          "divider_spacing": 20
+        }
+      }
+    ]
+  }
 }
 
 {% endschema %}

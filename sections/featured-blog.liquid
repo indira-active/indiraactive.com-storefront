@@ -72,7 +72,7 @@
             <div class="excerpt">{{ article.excerpt }}</div>
           {% endif %}
           {% if section.settings.read_more_link %}
-            <a href="{{ article.url }}" class="{% if section.settings.read_more_style == 'button' %}action_button continue-button{% endif %}">{{ 'blogs.general.continue_reading_html' | t }}</a>
+            <a href="{{ article.url }}" {% if settings.read_more_style == 'button' %}class="action_button continue-button"{% endif %}>{{ 'blogs.general.continue_reading_html' | t }}</a>
           {% endif %}
         </div>
       {% endfor %}
@@ -117,7 +117,7 @@
           <div class="excerpt">{{ 'homepage.onboarding.blog_excerpt' | t }}</div>
 
           {% if section.settings.read_more_link %}
-            <a href="{{ article.url }}" class="{% if section.settings.read_more_style == 'button' %}action_button continue-button{% endif %}">{{ 'blogs.general.continue_reading_html' | t }}</a>
+            <a href="{{ article.url }}" {% if settings.read_more_style == 'button' %}class="action_button continue-button"{% endif %}>{{ 'blogs.general.continue_reading_html' | t }}</a>
           {% endif %}
         </div>
       {% endfor %}
@@ -178,22 +178,6 @@
       "id": "read_more_link",
       "label": "Show continue reading link for blog post excerpts",
       "default": true
-    },
-    {
-      "type": "select",
-      "id": "read_more_style",
-      "label": "Continue reading link style",
-      "options": [
-        {
-          "value": "button",
-          "label": "Button"
-        },
-        {
-          "value": "link",
-          "label": "Link"
-        }
-      ],
-      "default": "button"
     }
   ],
   "presets": [{

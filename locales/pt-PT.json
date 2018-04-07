@@ -53,6 +53,8 @@
       "no_results_html": "A sua pesquisa para \"{{ terms }}\" não coincidiu com quaisquer resultados.",
       "advanced_search_html": "Pesquisa Avançada →",
       "no_results": "Não foram encontrados resultados.",
+      "load_more": "Carregar Mais",
+      "all_results": "Ver todos os resultados",
       "results_count": {
         "zero": "{{ count }} resultados",
         "one": "{{ count }} resultado",
@@ -218,6 +220,7 @@
       "no_addresses": "Nenhum endereço",
       "title": "As suas moradas",
       "default": "Predefinido(a)(os)(as)",
+      "primary": "Endereço primário",
       "add_new": "Adicionar uma Nova Morada",
       "edit_address": "Editar a morada",
       "company": "Empresa",
@@ -301,7 +304,8 @@
       "last_name": "Último Nome",
       "email": "E-mail",
       "password": "Palavra-passe",
-      "or": "ou"
+      "or": "ou",
+      "accepts_marketing": "Assine a nossa newsletter?"
     }
   },
   "homepage": {

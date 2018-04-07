@@ -15,7 +15,7 @@
                   {{ section.settings.image | img_url: '1400x', format: 'pjpg' }} 1400w,
                   {{ section.settings.image | img_url: '2048x', format: 'pjpg' }} 2048w"
            />
-    <div class="caption">
+    <div class="caption captionOverlay--true">
       <h1 class="headline">{{ section.settings.title }}</h1>
       <p class="subtitle">{{ section.settings.subtitle }}</p>
     </div>
@@ -83,25 +83,21 @@
   </div>
 </div>
 
-{% if section.settings.contact_address != blank %}
+{% if section.settings.show_map and section.settings.contact_address != blank %}
   {% if section.settings.map_stretch %}
-    {% if section.settings.contact_address != blank %}
-      <div class="embed-container maps">
-        <iframe width="100%" height="{{ section.settings.map_height }}" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?f=q&amp;source=embed&amp;hl=en&amp;geocode=&amp;q={{ section.settings.contact_address | replace: ' ', '+' }}&amp;z={{ section.settings.zoom_level }}&amp;output=embed"></iframe>
-      </div>
-    {% endif %}
+    <div class="embed-container maps">
+      <iframe width="100%" height="{{ section.settings.map_height }}" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?f=q&amp;source=embed&amp;hl=en&amp;geocode=&amp;q={{ section.settings.contact_address | replace: ' ', '+' }}&amp;z={{ section.settings.zoom_level }}&amp;output=embed"></iframe>
+    </div>
   {% else %}
     <div class="container">
       <div class="ten columns offset-by-three">
-        {% if section.settings.contact_address != blank %}
           <div class="embed-container maps">
             <iframe width="100%" height="{{ section.settings.map_height }}" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?f=q&amp;source=embed&amp;hl=en&amp;geocode=&amp;q={{ section.settings.contact_address | replace: ' ', '+' }}&amp;z={{ section.settings.zoom_level }}&amp;output=embed"></iframe>
           </div>
-        {% endif %}
       </div>
     </div>
   {% endif %}
-{% else %}
+{% elsif section.settings.show_map %}
   {% if section.settings.map_stretch %}
     <div class="map-placeholder">
       {% capture i %}{% cycle "1", "2" %}{% endcapture %}
@@ -181,6 +177,12 @@
     {
         "type": "header",
         "content": "Map"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_map",
+      "label": "Show map",
+      "default": false
     },
     {
       "type": "text",
