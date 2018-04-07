@@ -29,4 +29,3 @@ testing:
  - README.md
  - additional/
  timeout: 60s
- 
