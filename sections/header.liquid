@@ -12,7 +12,7 @@
     </div>
   {% endif %}
   <div class="top_bar clearfix">
-    <a href="#menu" class="mobile_nav dropdown_link" data-dropdown-rel="menu">
+    <a class="mobile_nav dropdown_link" data-dropdown-rel="menu" data-no-instant="true">
       <div>
         <span></span>
         <span></span>
@@ -31,7 +31,7 @@
       {% endif %}
     </a>
     {% if section.settings.search_enabled %}
-      <a class="icon-search dropdown_link" title="{{ 'general.search.title' | t | escape }}" data-dropdown-rel="search"></a>
+      <a href="/search" class="icon-search dropdown_link" title="{{ 'general.search.title' | t | escape }}" data-dropdown-rel="search"></a>
     {% endif %}
     {% if section.settings.show_cart %}
       <div class="cart_container">
@@ -132,109 +132,111 @@
           <a href="/cart" class="{% if section.settings.cart_icon == "cart" %}icon-cart{% else %}icon-bag{% endif %} mini_cart dropdown_link" data-no-instant>
             <span class="cart_count">{{ cart.item_count }}</span>
           </a>
-          <div class="cart_content animated fadeIn">
-            <div class="js-empty-cart__message {% if cart.item_count > 0 %}hidden{% endif %}">
-              <p class="empty_cart">{{ 'layout.general.empty_cart' | t }}</p>
-            </div>
-            <form action="/checkout" method="post" data-money-format="{{ shop.money_format }}" data-shop-currency="{{ shop.currency }}" data-shop-name="{{ shop.name | escape }}" class="js-cart_content__form {% if cart.item_count == 0 %}hidden{% endif %}">
-              <a class="cart_content__continue-shopping secondary_button">
-                {{ 'cart.general.continue_shopping_link_html' | t }}
-              </a>
-              <ul class="cart_items js-cart_items clearfix">
-                {% assign total_saving = 0 %}
-                {% for item in cart.items %}
-                  {% if item.variant.compare_at_price > item.variant.price %}
-                    {% assign saving = item.variant.compare_at_price | minus: item.variant.price | times: item.quantity %}
-                    {% assign total_saving = saving | plus: total_saving %}
-                  {% endif %}
-
-                  <li class="cart_item clearfix">
-                    <a href="{{ item.url }}">
-                      {% if item.image %}
-                        <div class="cart_image">
-                         <img src="{{ item | img_url: '320x' }}" alt="{{ item.title | escape }}" />
-                        </div>
-                      {% endif %}
-                      <strong class="right price">
-                        {% if item.price < item.variant.compare_at_price %}
-                          <span class="money was_price">{{ item.variant.compare_at_price | money }}</span>
-                        {% endif %}
-
-                        <span class="money">{{ item.price | money }}</span>
-                      </strong>
-                      <div class="item_title">
-                        {{ item.product.title }}
-                        {% unless item.product.has_only_default_variant or item.variant.title contains "Title" %}
-                          -
-                          {% for option in item.product.options %}
-                            {{ item.variant.options[forloop.index0] }} {% unless forloop.last %}/{% endunless %}
-                          {% endfor %}
-                        {% endunless %}
-                        {% if item.properties %}
-                          {% for p in item.properties %}
-                            {% if p.last != blank %}
-                              <div class="line-item">
-                                {{ p.first }}: {{ p.last }}
-                              </div>
-                            {% endif %}
-                          {% endfor %}
-                        {% endif %}
-                      </div>
-                    </a>
-                    <div class="left product-quantity-box">
-                      <span class="ss-icon product-minus js-change-quantity" data-func="minus"><span class="icon-minus"></span></span>
-                      <input type="number" min="0" size="2" class="quantity" name="updates[]" id="updates_{{ item.id }}" value="{{ item.quantity }}" data-line-id="{{ forloop.index }}" />
-                      <span class="ss-icon product-plus js-change-quantity" data-func="plus"><span class="icon-plus"></span></span>
-                    </div>
-                  </li>
-                {% endfor %}
-              </ul>
-              <hr />
-              <ul>
-                <li class="cart_subtotal js-cart_subtotal">
-                  <span class="right">
-                    <span class="money">{{ cart.total_price | money }}</span>
-                  </span>
-                  <span>{{ 'layout.general.subtotal' | t }}</span>
-                </li>
-                {% if settings.display_savings %}
-                  <li class="cart_savings sale js-cart_savings">
-                    {% if total_saving > 0 %}
-                      <span class="right">
-                        <span class="money">{{ total_saving | money }}</span>
-                      </span>
-                      <span>{{ 'layout.general.savings' | t }}</span>
+          {% unless settings.cart_action == 'ajax' and template contains 'cart' %}
+            <div class="cart_content animated fadeIn">
+              <div class="js-empty-cart__message {% if cart.item_count > 0 %}hidden{% endif %}">
+                <p class="empty_cart">{{ 'layout.general.empty_cart' | t }}</p>
+              </div>
+              <form action="/checkout" method="post" data-money-format="{{ shop.money_format }}" data-shop-currency="{{ shop.currency }}" data-shop-name="{{ shop.name | escape }}" class="js-cart_content__form {% if cart.item_count == 0 %}hidden{% endif %}">
+                <a class="cart_content__continue-shopping secondary_button">
+                  {{ 'cart.general.continue_shopping_link_html' | t }}
+                </a>
+                <ul class="cart_items js-cart_items clearfix">
+                  {% assign total_saving = 0 %}
+                  {% for item in cart.items %}
+                    {% if item.variant.compare_at_price > item.variant.price %}
+                      {% assign saving = item.variant.compare_at_price | minus: item.variant.price | times: item.quantity %}
+                      {% assign total_saving = saving | plus: total_saving %}
                     {% endif %}
-                  </li>
-                {% endif %}
-                <li>
-                  {% if settings.display_special_instructions and settings.go_to_checkout %}
-                    <textarea id="note" name="note" rows="2" placeholder="{{ 'layout.general.cart_note' | t }}" class="clearfix">{{ cart.note }}</textarea>
-                  {% endif %}
 
-                  {% if settings.display_tos_checkbox and settings.go_to_checkout %}
-                    <p class="tos">
-                      <input type="checkbox" class="tos_agree" id="sliding_agree" required />
-                        <label class="tos_label">
-                          {{ 'cart.general.agree_to_terms_html' | t }}
-                        </label>
-                        {% if settings.tos_page != blank %}
-                          <a href="{{ pages[settings.tos_page].url }}" target="_blank" class="tos_icon">{{ 'cart.general.view_terms' | t }}</a>
+                    <li class="cart_item clearfix">
+                      <a href="{{ item.url }}">
+                        {% if item.image %}
+                          <div class="cart_image">
+                            <img src="{{ item | img_url: '320x' }}" alt="{{ item.title | escape }}" />
+                          </div>
                         {% endif %}
-                    </p>
-                  {% endif %}
+                        <strong class="right price">
+                          {% if item.price < item.variant.compare_at_price %}
+                            <span class="money was_price">{{ item.variant.compare_at_price | money }}</span>
+                          {% endif %}
 
-                  {% if settings.cart_message != blank %}
-                    <div class="cart_text">
-                      {{ settings.cart_message }}
-                    </div>
+                          <span class="money">{{ item.price | money }}</span>
+                        </strong>
+                        <div class="item_title">
+                          {{ item.product.title }}
+                          {% unless item.product.has_only_default_variant or item.variant.title contains "Title" %}
+                            -
+                            {% for option in item.product.options %}
+                              {{ item.variant.options[forloop.index0] }} {% unless forloop.last %}/{% endunless %}
+                            {% endfor %}
+                          {% endunless %}
+                          {% if item.properties %}
+                            {% for p in item.properties %}
+                              {% if p.last != blank %}
+                                <div class="line-item">
+                                  {{ p.first }}: {{ p.last }}
+                                </div>
+                              {% endif %}
+                            {% endfor %}
+                          {% endif %}
+                        </div>
+                      </a>
+                      <div class="left product-quantity-box">
+                        <span class="ss-icon product-minus js-change-quantity" data-func="minus"><span class="icon-minus"></span></span>
+                        <input type="number" min="0" size="2" class="quantity" name="updates[]" id="updates_{{ item.id }}" value="{{ item.quantity }}" data-line-id="{{ forloop.index }}" />
+                        <span class="ss-icon product-plus js-change-quantity" data-func="plus"><span class="icon-plus"></span></span>
+                      </div>
+                    </li>
+                  {% endfor %}
+                </ul>
+                <hr />
+                <ul>
+                  <li class="cart_subtotal js-cart_subtotal">
+                    <span class="right">
+                      <span class="money">{{ cart.total_price | money }}</span>
+                    </span>
+                    <span>{{ 'layout.general.subtotal' | t }}</span>
+                  </li>
+                  {% if settings.display_savings %}
+                    <li class="cart_savings sale js-cart_savings">
+                      {% if total_saving > 0 %}
+                        <span class="right">
+                          <span class="money">{{ total_saving | money }}</span>
+                        </span>
+                        <span>{{ 'layout.general.savings' | t }}</span>
+                      {% endif %}
+                    </li>
                   {% endif %}
+                  <li>
+                    {% if settings.display_special_instructions and settings.go_to_checkout %}
+                      <textarea id="note" name="note" rows="2" placeholder="{{ 'layout.general.cart_note' | t }}" class="clearfix">{{ cart.note }}</textarea>
+                    {% endif %}
 
-                  <input type="submit" class="action_button" value="{% if settings.go_to_checkout %}{{ 'layout.general.checkout' | t }}{% else %}{{ 'layout.general.go_to_cart' | t }}{% endif %}" />
-                </li>
-              </ul>
-            </form>
-          </div>
+                    {% if settings.display_tos_checkbox and settings.go_to_checkout %}
+                      <p class="tos">
+                        <input type="checkbox" class="tos_agree" id="sliding_agree" required />
+                          <label class="tos_label">
+                            {{ 'cart.general.agree_to_terms_html' | t }}
+                          </label>
+                          {% if settings.tos_page != blank %}
+                            <a href="{{ pages[settings.tos_page].url }}" target="_blank" class="tos_icon">{{ 'cart.general.view_terms' | t }}</a>
+                          {% endif %}
+                      </p>
+                    {% endif %}
+
+                    {% if settings.cart_message != blank %}
+                      <div class="cart_text">
+                        {{ settings.cart_message }}
+                      </div>
+                    {% endif %}
+
+                    <input type="submit" class="action_button" value="{% if settings.go_to_checkout %}{{ 'layout.general.checkout' | t }}{% else %}{{ 'layout.general.go_to_cart' | t }}{% endif %}" />
+                  </li>
+                </ul>
+              </form>
+            </div>
+          {% endunless %}
         </div>
       {% endif %}
 
@@ -293,7 +295,7 @@
             {% include 'menu' with section.settings.main_linklist2 %}
           {% endif %}
           {% if section.settings.search_enabled %}
-            <li class="search_container">
+            <li class="search_container" data-autocomplete-{{ settings.enable_autocomplete }}>
               <form action="/search" class="search_form">
                 {% comment %} Findify search results page
                 {% if settings.search_option != 'everything' %}
@@ -301,11 +303,11 @@
                 {% endif %}
                 {% endcomment %}
                 <span class="icon-search search-submit"></span>
-                <input type="text" name="q" placeholder="{{ 'general.search.title' | t: shop_name: shop.name }}" value="{% if search and search.results.first.price %}{{ search.terms }}{% endif %}" autocapitalize="off" autocomplete="off" autocorrect="off" />
+                <input type="text" name="q" placeholder="{{ 'general.search.title' | t: shop_name: shop.name }}" value="{% if search and search.results.first.price %}{{ search.terms | replace: '*', '' }}{% endif %}" autocapitalize="off" autocomplete="off" autocorrect="off" />
               </form>
             </li>
             <li class="search_link">
-              <a class="icon-search dropdown_link" title="{{ 'general.search.title' | t | escape }}" data-dropdown-rel="search"></a>
+              <a href="/search" class="icon-search dropdown_link" title="{{ 'general.search.title' | t | escape }}" data-dropdown-rel="search"></a>
             </li>
           {% endif %}
         {% endcapture %}
@@ -333,13 +335,11 @@
         {% endif %}
         {% if section.settings.search_enabled %}
           <div class="dropdown_container center" data-dropdown="search">
-            <div class="dropdown">
-              <form action="/pages/search-results" class="header_search_form">
-                {% comment %} Findify search results page
+            <div class="dropdown" data-autocomplete-{{ settings.enable_autocomplete }}>
+              <form action="/search" class="header_search_form">
                 {% if settings.search_option != 'everything' %}
                   <input type="hidden" name="type" value="product" />
                 {% endif %}
-                {% endcomment %}
                 <span class="icon-search search-submit"></span>
                 <input type="text" name="q" placeholder="{{ 'general.search.title' | t: shop_name: shop.name }}" autocapitalize="off" autocomplete="off" autocorrect="off" class="search-terms" />
               </form>
@@ -414,36 +414,18 @@
   "class": "header-section",
   "settings": [
     {
-      "type": "checkbox",
-      "id": "fixed_header",
-      "label": "Fixed ('sticky') header",
-      "default": true
-    },
-    {
-      "type": "checkbox",
-      "id": "search_enabled",
-      "label": "Enable search",
-      "default": true
+      "type": "richtext",
+      "id": "promo_text",
+      "label": "Announcement message"
     },
     {
      "type": "header",
      "content": "Top bar"
     },
     {
-      "type": "richtext",
-      "id": "promo_text",
-      "label": "Announcement message"
-    },
-    {
       "type": "checkbox",
       "id": "social_icons_header",
       "label": "Show social media header icons",
-      "default": true
-    },
-    {
-      "type": "checkbox",
-      "id": "show_cart",
-      "label": "Show cart",
       "default": true
     },
     {
@@ -475,8 +457,24 @@
       "default": "cart"
     },
     {
+      "type": "checkbox",
+      "id": "show_cart",
+      "label": "Show cart",
+      "default": true
+    },
+    {
      "type": "header",
      "content": "Logos"
+    },
+    {
+      "type": "range",
+      "id": "logo_display_width",
+      "label": "Logo display width",
+      "step": 5,
+      "min": 105,
+      "max": 205,
+      "default": 205,
+      "unit": "px"
     },
     {
       "type": "image_picker",
@@ -495,16 +493,6 @@
       "id": "logo_mobile",
       "label": "Mobile logo",
       "info": "100 x 50px recommended"
-    },
-    {
-      "type": "range",
-      "id": "logo_display_width",
-      "label": "Logo display width",
-      "step": 5,
-      "min": 105,
-      "max": 205,
-      "default": 205,
-      "unit": "px"
     },
     {
      "type": "header",
@@ -528,7 +516,23 @@
     },
     {
      "type": "header",
+     "content": "Search"
+    },
+    {
+      "type": "checkbox",
+      "id": "search_enabled",
+      "label": "Enable search",
+      "default": true
+    },
+    {
+     "type": "header",
      "content": "Layout"
+    },
+    {
+      "type": "checkbox",
+      "id": "fixed_header",
+      "label": "Fixed ('sticky') header",
+      "default": true
     },
     {
       "type": "select",

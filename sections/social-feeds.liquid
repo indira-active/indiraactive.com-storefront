@@ -28,8 +28,8 @@
           {% else %}
             <div id="instafeed" class="clearfix placeholder-instagram">
               {% for i in (1..block.settings.instagram_count) %}
-                <div class="four columns">
-                  <a href="#">
+                <div class="four columns instagram__item">
+                  <a href="#" class="instagram__link">
                     {{ 'image' | placeholder_svg_tag: 'placeholder-svg placeholder-svg--instagram' }}
                   </a>
                 </div>

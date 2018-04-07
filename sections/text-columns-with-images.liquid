@@ -28,13 +28,12 @@
                     alt="{{ block.settings.image.alt }}"
                     data-sizes="auto"
                     data-src="{{ block.settings.image | img_url }}"
-                    data-srcset=" {{ block.settings.image | img_url: '500x' }} 2048w,
-                                  {{ block.settings.image | img_url: '500x' }} 1600w,
-                                  {{ block.settings.image | img_url: '500x' }} 1200w,
-                                  {{ block.settings.image | img_url: '500x' }} 1000w,
-                                  {{ block.settings.image | img_url: '300x' }} 800w,
-                                  {{ block.settings.image | img_url: '300x' }} 600w,
-                                  {{ block.settings.image | img_url: '300x' }} 400w"
+                    data-srcset=" {{ block.settings.image | img_url: '2048x' }} 2048w,
+                                  {{ block.settings.image | img_url: '1200x' }} 1200w,
+                                  {{ block.settings.image | img_url: '1000x' }} 1000w,
+                                  {{ block.settings.image | img_url: '800x' }} 800w,
+                                  {{ block.settings.image | img_url: '600x' }} 600w,
+                                  {{ block.settings.image | img_url: '400x' }} 400w"
                      />
              </p>
             <noscript>

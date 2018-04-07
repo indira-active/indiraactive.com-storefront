@@ -16,7 +16,7 @@
                   {{ article.image | img_url: '1400x', format: 'pjpg' }} 1400w,
                   {{ article.image | img_url: '2048x', format: 'pjpg' }} 2048w"
            />
-    <div class="caption">
+    <div class="caption captionOverlay--true">
       <h1 class="headline">{{ article.title }}</h1>
     </div>
   </header>
@@ -300,7 +300,7 @@
                 <div class="excerpt">{{ a.excerpt }}</div>
               {% endif %}
               {% if section.settings.read_more_link %}
-                <a href="{{ a.url }}" title="{{ a.title | escape }}" class="{% if section.settings.read_more_style == 'button' %}action_button continue-button{% endif %}">{{ 'blogs.general.continue_reading_html' | t }}</a>
+                <a href="{{ a.url }}" title="{{ a.title | escape }}" {% if settings.read_more_style == 'button' %}class="action_button continue-button"{% endif %}>{{ 'blogs.general.continue_reading_html' | t }}</a>
               {% endif %}
             </div>
           {% endunless %}
@@ -377,22 +377,6 @@
      "id": "read_more_link",
      "label": "Show continue reading link for related blog post",
      "default": true
-    },
-    {
-      "type": "select",
-      "id": "read_more_style",
-      "label": "Continue reading link style",
-      "options": [
-        {
-          "value": "button",
-          "label": "Button"
-        },
-        {
-          "value": "link",
-          "label": "Link"
-        }
-      ],
-      "default": "button"
     },
     {
      "type": "checkbox",

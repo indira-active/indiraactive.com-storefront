@@ -3,7 +3,7 @@
 - Draggable section
 {% endcomment %}
 
-<div class="search_section
+<div class="search__section
             {% if section.settings.image != nil %}search-bgr-true{% endif %}
             text-align--{{section.settings.search_section_text_align}}
           "
@@ -16,21 +16,22 @@
       {% if section.settings.search_text != blank %}
         <div class="search-text">{{ section.settings.search_text }}</div>
       {% endif %}
-    <div class="search-container">
-      <form class="search" action="/search">
-        <div class="search-wrapper">
-          {% comment %} Findify search results page
-          {% if settings.search_option != 'everything' %}
-            <input type="hidden" name="type" value="product" />
-          {% endif %}
-          {% endcomment %}
-          <input type="text" name="q" placeholder="{{ section.settings.search_term }}" value="{{ search.terms }}" x-webkit-speech autocapitalize="off" autocomplete="off" autocorrect="off" />
-          <button type="submit" name="submit" class="search_button icon-search" value=" " style="margin-top:0" >
-            <span class"icon-search"></span>
-          </button>
-        </div>
-      </form>
-     </div>
+      <div class="search-container">
+        <form class="search" action="/search">
+          <div class="search-wrapper">
+            {% comment %} Findify search results page
+            {% if settings.search_option != 'everything' %}
+              <input type="hidden" name="type" value="product" />
+            {% endif %}
+            {% endcomment %}
+            <input type="text" name="q" placeholder="{{ section.settings.search_term }}" value="{{ search.terms }}" x-webkit-speech autocapitalize="off" autocomplete="off" autocorrect="off" />
+            <button type="submit" name="submit" class="search_button icon-search" value=" " style="margin-top:0" >
+              <span class"icon-search"></span>
+            </button>
+          </div>
+        </form>
+      </div>
+      {% include 'search-form' %}
     </div>
   </div>
 </div>
