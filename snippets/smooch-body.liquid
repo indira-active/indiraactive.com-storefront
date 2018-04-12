@@ -38,7 +38,8 @@
   {% endif %}
   
   {% if customer %}
- fetch("https://chatauth.api.indiraactive.com/?userId="+"{{ customer.email }}").then(res => res.json()).then(val => {
+  setTimeout(()=>{
+       fetch("https://chatauth.api.indiraactive.com/?userId="+"{{ customer.email }}").then(res => res.json()).then(val => {
     const jwt = val.jwt;
      var skPromise = Smooch.init({
       appId: "5892a9a16c77636e014b54f3",
@@ -75,6 +76,7 @@
 }).catch(err=>{
   console.log(err,'this is the error that we are experiencing')
 })
+},2000)
 
   {% endif %}
 </script>
